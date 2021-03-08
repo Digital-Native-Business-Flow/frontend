@@ -19,4 +19,4 @@ RUN npm install -g serve
 # RUN npm run build
 
 EXPOSE 80
-CMD [ "serve", "-s", "build", "-l", "80" ]
+CMD [ "serve", "-s", "build", "-l", "tcp://0.0.0.0:80" ]
