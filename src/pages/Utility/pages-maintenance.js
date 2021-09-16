@@ -17,7 +17,7 @@ class PagesMaintenance extends Component {
       <React.Fragment>
         <section className="my-5 pt-sm-5">
         <MetaTags>
-            <title>Maintenance | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Maintenance | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row>

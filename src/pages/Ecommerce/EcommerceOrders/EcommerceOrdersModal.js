@@ -52,7 +52,7 @@ const EcommerceOrdersModal = props => {
                   <td>
                     <div>
                       <h5 className="text-truncate font-size-14">
-                        Wireless Headphone (Black)
+                        Solid Color T-Shirt
                       </h5>
                       <p className="text-muted mb-0">$ 225 x 1</p>
                     </div>

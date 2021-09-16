@@ -27,7 +27,7 @@ class UiAlert extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Alerts | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Alerts | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Alerts" />

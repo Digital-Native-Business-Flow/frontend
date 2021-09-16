@@ -59,6 +59,7 @@ import Register2 from "../pages/AuthenticationInner/Register2"
 import Recoverpw from "../pages/AuthenticationInner/Recoverpw"
 import Recoverpw2 from "../pages/AuthenticationInner/Recoverpw2"
 import ForgetPwd1 from "../pages/AuthenticationInner/ForgetPassword"
+import ForgetPwd2 from "../pages/AuthenticationInner/ForgetPwd2"
 import LockScreen from "../pages/AuthenticationInner/auth-lock-screen"
 import LockScreen2 from "../pages/AuthenticationInner/auth-lock-screen-2"
 import ConfirmMail from "../pages/AuthenticationInner/page-confirm-mail"
@@ -89,8 +90,8 @@ import ChartistChart from "../pages/Charts/ChartistChart"
 import ChartjsChart from "../pages/Charts/ChartjsChart"
 import EChart from "../pages/Charts/EChart"
 import SparklineChart from "../pages/Charts/SparklineChart"
-import ToastUIChart from "../pages/Charts/ToastUIChart"
 import ChartsKnob from "../pages/Charts/charts-knob"
+import ReCharts from "../pages/Charts/ReCharts"
 
 // Maps
 import MapsGoogle from "../pages/Maps/MapsGoogle"
@@ -108,6 +109,7 @@ import BasicTables from "../pages/Tables/BasicTables"
 import DatatableTables from "../pages/Tables/DatatableTables"
 import ResponsiveTables from "../pages/Tables/ResponsiveTables"
 import EditableTables from "../pages/Tables/EditableTables"
+import DragDropTables from "../pages/Tables/DragDropTables"
 
 // Forms
 import FormElements from "../pages/Forms/FormElements/index"
@@ -120,6 +122,7 @@ import FormRepeater from "../pages/Forms/FormRepeater"
 import FormUpload from "../pages/Forms/FormUpload"
 import FormWizard from "../pages/Forms/FormWizard"
 import FormXeditable from "../pages/Forms/FormXeditable"
+import DualListbox from "../pages/Forms/DualListbox"
 
 //Ui
 import UiAlert from "../pages/Ui/UiAlert"
@@ -142,6 +145,8 @@ import UiSessionTimeout from "../pages/Ui/UiSessionTimeout"
 import UiRating from "../pages/Ui/UiRating"
 import UiRangeSlider from "../pages/Ui/UiRangeSlider"
 import UiNotifications from "../pages/Ui/ui-notifications"
+import UiDrawer from "../pages/Ui/UiDrawer"
+import Breadcrumb from "../pages/Ui/UiBreadcrumb"
 
 //Pages
 import PagesStarter from "../pages/Utility/pages-starter"
@@ -192,7 +197,7 @@ const authProtectedRoutes = [
   //Ecommerce
   // { path: "/ecommerce-products/:id", component: EcommerceProducts },
   { path: "/ecommerce-products", component: EcommerceProducts },
-  { path: "/ecommerce-product-detail/:id", component: EcommerceProductDetail },
+  { path: "/ecommerce-product-details/:id", component: EcommerceProductDetail },
 
   { path: "/ecommerce-orders", component: EcommerceOrders },
   { path: "/ecommerce-customers", component: EcommerceCustomers },
@@ -241,8 +246,8 @@ const authProtectedRoutes = [
   { path: "/chartjs-charts", component: ChartjsChart },
   { path: "/e-charts", component: EChart },
   { path: "/sparkline-charts", component: SparklineChart },
-  { path: "/tui-charts", component: ToastUIChart },
   { path: "/charts-knob", component: ChartsKnob },
+  { path: "/re-charts", component: ReCharts },
 
   // Icons
   { path: "/icons-boxicons", component: IconBoxicons },
@@ -255,6 +260,7 @@ const authProtectedRoutes = [
   { path: "/tables-datatable", component: DatatableTables },
   { path: "/tables-responsive", component: ResponsiveTables },
   { path: "/tables-editable", component: EditableTables },
+  { path: "/tables-dragndrop", component: DragDropTables },
 
   // Maps
   { path: "/maps-google", component: MapsGoogle },
@@ -272,6 +278,7 @@ const authProtectedRoutes = [
   { path: "/form-wizard", component: FormWizard },
   { path: "/form-validation", component: FormValidations },
   { path: "/form-xeditable", component: FormXeditable },
+  { path: "/dual-listbox", component: DualListbox },
 
   // Ui
   { path: "/ui-alerts", component: UiAlert },
@@ -294,7 +301,8 @@ const authProtectedRoutes = [
   { path: "/ui-rating", component: UiRating },
   { path: "/ui-rangeslider", component: UiRangeSlider },
   { path: "/ui-notifications", component: UiNotifications },
-
+  { path: "/ui-drawer", component: UiDrawer },
+  { path: "/ui-breadcrumb", component: Breadcrumb },
   //Utility
   { path: "/pages-starter", component: PagesStarter },
   { path: "/pages-timeline", component: PagesTimeline },
@@ -302,6 +310,7 @@ const authProtectedRoutes = [
   { path: "/pages-pricing", component: PagesPricing },
 
   // this route should be at the end of all other routes
+  // eslint-disable-next-line react/display-name
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
 ]
 
@@ -320,11 +329,16 @@ const publicRoutes = [
   // Authentication Inner
   { path: "/pages-login", component: Login1 },
   { path: "/pages-login-2", component: Login2 },
+
   { path: "/pages-register", component: Register1 },
   { path: "/pages-register-2", component: Register2 },
+
   { path: "/page-recoverpw", component: Recoverpw },
-  { path: "/page-recoverpw-2", component: Recoverpw2 },
+  { path: "/pages-recoverpw-2", component: Recoverpw2 },
+
   { path: "/pages-forgot-pwd", component: ForgetPwd1 },
+  { path: "/pages-forgot-pwd-2", component: ForgetPwd2 },
+
   { path: "/auth-lock-screen", component: LockScreen },
   { path: "/auth-lock-screen-2", component: LockScreen2 },
   { path: "/page-confirm-mail", component: ConfirmMail },

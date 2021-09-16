@@ -3,7 +3,6 @@ import MetaTags from 'react-meta-tags';
 import {
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -25,7 +24,7 @@ class UiTypography extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Typography | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Typography | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Typography" />
@@ -34,15 +33,15 @@ class UiTypography extends Component {
               <Col xl={6}>
                 <Card>
                   <CardBody>
-                    <Media>
+                    <div className="d-flex">
                       <div className="ms-3 me-4">
                         <h1 className="display-4 mb-0">A</h1>
                       </div>
-                      <div className="media-body align-self-center">
+                      <div className="flex-grow-1 align-self-center">
                         <p className="text-muted mb-2">Font Family</p>
-                        <h5 className="mb-0">"Poppins", sans-serif</h5>
+                        <h5 className="mb-0">&quot;Poppins&ldquo;, sans-serif</h5>
                       </div>
-                    </Media>
+                    </div>
                   </CardBody>
                 </Card>
                 <Card>
@@ -222,9 +221,9 @@ class UiTypography extends Component {
                       Inline List
                     </CardTitle>
                     <p className="card-title-desc">Remove a list’s bullets and apply some
-                                            light <code className="highlighter-rouge">margin</code> with a combination
-                                            of two classes, <code className="highlighter-rouge">.list-inline</code> and
-                                            <code className="highlighter-rouge">.list-inline-item</code>.</p>
+                      light <code className="highlighter-rouge">margin</code> with a combination
+                      of two classes, <code className="highlighter-rouge">.list-inline</code> and
+                      <code className="highlighter-rouge">.list-inline-item</code>.</p>
 
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item">Lorem ipsum</li>
@@ -244,7 +243,7 @@ class UiTypography extends Component {
                       For quoting blocks of content from another source within
                       your document. Wrap{" "}
                       <code className="highlighter-rouge">
-                        &lt;blockquote className="blockquote"&gt;
+                        &lt;blockquote className=&quot;blockquote&ldquo;&gt;
                       </code>{" "}
                       around any{" "}
                       <abbr title="HyperText Markup Language">HTML</abbr> as the
@@ -270,7 +269,7 @@ class UiTypography extends Component {
                           <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Integer posuere erat a ante.
-                      </p>
+                          </p>
                           <footer className="blockquote-footer">
                             Someone famous in{" "}
                             <cite title="Source Title">Source Title</cite>

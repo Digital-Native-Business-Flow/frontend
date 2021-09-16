@@ -8,6 +8,8 @@ import {
   Col,
   UncontrolledTooltip,
 } from "reactstrap"
+import { size, map } from "lodash"
+
 import images from "assets/images"
 
 class CardContact extends Component {
@@ -50,15 +52,28 @@ class CardContact extends Component {
               <p className="text-muted">{user.designation}</p>
 
               <div>
-                {user.skills.map((skill, key) => (
+                {map(
+                  user.tags,
+                  (tag, index) =>
+                    index < 2 && (
+                      <Link
+                        to="#"
+                        className="badge bg-primary font-size-11 m-1"
+                        key={"_skill_" + user.id + index}
+                      >
+                        {tag}
+                      </Link>
+                    )
+                )}
+                {size(user.tags) > 2 && (
                   <Link
                     to="#"
                     className="badge bg-primary font-size-11 m-1"
-                    key={"_skill_" + key}
+                    key={"_skill_" + user.id}
                   >
-                    {skill.name}
+                    {size(user.tags) - 1} + more
                   </Link>
-                ))}
+                )}
               </div>
             </CardBody>
             <CardFooter className="bg-transparent border-top">

@@ -55,11 +55,11 @@ class CryptoWallet extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Wallets | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Wallet | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
-            <Breadcrumbs title="Crypto" breadcrumbItem="Wallets" />
+            <Breadcrumbs title="Crypto" breadcrumbItem="Wallet" />
             {!isEmpty(wallet) && (
               <Row>
                 <Col xl="4">
@@ -74,11 +74,11 @@ class CryptoWallet extends Component {
                     <Col sm="4">
                       <Card className="mini-stats-wid">
                         <CardBody>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3 align-self-center">
                               <i className="mdi mdi-bitcoin h2 text-warning mb-0" />
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <p className="text-muted mb-2">Bitcoin Wallet</p>
                               <h5 className="mb-0">
                                 1.02356 BTC{" "}
@@ -86,19 +86,19 @@ class CryptoWallet extends Component {
                                   = $ 9148.00
                                 </span>
                               </h5>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </CardBody>
                       </Card>
                     </Col>
                     <Col sm="4">
                       <Card className="mini-stats-wid">
                         <CardBody>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3 align-self-center">
                               <i className="mdi mdi-ethereum h2 text-primary mb-0" />
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <p className="text-muted mb-2">Ethereum Wallet</p>
                               <h5 className="mb-0">
                                 0.04121 ETH{" "}
@@ -106,19 +106,19 @@ class CryptoWallet extends Component {
                                   = $ 8235.00
                                 </span>
                               </h5>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </CardBody>
                       </Card>
                     </Col>
                     <Col sm="4">
                       <Card className="mini-stats-wid">
                         <CardBody>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3 align-self-center">
                               <i className="mdi mdi-litecoin h2 text-info mb-0" />
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <p className="text-muted mb-2">litecoin Wallet</p>
                               <h5 className="mb-0">
                                 0.00356 BTC{" "}
@@ -126,8 +126,8 @@ class CryptoWallet extends Component {
                                   = $ 4721.00
                                 </span>
                               </h5>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </CardBody>
                       </Card>
                     </Col>

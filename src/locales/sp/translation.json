@@ -13,7 +13,7 @@
   "Chat": "Charla",
   "Products": "Productos",
   "Ecommerce": "Comercio electrónico",
-  "Product Detail": "Detalle del producto",
+  "Product Details": "Detalles de producto",
   "Orders": "Pedidos",
   "Customers": "Clientes",
   "Cart": "Carro",
@@ -154,5 +154,6 @@
   "Extra Pages": "Páginas extra",
   "Horizontal layout": "Diseño horizontal",
   "Light Sidebar": "Barra lateral ligera",
-  "Compact Sidebar": "Barra lateral compacta"
+  "Compact Sidebar": "Barra lateral compacta",
+  "Breadcrumb" : "Percorso di navigazione"
 }

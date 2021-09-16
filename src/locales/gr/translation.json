@@ -13,7 +13,7 @@
   "Chat": "Plaudern",
   "Ecommerce": "E-Commerce",
   "Products": "Produkte",
-  "Product Detail": "Produktdetail",
+  "Product Details": "Produktdetails",
   "Customers": "Kunden",
   "Cart": "Wagen",
   "Checkout": "Auschecken",
@@ -154,5 +154,6 @@
   "Extra Pages": "Zusätzliche Seiten",
   "Horizontal layout": "Horizontales Layout",
   "Light Sidebar": "Leichte Seitenleiste",
-  "Compact Sidebar": "Kompakte Seitenleiste"
+  "Compact Sidebar": "Kompakte Seitenleiste",
+  "Breadcrumb" : "Brotkrume"
 }

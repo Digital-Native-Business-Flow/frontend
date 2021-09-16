@@ -5,12 +5,13 @@ import "./jquery-jvectormap.scss"
 
 export class Vectormap extends Component {
   render() {
+    const map = React.createRef(null)
     return (
       <div style={{ width: this.props.width, height: 500 }}>
         <VectorMap
           map={this.props.value}
           backgroundColor="transparent"
-          ref="map"
+          ref={map}
           containerStyle={{
             width: "100%",
             height: "80%",

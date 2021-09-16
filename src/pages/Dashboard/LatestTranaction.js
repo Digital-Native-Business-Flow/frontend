@@ -1,192 +1,224 @@
 import React, { Component } from "react"
-
-import { Card, CardBody, CardTitle, Badge, Button } from "reactstrap"
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+import { isEmpty, size } from "lodash"
+import BootstrapTable from "react-bootstrap-table-next"
+import paginationFactory, {
+  PaginationProvider,
+  PaginationListStandalone,
+} from "react-bootstrap-table2-paginator"
+import ToolkitProvider from "react-bootstrap-table2-toolkit"
 import { Link } from "react-router-dom"
+
+import { Button, Card, CardBody, Badge } from "reactstrap"
+
+import {
+  getOrders,
+  addNewOrder,
+  updateOrder,
+  deleteOrder
+} from "store/actions"
+
 import EcommerceOrdersModal from "../Ecommerce/EcommerceOrders/EcommerceOrdersModal"
 
 class LatestTranaction extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      viewmodal: false,
       modal: false,
-      transactions: [
+      orders: [],
+      EcommerceOrderColumns: [
         {
-          id: "customCheck2",
-          orderId: "#SK2540",
-          billingName: "Neal Matthews",
-          Date: "07 Oct, 2019",
-          total: "$400",
-          badgeClass: "success",
-          paymentStatus: "Paid",
-          methodIcon: "fa-cc-mastercard",
-          paymentMethod: "Mastercard",
-          link: "#",
+          text: "id",
+          dataField: "id",
+          sort: true,
+          hidden: true,
+          formatter: (cellContent, user) => (
+            <>
+              {order.id}
+            </>
+          ),
         },
         {
-          id: "customCheck3",
-          orderId: "#SK2541",
-          billingName: "Jamal Burnett",
-          Date: "07 Oct, 2019",
-          total: "$380",
-          badgeClass: "danger",
-          paymentStatus: "Chargeback",
-          methodIcon: "fa-cc-visa",
-          paymentMethod: "Visa",
-          link: "#",
+          dataField: "orderId",
+          text: "Order ID",
+          sort: true,
+          formatter: (cellContent, row) => (
+            <Link to="#" className="text-body fw-bold">
+              {row.orderId}
+            </Link>
+          ),
         },
         {
-          id: "customCheck4",
-          orderId: "#SK2542",
-          billingName: "Juan Mitchell",
-          Date: "06 Oct, 2019",
-          total: "$384",
-          badgeClass: "success",
-          paymentStatus: "Paid",
-          methodIcon: "fa-cc-paypal",
-          paymentMethod: "Paypal",
-          link: "#",
+          dataField: "billingName",
+          text: "Billing Name",
+          sort: true,
         },
         {
-          id: "customCheck5",
-          orderId: "#SK2543",
-          billingName: "Barry Dick",
-          Date: "05 Oct, 2019",
-          total: "$412",
-          badgeClass: "success",
-          paymentStatus: "Paid",
-          methodIcon: "fa-cc-mastercard",
-          paymentMethod: "Mastercard",
-          link: "#",
+          dataField: "orderdate",
+          text: "Date",
+          sort: true
         },
         {
-          id: "customCheck6",
-          orderId: "#SK2544",
-          billingName: "Ronald Taylor",
-          Date: "04 Oct, 2019",
-          total: "$404",
-          badgeClass: "warning",
-          paymentStatus: "Refund",
-          methodIcon: "fa-cc-visa",
-          paymentMethod: "Visa",
-          link: "#",
+          dataField: "total",
+          text: "Total",
+          sort: true,
         },
         {
-          id: "customCheck7",
-          orderId: "#SK2545",
-          billingName: "Jacob Hunter",
-          Date: "04 Oct, 2019",
-          total: "$392",
-          badgeClass: "success",
-          paymentStatus: "Paid",
-          methodIcon: "fa-cc-paypal",
-          paymentMethod: "Paypal",
-          link: "#",
+          dataField: "paymentStatus",
+          text: "Payment Status",
+          sort: true,
+          formatter: (cellContent, row) => (
+            <Badge
+              className={"font-size-12 badge-soft-" + row.badgeclass}
+              color={row.badgeclass}
+              pill
+            >
+              {row.paymentStatus}
+            </Badge>
+          ),
         },
-      ],
+        {
+          dataField: "paymentMethod",
+          isDummyField: true,
+          text: "Payment Method",
+          sort: true,
+          formatter: (cellContent, row) => (
+            <>
+              <i className={
+                (row.paymentMethod !== 'COD') ?
+                  'fab fa-cc-' + this.toLowerCase1(row.paymentMethod) + " me-1"
+                  : 'fab fas fa-money-bill-alt me-1'
+              } />{" "}
+              {row.paymentMethod}
+            </>
+          ),
+        },
+        {
+          dataField: "view",
+          isDummyField: true,
+          text: "View Details",
+          sort: true,
+          formatter: () => (
+            <Button
+              type="button"
+              color="primary"
+              className="btn-sm btn-rounded"
+              onClick={this.toggleViewModal}
+            >
+              View Details
+            </Button>
+          ),
+        }
+      ]
+    }
+    this.toggle = this.toggle.bind(this)
+    this.toLowerCase1 = this.toLowerCase1.bind(this)
+  }
+
+  toLowerCase1(str) {
+    return str.toLowerCase();
+  }
+
+  componentDidMount() {
+    const { orders, onGetOrders } = this.props
+    if (orders && !orders.length) {
+      onGetOrders()
+    }
+    this.setState({ orders })
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { orders } = this.props
+    if (!isEmpty(orders) && size(prevProps.orders) !== size(orders)) {
+      this.setState({ orders: {}, isEdit: false })
     }
   }
 
-  toggleModal = () => {
+  toggle() {
     this.setState(prevState => ({
       modal: !prevState.modal,
     }))
   }
 
+
+  toggleViewModal = () => {
+    this.setState(prevState => ({
+      viewmodal: !prevState.viewmodal,
+    }))
+  }
   render() {
+    const { orders } = this.props
+
+    //pagination customization
+    const pageOptions = {
+      sizePerPage: 6,
+      totalSize: orders.length, // replace later with size(Order),
+      custom: true,
+    }
+
+    const defaultSorted = [{
+      dataField: 'orderId',
+      order: 'desc'
+    }];
+
+    const selectRow = {
+      mode: 'checkbox',
+    };
+
     return (
       <React.Fragment>
         <EcommerceOrdersModal
-          isOpen={this.state.modal}
-          toggle={this.toggleModal}
+          isOpen={this.state.viewmodal}
+          toggle={this.toggleViewModal}
         />
         <Card>
           <CardBody>
-            <CardTitle className="mb-4 h4">Latest Transaction</CardTitle>
-            <div className="table-responsive">
-              <table className="table align-middle table-nowrap mb-0">
-                <thead className="table-light">
-                  <tr>
-                    <th style={{ width: "20px" }}>
-                      <div className="form-check font-size-16 align-middle" style={{ width: '24px' }}>
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="transactionCheck01"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="transactionCheck01"
-                        ></label>
-                      </div>
-                    </th>
-                    <th className="align-middle">Order ID</th>
-                    <th className="align-middle">Billing Name</th>
-                    <th className="align-middle">Date</th>
-                    <th className="align-middle">Total</th>
-                    <th className="align-middle">Payment Status</th>
-                    <th className="align-middle">Payment Method</th>
-                    <th className="align-middle">View Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.transactions.map((transaction, key) => (
-                    <tr key={"_tr_" + key}>
-                      <td>
-                        <div className="form-check font-size-16">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            id={transaction.id}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor={transaction.id}
-                          ></label>
-                        </div>
-                      </td>
-                      <td>
-                        <Link to="#" className="text-body fw-bold">
-                          {" "}
-                          {transaction.orderId}{" "}
-                        </Link>{" "}
-                      </td>
-                      <td>{transaction.billingName}</td>
-                      <td>{transaction.Date}</td>
-                      <td>{transaction.total}</td>
-                      <td>
-                        <Badge
-                          className={
-                            "font-size-11 badge-soft-" + transaction.badgeClass
+            <div className="mb-4 h4 card-title">Latest Transaction</div>
+            <PaginationProvider
+              pagination={paginationFactory(pageOptions)}
+              keyField='id'
+              columns={this.state.EcommerceOrderColumns}
+              data={orders}
+            >
+              {({ paginationProps, paginationTableProps }) => (
+                <ToolkitProvider
+                  keyField="id"
+                  data={orders}
+                  columns={this.state.EcommerceOrderColumns}
+                  bootstrap4
+                  search
+                >
+                  {toolkitProps => (
+                    <React.Fragment>
+                      <div className="table-responsive">
+                        <BootstrapTable
+                          {...toolkitProps.baseProps}
+                          {...paginationTableProps}
+                          responsive
+                          defaultSorted={defaultSorted}
+                          bordered={false}
+                          striped={false}
+                          selectRow={selectRow}
+                          classes={
+                            "table align-middle table-nowrap table-check"
                           }
-                          color={transaction.badgeClass}
-                          pill
-                        >
-                          {transaction.paymentStatus}
-                        </Badge>
-                      </td>
-                      <td>
-                        <i
-                          className={"fab " + transaction.methodIcon + " me-1"}
-                        ></i>{" "}
-                        {transaction.paymentMethod}
-                      </td>
-                      <td>
-                        <Button
-                          type="button"
-                          color="primary"
-                          size="sm"
-                          className="btn-rounded waves-effect waves-light"
-                          // onClick={this.togglemodal}
-                          onClick={this.toggleModal}
-                        >
-                          View Details
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                          headerWrapperClasses={"table-light"}
+                        />
+                      </div>
+                      <div className="pagination pagination-rounded justify-content-end">
+                        <PaginationListStandalone
+                          {...paginationProps}
+                        />
+                      </div>
+                    </React.Fragment>
+                  )}
+                </ToolkitProvider>
+              )}
+            </PaginationProvider>
           </CardBody>
         </Card>
       </React.Fragment>
@@ -194,4 +226,26 @@ class LatestTranaction extends Component {
   }
 }
 
-export default LatestTranaction
+LatestTranaction.propTypes = {
+  orders: PropTypes.array,
+  onGetOrders: PropTypes.func,
+  onAddNewOrder: PropTypes.func,
+  onDeleteOrder: PropTypes.func,
+  onUpdateOrder: PropTypes.func
+}
+
+const mapStateToProps = state => ({
+  orders: state.ecommerce.orders,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onGetOrders: () => dispatch(getOrders()),
+  onAddNewOrder: order => dispatch(addNewOrder(order)),
+  onUpdateOrder: order => dispatch(updateOrder(order)),
+  onDeleteOrder: order => dispatch(deleteOrder(order)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(LatestTranaction))

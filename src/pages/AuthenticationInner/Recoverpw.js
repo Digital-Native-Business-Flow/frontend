@@ -1,19 +1,23 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import MetaTags from 'react-meta-tags';
 import { Link } from "react-router-dom";
-import { Card, CardBody, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import { Card, CardBody, Col, Container, Button, Row, Alert } from "reactstrap"
+
+// availity-reactstrap-validation
+import { AvField, AvForm } from "availity-reactstrap-validation"
 
 // import images
 import profile from '../../assets/images/profile-img.png';
 import logo from '../../assets/images/logo.svg';
 
-export default class Recoverpw extends Component {
+class Recoverpw extends Component {
   render() {
     return (
       <React.Fragment>
         <div className="account-pages my-5 pt-sm-5">
-        <MetaTags>
-            <title>Recover Password | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Recover Password | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row className="justify-content-center">
@@ -59,26 +63,29 @@ export default class Recoverpw extends Component {
                       >
                         Enter your Email and instructions will be sent to you!
                       </div>
-                      <Form className="form-horizontal" action="dashboard">
-                        <FormGroup className="mb-3">
-                          <Label htmlFor="useremail">Email</Label>
-                          <Input
-                            type="email"
-                            className="form-control"
-                            id="useremail"
-                            placeholder="Enter email"
-                          />
-                        </FormGroup>
 
+                      <AvForm className="form-horizontal">
+                        {this.props.error && this.props.error ? (
+                          <Alert color="danger">{this.props.error}</Alert>
+                        ) : null}
+
+                        <div className="mb-3">
+                          <AvField name="email"
+                            label="Email"
+                            value=""
+                            className="form-control"
+                            placeholder="Enter Email"
+                            type="text"
+                            required
+                          />
+                        </div>
                         <div className="text-end">
-                            <button
-                              className="btn btn-primary w-md waves-effect waves-light"
-                              type="submit"
-                            >
-                              Reset
-                            </button>
-                          </div>
-                      </Form>
+                          <Button className="btn btn-primary w-md" color="primary" type="submit">
+                            Reset
+                          </Button>
+                        </div>
+                      </AvForm>
+
                     </div>
                   </CardBody>
                 </Card>
@@ -86,7 +93,7 @@ export default class Recoverpw extends Component {
                   <p>
                     Remember It ?{" "}
                     <Link
-                      to="page-login"
+                      to="pages-login"
                       className="fw-medium text-primary"
                     >
                       {" "}
@@ -106,3 +113,10 @@ export default class Recoverpw extends Component {
     )
   }
 }
+
+Recoverpw.propTypes = {
+  error: PropTypes.any,
+}
+
+export default Recoverpw;
+

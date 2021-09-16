@@ -1,24 +1,24 @@
-import React, { Component } from "react"
-import { Row, Col, Container } from "reactstrap"
+import React, { Component } from "react";
+import { Row, Col, Container } from "reactstrap";
 import MetaTags from 'react-meta-tags';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 class EmailTemplateBilling extends Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Billing Email | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Billing Email | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             <Breadcrumbs
@@ -35,10 +35,8 @@ class EmailTemplateBilling extends Component {
                     boxSizing: "border-box",
                     fontSize: "14px",
                     width: "100%",
-                    backgroundColor: "#f6f6f6",
                     margin: "0",
                   }}
-                  bgcolor="#f6f6f6"
                 >
                   <tbody>
                     <tr
@@ -376,7 +374,7 @@ class EmailTemplateBilling extends Component {
                                                         }}
                                                       >
                                                         <td
-                                                        className="email-billing-list"
+                                                          className="email-billing-list"
                                                           style={{
                                                             fontFamily:
                                                               "Helvetica Neue,Helvetica,Arial,sans-serif",
@@ -639,8 +637,8 @@ class EmailTemplateBilling extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default EmailTemplateBilling
+export default EmailTemplateBilling;

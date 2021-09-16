@@ -59,7 +59,6 @@ export default class FileRightBar extends Component {
                       >
                         <i className="mdi mdi-folder font-size-16 text-warning me-2"></i>{" "}
                         Files{" "}
-                        {/* <i className="mdi mdi-chevron-up accor-down-icon ms-auto"></i> */}
                         <i
                           className={
                             this.state.file_collapse

@@ -63,21 +63,6 @@ class App extends Component {
     return layoutCls
   }
 
-  // onRoutechange() {
-  //   alert("hii")
-  //   setTimeout(() => {
-  //     if (document.getElementsByClassName("mm-active").length > 0) {
-  //       console.log(ref.current.el);
-  //       const currentPosition = document.getElementsByClassName("mm-active")[0]
-  //         .offsetTop
-  //         console.log(currentPosition)
-  //       if (currentPosition > 500)
-  //         this.$refs.currentMenu.SimpleBar.getScrollElement().scrollTop =
-  //           currentPosition + 300
-  //     }
-  //   }, 300)
-  // }
-
   render() {
     const Layout = this.getLayout()
 

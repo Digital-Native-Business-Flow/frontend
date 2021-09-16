@@ -17,7 +17,7 @@ class LockScreen extends Component {
     return (
       <React.Fragment>
        <MetaTags>
-            <title>Lock Screen | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Lock Screen | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
         <div className="home-btn d-none d-sm-block">
           <Link to="/" className="text-dark">
@@ -82,7 +82,7 @@ class LockScreen extends Component {
                           <Col xs="12" className="text-end">
                             <Button
                               color="primary"
-                              className=" w-md waves-effect waves-light"
+                              className=" w-md"
                               type="submit"
                             >
                               Unlock

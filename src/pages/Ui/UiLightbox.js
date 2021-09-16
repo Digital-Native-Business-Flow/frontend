@@ -75,7 +75,7 @@ class UiLightbox extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Lightbox | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Lightbox | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Lightbox" />
@@ -398,7 +398,7 @@ class UiLightbox extends Component {
                               <div className="mb-3">
                                 <label htmlFor="password" className="form-label">Password</label>
                                 <input
-                                  type="text"
+                                  type="password"
                                   className="form-control"
                                   id="password"
                                   placeholder="Enter Password"

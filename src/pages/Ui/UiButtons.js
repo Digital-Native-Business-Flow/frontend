@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import MetaTags from 'react-meta-tags';
 
 import {
@@ -7,7 +7,6 @@ import {
   ButtonDropdown,
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -15,19 +14,19 @@ import {
   DropdownMenu,
   DropdownToggle,
   Row,
-} from "reactstrap"
+} from "reactstrap";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 class UiButtons extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       radio1: true,
       radio2: false,
       radio3: false,
-    }
+    };
   }
 
   render() {
@@ -35,7 +34,7 @@ class UiButtons extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Buttons | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Buttons | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Buttons" />
@@ -52,49 +51,43 @@ class UiButtons extends Component {
                     <div className="button-items">
                       <Button
                         color="primary"
-                        className="waves-effect waves-light"
                       >
                         Primary
-                      </Button>{" "}
-                      <Button color="secondary" className="waves-effect">
+                      </Button>
+                      <Button color="secondary">
                         Secondary
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="success"
-                        className="waves-effect waves-light"
                       >
                         Success
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="info"
-                        className="waves-effect waves-light"
                       >
                         Info
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="warning"
-                        className="waves-effect waves-light"
                       >
                         Warning
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="danger"
-                        className="waves-effect waves-light"
                       >
                         Danger
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="dark"
-                        className="waves-effect waves-light"
                       >
                         Dark
-                      </Button>{" "}
-                      <Button color="link" className="waves-effect">
+                      </Button>
+                      <Button color="link">
                         Link
                       </Button>
-                      <Button color="light" className="waves-effect">
+                      <Button color="light">
                         Light
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -104,8 +97,8 @@ class UiButtons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Outline buttons</CardTitle>
                     <p className="card-title-desc">
-                      Replace the default modifier classes with the{" "}
-                      <code className="highlighter-rouge">.btn-outline-*</code>{" "}
+                      Replace the default modifier classes with the
+                      <code className="highlighter-rouge">.btn-outline-*</code>
                       ones to remove all background images and colors on any
                       button.
                     </p>
@@ -113,55 +106,48 @@ class UiButtons extends Component {
                       <Button
                         color="primary"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Primary
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
                         outline
-                        className="waves-effect"
                       >
                         Secondary
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="success"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Success
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="info"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Info
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="warning"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Warning
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="danger"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Danger
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="dark"
                         outline
-                        className="waves-effect waves-light"
                       >
                         Dark
-                      </Button>{" "}
-                      <Button color="light" outline className="waves-effect">
+                      </Button>
+                      <Button color="light" outline>
                         Light
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -180,55 +166,55 @@ class UiButtons extends Component {
                     <div className="button-items">
                       <Button
                         color="primary"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Primary
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Secondary
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="success"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Success
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="info"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Info
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="warning"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Warning
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="danger"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Danger
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="dark"
-                        className="btn-rounded waves-effect waves-light"
+                        className="btn-rounded"
                       >
                         Dark
-                      </Button>{" "}
-                      <Button color="link" className="btn-rounded waves-effect">
+                      </Button>
+                      <Button color="link" className="btn-rounded">
                         Link
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="light"
-                        className="btn-rounded waves-effect"
+                        className="btn-rounded"
                       >
                         Light
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -242,46 +228,46 @@ class UiButtons extends Component {
                     <div className="button-items mt-4">
                       <button
                         type="button"
-                        className="btn btn-primary waves-effect waves-light"
+                        className="btn btn-primary"
                       >
-                        <i className="bx bx-smile font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-smile font-size-16 align-middle me-2"></i>
                         Primary
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-success waves-effect waves-light"
+                        className="btn btn-success"
                       >
-                        <i className="bx bx-check-double font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-check-double font-size-16 align-middle me-2"></i>
                         Success
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-warning waves-effect waves-light"
+                        className="btn btn-warning"
                       >
-                        <i className="bx bx-error font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-error font-size-16 align-middle me-2"></i>
                         Warning
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-danger waves-effect waves-light"
+                        className="btn btn-danger"
                       >
-                        <i className="bx bx-block font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-block font-size-16 align-middle me-2"></i>
                         Danger
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-dark waves-effect waves-light"
+                        className="btn btn-dark"
                       >
-                        <i className="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>
                         Loading
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-light waves-effect"
+                        className="btn btn-light"
                       >
-                        <i className="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>{" "}
+                        <i className="bx bx-hourglass bx-spin font-size-16 align-middle me-2"></i>
                         Loading
-                      </button>{" "}
+                      </button>
                     </div>
                   </CardBody>
                 </Card>
@@ -308,19 +294,19 @@ class UiButtons extends Component {
                                 className="btn btn-outline-primary w-sm"
                               >
                                 Left
-                              </button>{" "}
+                              </button>
                               <button
                                 type="button"
                                 className="btn btn-outline-primary w-sm"
                               >
                                 Middle
-                              </button>{" "}
+                              </button>
                               <button
                                 type="button"
                                 className="btn btn-outline-primary w-sm"
                               >
                                 Right
-                              </button>{" "}
+                              </button>
                             </div>
 
                             <div>
@@ -333,13 +319,13 @@ class UiButtons extends Component {
                                   className="btn btn-primary w-xs"
                                 >
                                   <i className="mdi mdi-thumb-up"></i>
-                                </button>{" "}
+                                </button>
                                 <button
                                   type="button"
                                   className="btn btn-danger w-xs"
                                 >
                                   <i className="mdi mdi-thumb-down"></i>
-                                </button>{" "}
+                                </button>
                               </div>
                             </div>
 
@@ -353,19 +339,19 @@ class UiButtons extends Component {
                                   className="btn btn-outline-secondary w-xs"
                                 >
                                   <i className="bx bx-menu-alt-right"></i>
-                                </button>{" "}
+                                </button>
                                 <button
                                   type="button"
                                   className="btn btn-outline-secondary w-xs"
                                 >
                                   <i className="bx bx-menu"></i>
-                                </button>{" "}
+                                </button>
                                 <button
                                   type="button"
                                   className="btn btn-outline-secondary w-xs"
                                 >
                                   <i className="bx bx-menu-alt-left"></i>
-                                </button>{" "}
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -379,43 +365,43 @@ class UiButtons extends Component {
                           <div className="button-items">
                             <button
                               type="button"
-                              className="btn btn-primary waves-effect btn-label waves-light"
+                              className="btn btn-primary btn-label"
                             >
                               <i className="bx bx-smile label-icon"></i> Primary
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-success waves-effect btn-label waves-light"
+                              className="btn btn-success btn-label"
                             >
-                              <i className="bx bx-check-double label-icon"></i>{" "}
+                              <i className="bx bx-check-double label-icon"></i>
                               Success
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-warning waves-effect btn-label waves-light"
+                              className="btn btn-warning btn-label"
                             >
-                              <i className="bx bx-error label-icon "></i>{" "}
+                              <i className="bx bx-error label-icon "></i>
                               Warning
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-danger waves-effect btn-label waves-light"
+                              className="btn btn-danger btn-label"
                             >
-                              <i className="bx bx-block label-icon "></i>{" "}Danger
-                            </button>{" "}
+                              <i className="bx bx-block label-icon "></i>Danger
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-dark waves-effect btn-label waves-light"
+                              className="btn btn-dark btn-label"
                             >
-                              <i className="bx bx-loader label-icon "></i>{" "}Dark
-                            </button>{" "}
+                              <i className="bx bx-loader label-icon "></i>Dark
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-light waves-effect btn-label waves-light"
+                              className="btn btn-light btn-label"
                             >
-                              <i className="bx bx-hourglass label-icon "></i>{" "}
+                              <i className="bx bx-hourglass label-icon "></i>
                               Light
-                            </button>{" "}
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -427,32 +413,32 @@ class UiButtons extends Component {
                           <div className="button-items">
                             <button
                               type="button"
-                              className="btn btn-primary waves-effect waves-light w-sm"
+                              className="btn btn-primary w-sm"
                             >
-                              <i className="mdi mdi-download d-block font-size-16"></i>{" "}
+                              <i className="mdi mdi-download d-block font-size-16"></i>
                               Download
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-light waves-effect waves-light w-sm"
+                              className="btn btn-light w-sm"
                             >
-                              <i className="mdi mdi-upload d-block font-size-16"></i>{" "}
+                              <i className="mdi mdi-upload d-block font-size-16"></i>
                               Upload
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-success waves-effect waves-light w-sm"
+                              className="btn btn-success w-sm"
                             >
-                              <i className="mdi mdi-pencil d-block font-size-16"></i>{" "}
+                              <i className="mdi mdi-pencil d-block font-size-16"></i>
                               Edit
-                            </button>{" "}
+                            </button>
                             <button
                               type="button"
-                              className="btn btn-danger waves-effect waves-light w-sm"
+                              className="btn btn-danger w-sm"
                             >
-                              <i className="mdi mdi-trash-can d-block font-size-16"></i>{" "}
+                              <i className="mdi mdi-trash-can d-block font-size-16"></i>
                               Delete
-                            </button>{" "}
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -476,28 +462,28 @@ class UiButtons extends Component {
                     <div className="button-items">
                       <Button
                         color="primary"
-                        className="btn btn-primary btn-lg waves-effect waves-light"
+                        className="btn btn-primary btn-lg"
                       >
                         Large button
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
-                        className="btn btn-secondary btn-lg waves-effect"
+                        className="btn btn-secondary btn-lg"
                       >
                         Large button
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="primary"
-                        className="btn btn-primary btn-sm waves-effect waves-light"
+                        className="btn btn-primary btn-sm"
                       >
                         Small button
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
-                        className="btn btn-secondary btn-sm waves-effect"
+                        className="btn btn-secondary btn-sm"
                       >
                         Small button
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -508,7 +494,7 @@ class UiButtons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Buttons width</CardTitle>
                     <p className="card-title-desc">
-                      Add <code>.w-xs</code>, <code>.w-sm</code>,{" "}
+                      Add <code>.w-xs</code>, <code>.w-sm</code>,
                       <code>.w-md</code> and <code> .w-lg</code> className for
                       additional buttons width.
                     </p>
@@ -516,28 +502,28 @@ class UiButtons extends Component {
                     <div className="button-items">
                       <button
                         type="button"
-                        className="btn btn-primary w-xs waves-effect waves-light"
+                        className="btn btn-primary w-xs"
                       >
                         Xs
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-danger w-sm waves-effect waves-light"
+                        className="btn btn-danger w-sm"
                       >
                         Small
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-warning w-md waves-effect waves-light"
+                        className="btn btn-warning w-md"
                       >
                         Medium
-                      </button>{" "}
+                      </button>
                       <button
                         type="button"
-                        className="btn btn-success w-lg waves-effect waves-light"
+                        className="btn btn-success w-lg"
                       >
                         Large
-                      </button>{" "}
+                      </button>
                     </div>
                   </CardBody>
                 </Card>
@@ -551,20 +537,20 @@ class UiButtons extends Component {
                     <CardTitle className="h4">Button tags</CardTitle>
                     <p className="card-title-desc">
                       The <code className="highlighter-rouge">.btn</code>
-                      classes are designed to be used with the{" "}
+                      classes are designed to be used with the
                       <code className="highlighter-rouge">
                         &lt;button&gt;
-                      </code>{" "}
-                      element. However, you can also use these classes on{" "}
-                      <code className="highlighter-rouge">&lt;Link&gt;</code> or{" "}
-                      <code className="highlighter-rouge">&lt;input&gt;</code>{" "}
+                      </code>
+                      element. However, you can also use these classes on
+                      <code className="highlighter-rouge">&lt;Link&gt;</code> or
+                      <code className="highlighter-rouge">&lt;input&gt;</code>
                       elements (though some browsers may apply a slightly
                       different rendering).
                     </p>
 
                     <div className="button-items">
                       <Link
-                        className="btn btn-primary waves-effect waves-light"
+                        className="btn btn-primary"
                         to="#"
                         role="button"
                       >
@@ -572,26 +558,26 @@ class UiButtons extends Component {
                       </Link>
                       <Button
                         color="success"
-                        className="btn btn-success waves-effect waves-light"
+                        className="btn btn-success"
                         type="submit"
                       >
                         Button
-                      </Button>{" "}
+                      </Button>
                       <input
                         className="btn btn-info"
                         type="button"
                         value="Input"
-                      />{" "}
+                      />
                       <input
                         className="btn btn-danger"
                         type="submit"
                         value="Submit"
-                      />{" "}
+                      />
                       <input
                         className="btn btn-warning"
                         type="reset"
                         value="Reset"
-                      />{" "}
+                      />
                     </div>
                   </CardBody>
                 </Card>
@@ -601,21 +587,21 @@ class UiButtons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Toggle states</CardTitle>
                     <p className="card-title-desc">
-                      Add{" "}
+                      Add
                       <code className="highlighter-rouge">
-                        data-toggle="button"
+                        data-toggle=&quot;button&ldquo;
                       </code>
-                      to toggle a button’s{" "}
+                      to toggle a button’s
                       <code className="highlighter-rouge">active</code>
                       state. If you’re pre-toggling a button, you must manually
                       add the <code className="highlighter-rouge">
                         .active
-                      </code>{" "}
+                      </code>
                       class
-                      <strong>and</strong>{" "}
+                      <strong>and</strong>
                       <code className="highlighter-rouge">
-                        aria-pressed="true"
-                      </code>{" "}
+                        aria-pressed= &quot;true &ldquo;
+                      </code>
                       to the
                       <code className="highlighter-rouge">&lt;button&gt;</code>.
                     </p>
@@ -623,7 +609,7 @@ class UiButtons extends Component {
                     <div className="button-items">
                       <Button
                         color="primary"
-                        className="btn btn-primary waves-effect waves-light"
+                        className="btn btn-primary"
                         data-toggle="button"
                         aria-pressed="false"
                       >
@@ -642,23 +628,23 @@ class UiButtons extends Component {
                     <CardTitle className="h4">Block Buttons</CardTitle>
                     <p className="card-title-desc">
                       Create block level buttons—those that span the full width
-                      of a parent—by adding{" "}
+                      of a parent—by adding
                       <code className="highlighter-rouge">.btn-block</code>.
                     </p>
 
                     <div className="button-items mt-4">
                       <Button
                         color="primary"
-                        className="btn btn-primary btn-lg btn-block waves-effect waves-light"
+                        className="btn btn-primary btn-lg btn-block"
                       >
                         Block level button
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
-                        className="btn btn-secondary btn-sm btn-block waves-effect"
+                        className="btn btn-secondary btn-sm btn-block"
                       >
                         Block level button
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -669,15 +655,15 @@ class UiButtons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Checkbox & Radio Buttons</CardTitle>
                     <p className="card-title-desc">
-                      Bootstrap’s{" "}
+                      Bootstrap’s
                       <code className="highlighter-rouge">.button</code> styles
-                      can be applied to other elements, such as{" "}
+                      can be applied to other elements, such as
                       <code className="highlighter-rouge">&lt;label&gt;</code>s,
-                      to provide checkbox or radio style button toggling. Add{" "}
+                      to provide checkbox or radio style button toggling. Add
                       <code className="highlighter-rouge">
-                        data-toggle="buttons"
-                      </code>{" "}
-                      to a<code className="highlighter-rouge">.btn-group</code>{" "}
+                        data-toggle=&quot;buttons&ldquo;
+                      </code>
+                      to a<code className="highlighter-rouge">.btn-group</code>
                       containing those modified buttons to enable toggling in
                       their respective styles.
                     </p>
@@ -720,8 +706,8 @@ class UiButtons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Button group</CardTitle>
                     <p className="card-title-desc">
-                      Wrap a series of buttons with{" "}
-                      <code className="highlighter-rouge">.btn</code> in{" "}
+                      Wrap a series of buttons with
+                      <code className="highlighter-rouge">.btn</code> in
                       <code className="highlighter-rouge">.btn-group</code>.
                     </p>
 
@@ -732,9 +718,9 @@ class UiButtons extends Component {
                           role="group"
                           aria-label="Basic example"
                         >
-                          <Button color="primary">Left</Button>{" "}
-                          <Button color="primary">Middle</Button>{" "}
-                          <Button color="primary">Right</Button>{" "}
+                          <Button color="primary">Left</Button>
+                          <Button color="primary">Middle</Button>
+                          <Button color="primary">Right</Button>
                         </div>
                       </Col>
 
@@ -746,13 +732,13 @@ class UiButtons extends Component {
                         >
                           <button type="button" className="btn btn-secondary">
                             <i className="bx bx-menu-alt-right"></i>
-                          </button>{" "}
+                          </button>
                           <button type="button" className="btn btn-secondary">
                             <i className="bx bx-menu"></i>
-                          </button>{" "}
+                          </button>
                           <button type="button" className="btn btn-secondary">
                             <i className="bx bx-menu-alt-left"></i>
-                          </button>{" "}
+                          </button>
                         </div>
                       </Col>
                     </Row>
@@ -781,16 +767,16 @@ class UiButtons extends Component {
                       >
                         <Button color="secondary" className="btn btn-secondary">
                           1
-                        </Button>{" "}
+                        </Button>
                         <Button color="secondary" className="btn btn-secondary">
                           2
-                        </Button>{" "}
+                        </Button>
                         <Button color="secondary" className="btn btn-secondary">
                           3
-                        </Button>{" "}
+                        </Button>
                         <Button color="secondary" className="btn btn-secondary">
                           4
-                        </Button>{" "}
+                        </Button>
                       </div>
                       <div
                         className="btn-group me-2"
@@ -799,13 +785,13 @@ class UiButtons extends Component {
                       >
                         <Button color="secondary" className="btn btn-secondary">
                           5
-                        </Button>{" "}
+                        </Button>
                         <Button color="secondary" className="btn btn-secondary">
                           6
-                        </Button>{" "}
+                        </Button>
                         <Button color="secondary" className="btn btn-secondary">
                           7
-                        </Button>{" "}
+                        </Button>
                       </div>
                       <div
                         className="btn-group"
@@ -829,7 +815,7 @@ class UiButtons extends Component {
                     <CardTitle className="h4">Sizing</CardTitle>
                     <p className="card-title-desc">
                       Instead of applying button sizing classes to every button
-                      in a group, just add{" "}
+                      in a group, just add
                       <code className="highlighter-rouge">.btn-group-*</code> to
                       each <code className="highlighter-rouge">.btn-group</code>
                       , including each one when nesting multiple groups.
@@ -840,9 +826,9 @@ class UiButtons extends Component {
                       role="group"
                       aria-label="Basic example"
                     >
-                      <Button color="primary">Left</Button>{" "}
-                      <Button color="primary">Middle</Button>{" "}
-                      <Button color="primary">Right</Button>{" "}
+                      <Button color="primary">Left</Button>
+                      <Button color="primary">Middle</Button>
+                      <Button color="primary">Right</Button>
                     </div>
 
                     <br />
@@ -854,13 +840,13 @@ class UiButtons extends Component {
                     >
                       <Button color="secondary" className="btn btn-secondary">
                         Left
-                      </Button>{" "}
+                      </Button>
                       <Button color="secondary" className="btn btn-secondary">
                         Middle
-                      </Button>{" "}
+                      </Button>
                       <Button color="secondary" className="btn btn-secondary">
                         Right
-                      </Button>{" "}
+                      </Button>
                     </div>
 
                     <br />
@@ -870,9 +856,9 @@ class UiButtons extends Component {
                       role="group"
                       aria-label="Basic example"
                     >
-                      <Button color="danger">Left</Button>{" "}
-                      <Button color="danger">Middle</Button>{" "}
-                      <Button color="danger">Right</Button>{" "}
+                      <Button color="danger">Left</Button>
+                      <Button color="danger">Middle</Button>
+                      <Button color="danger">Right</Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -899,7 +885,7 @@ class UiButtons extends Component {
                         className="btn btn-secondary"
                       >
                         Button
-                      </Button>{" "}
+                      </Button>
 
                       <ButtonDropdown
                         isOpen={this.state.drp_link}
@@ -914,7 +900,7 @@ class UiButtons extends Component {
                           <DropdownItem>Dropdown link</DropdownItem>
                           <DropdownItem>Dropdown link</DropdownItem>
                         </DropdownMenu>
-                      </ButtonDropdown>{" "}
+                      </ButtonDropdown>
 
                       <Button
                         color="secondary"
@@ -922,14 +908,14 @@ class UiButtons extends Component {
                         className="btn btn-secondary"
                       >
                         Button
-                      </Button>{" "}
+                      </Button>
                       <Button
                         color="secondary"
                         type="button"
                         className="btn btn-secondary"
                       >
                         Button
-                      </Button>{" "}
+                      </Button>
                     </div>
                   </CardBody>
                 </Card>
@@ -938,8 +924,8 @@ class UiButtons extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default UiButtons
+export default UiButtons;

@@ -12,7 +12,7 @@ class Pages404 extends Component {
       <React.Fragment>
         <div className="account-pages my-5 pt-5">
         <MetaTags>
-            <title>404 Error Page | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>404 Error Page | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row>
@@ -26,7 +26,7 @@ class Pages404 extends Component {
                   <h4 className="text-uppercase">Sorry, page not found</h4>
                   <div className="mt-5 text-center">
                     <Link
-                      className="btn btn-primary waves-effect waves-light"
+                      className="btn btn-primary"
                       to="/dashboard"
                     >
                       Back to Dashboard

@@ -20,12 +20,12 @@ class Register extends Component {
   render() {
     return (
       <React.Fragment>
-       <MetaTags>
-            <title>Register | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
-          </MetaTags>
+        <MetaTags>
+          <title>Register | Skote - React Admin & Dashboard Template</title>
+        </MetaTags>
         <div className="home-btn d-none d-sm-block">
           <Link to="/" className="text-dark">
-            <i className="bx bx-home h2"/>
+            <i className="bx bx-home h2" />
           </Link>
         </div>
         <div className="account-pages my-5 pt-sm-5">
@@ -95,7 +95,7 @@ class Register extends Component {
 
                         <div className="mt-4 d-grid">
                           <button
-                            className="btn btn-primary btn-block waves-effect waves-light"
+                            className="btn btn-primary btn-block"
                             type="submit"
                           >
                             Register
@@ -111,7 +111,7 @@ class Register extends Component {
                                 to="#"
                                 className="social-list-item bg-primary text-white border-primary"
                               >
-                                <i className="mdi mdi-facebook"/>
+                                <i className="mdi mdi-facebook" />
                               </Link>
                             </li>{" "}
                             <li className="list-inline-item">
@@ -119,7 +119,7 @@ class Register extends Component {
                                 to="#"
                                 className="social-list-item bg-info text-white border-info"
                               >
-                                <i className="mdi mdi-twitter"/>
+                                <i className="mdi mdi-twitter" />
                               </Link>
                             </li>{" "}
                             <li className="list-inline-item">
@@ -127,7 +127,7 @@ class Register extends Component {
                                 to="#"
                                 className="social-list-item bg-danger text-white border-danger"
                               >
-                                <i className="mdi mdi-google"/>
+                                <i className="mdi mdi-google" />
                               </Link>
                             </li>
                           </ul>
@@ -147,18 +147,17 @@ class Register extends Component {
                 </Card>
                 <div className="mt-5 text-center">
                   <p>
-                    Already have an account ?{" "}
+                    Already have an account ?
                     <Link
                       to="/pages-login"
                       className="fw-medium text-primary"
                     >
-                      {" "}
                       Login
-                    </Link>{" "}
+                    </Link>
                   </p>
                   <p>
-                    © {new Date().getFullYear()} Skote. Crafted with{" "}
-                    <i className="mdi mdi-heart text-danger"/> by Themesbrand
+                    © {new Date().getFullYear()} Skote. Crafted with
+                    <i className="mdi mdi-heart text-danger" /> by Themesbrand
                   </p>
                 </div>
               </Col>

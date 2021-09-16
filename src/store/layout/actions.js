@@ -2,6 +2,7 @@ import {
   CHANGE_LAYOUT,
   CHANGE_LAYOUT_WIDTH,
   CHANGE_SIDEBAR_THEME,
+  CHANGE_SIDEBAR_THEME_IMAGE,
   CHANGE_SIDEBAR_TYPE,
   CHANGE_TOPBAR_THEME,
   TOGGLE_RIGHT_SIDEBAR,
@@ -28,6 +29,12 @@ export const changeLayoutWidth = width => ({
 export const changeSidebarTheme = theme => ({
   type: CHANGE_SIDEBAR_THEME,
   payload: theme,
+})
+
+
+export const changeSidebarThemeImage = themeimage => ({
+  type: CHANGE_SIDEBAR_THEME_IMAGE,
+  payload: themeimage,
 })
 
 export const changeSidebarType = (sidebarType, isMobile) => {

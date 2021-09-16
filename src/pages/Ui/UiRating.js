@@ -41,7 +41,7 @@ class UiRating extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Rating | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Rating | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Rating" />
@@ -234,6 +234,7 @@ class UiRating extends Component {
                           <RatingTooltip
                             max={5}
                             tooltipContent={this.state.tooltipContent}
+                            onChange={rate8 => this.setState({ default: rate8 })}
                             ActiveComponent={
                               <i
                                 key={"active_6"}
@@ -258,6 +259,7 @@ class UiRating extends Component {
                           <RatingTooltip
                             max={10}
                             tooltipContent={this.state.tooltipContentMore}
+                            onChange={rate6 => this.setState({ default: rate6 })}
                             ActiveComponent={
                               <i
                                 key={"active_7"}
@@ -339,6 +341,7 @@ class UiRating extends Component {
                           <RatingTooltip
                             max={5}
                             tooltipContent={this.state.tooltipContentStep}
+                            onChange={rate4 => this.setState({ default: rate4 })}
                             ActiveComponent={
                               <i
                                 key={"active_10"}
@@ -363,6 +366,7 @@ class UiRating extends Component {
                           <RatingTooltip
                             max={5}
                             tooltipContent={this.state.tooltipContentStep}
+                            onChange={rate1 => this.setState({ default: rate1 })}
                             ActiveComponent={
                               <i
                                 key={"active_11"}
@@ -372,7 +376,7 @@ class UiRating extends Component {
                             }
                             InActiveComponent={
                               <i
-                                key={"active_011"}
+                                key={"active_11"}
                                 className="mdi mdi-checkbox-blank-outline text-muted"
                                 style={this.state.starStyle}
                               />
@@ -387,6 +391,7 @@ class UiRating extends Component {
                           <RatingTooltip
                             max={5}
                             tooltipContent={this.state.tooltipContentStep}
+                            onChange={rate2 => this.setState({ default: rate2 })}
                             ActiveComponent={
                               <i
                                 key={"active_12"}

@@ -1,30 +1,30 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import { Card, CardBody, Col, Container, Media, Row } from "reactstrap"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Card, CardBody, Col, Container, Media, Row } from "reactstrap";
 import MetaTags from 'react-meta-tags';
 
 //Import Image
-import avatar2 from "../../assets/images/users/avatar-2.jpg"
-import img3 from "../../assets/images/small/img-3.jpg"
-import img4 from "../../assets/images/small/img-4.jpg"
+import avatar2 from "../../assets/images/users/avatar-2.jpg";
+import img3 from "../../assets/images/small/img-3.jpg";
+import img4 from "../../assets/images/small/img-4.jpg";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 //Import Email Sidebar
-import EmailSideBar from "./email-sidebar"
+import EmailSideBar from "./email-sidebar";
 
 //Import Email Topbar
-import EmailToolbar from "./email-toolbar"
+import EmailToolbar from "./email-toolbar";
 
 class EmailRead extends Component {
   render() {
     return (
       <React.Fragment>
         <div className="page-content">
-        {/* add meta title */}
-        <MetaTags>
-            <title>Read Email | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          {/* add meta title */}
+          <MetaTags>
+            <title>Read Email | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}
@@ -58,7 +58,7 @@ class EmailRead extends Component {
                       </Media>
 
                       <h4 className="mt-0 font-size-16">
-                        This Week's Top Stories
+                        This Week&apos;s Top Stories
                       </h4>
 
                       <p>Dear Lorem Ipsum,</p>
@@ -114,7 +114,7 @@ class EmailRead extends Component {
 
                       <Link
                         to="#"
-                        className="btn btn-secondary waves-effect mt-4"
+                        className="btn btn-secondary mt-4"
                       >
                         <i className="mdi mdi-reply"></i> Reply
                       </Link>
@@ -126,8 +126,8 @@ class EmailRead extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default EmailRead
+export default EmailRead;

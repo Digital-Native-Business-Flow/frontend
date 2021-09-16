@@ -36,14 +36,18 @@
 .mail-list {
   a {
     display: block;
-    color: $gray-600;
+    color: $gray-600 !important;
     line-height: 24px;
     padding: 8px 5px;
     &.active {
-      color: $danger;
+      color: $danger !important;
       font-weight: 500;
     }
   }
+}
+
+.mail-list .nav-tabs-custom .nav-item .nav-link::after{
+  content: none;
 }
 
 .message-list {

@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
@@ -16,6 +17,11 @@ class Logout extends Component {
   render() {
     return <React.Fragment></React.Fragment>
   }
+}
+
+Logout.propTypes = {
+  history: PropTypes.any,
+  logoutUser: PropTypes.func
 }
 
 export default withRouter(connect(null, { logoutUser })(Logout))

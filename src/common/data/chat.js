@@ -1,3 +1,6 @@
+/**
+ * Chat data
+ */
 const chats = [
   {
     id: 1,
@@ -64,6 +67,9 @@ const chats = [
   },
 ]
 
+/**
+ * group list data
+ */
 const groups = [
   { id: 1, image: "G", name: "General" },
   { id: 2, image: "R", name: "Reporting" },
@@ -72,6 +78,9 @@ const groups = [
   { id: 5, image: "B", name: "Project B" },
 ]
 
+/**
+ * contact list data
+ */
 const contacts = [
   {
     category: "A",
@@ -98,6 +107,9 @@ const contacts = [
   },
 ]
 
+/**
+ * message list data
+ */
 const messages = [
   {
     id: 1,

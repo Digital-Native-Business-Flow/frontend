@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import MetaTags from 'react-meta-tags';
 
 import {
@@ -10,39 +10,38 @@ import {
   CardHeader,
   CardImg,
   CardImgOverlay,
-  CardSubtitle,
   CardText,
   CardTitle,
   Col,
   Container,
   Row,
-} from "reactstrap"
+} from "reactstrap";
 
 // import images
-import img1 from "../../assets/images/small/img-1.jpg"
-import img2 from "../../assets/images/small/img-2.jpg"
-import img3 from "../../assets/images/small/img-3.jpg"
-import img4 from "../../assets/images/small/img-4.jpg"
-import img5 from "../../assets/images/small/img-5.jpg"
-import img6 from "../../assets/images/small/img-6.jpg"
-import img7 from "../../assets/images/small/img-7.jpg"
-import { Link } from "react-router-dom"
+import img1 from "../../assets/images/small/img-1.jpg";
+import img2 from "../../assets/images/small/img-2.jpg";
+import img3 from "../../assets/images/small/img-3.jpg";
+import img4 from "../../assets/images/small/img-4.jpg";
+import img5 from "../../assets/images/small/img-5.jpg";
+import img6 from "../../assets/images/small/img-6.jpg";
+import img7 from "../../assets/images/small/img-7.jpg";
+import { Link } from "react-router-dom";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 class UiCards extends Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
 
   render() {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Cards | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Cards | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Cards" />
@@ -55,11 +54,11 @@ class UiCards extends Component {
                     <CardTitle className="h4 mt-0">Card title</CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                     <Link
                       to="#"
-                      className="btn btn-primary waves-effect waves-light"
+                      className="btn btn-primary"
                     >
                       Button
                     </Link>
@@ -73,7 +72,7 @@ class UiCards extends Component {
                     <CardTitle className="h4 mt-0">Card title</CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                   <ul className="list-group list-group-flush">
@@ -97,7 +96,7 @@ class UiCards extends Component {
                   <CardBody>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -114,7 +113,7 @@ class UiCards extends Component {
                   <CardBody>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                     <Link to="#" className="card-link">
                       Card link
@@ -139,7 +138,7 @@ class UiCards extends Component {
                   </CardText>
                   <Link
                     to="#"
-                    className="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary"
                   >
                     Go somewhere
                   </Link>
@@ -156,7 +155,7 @@ class UiCards extends Component {
                   </CardText>
                   <Link
                     to="#"
-                    className="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary"
                   >
                     Go somewhere
                   </Link>
@@ -176,7 +175,7 @@ class UiCards extends Component {
                   </CardText>
                   <Link
                     to="#"
-                    className="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary"
                   >
                     Go somewhere
                   </Link>
@@ -194,7 +193,7 @@ class UiCards extends Component {
                   </CardText>
                   <Link
                     to="#"
-                    className="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary"
                   >
                     Go somewhere
                   </Link>
@@ -212,7 +211,7 @@ class UiCards extends Component {
                   </CardText>
                   <Link
                     to="#"
-                    className="btn btn-primary waves-effect waves-light"
+                    className="btn btn-primary"
                   >
                     Go somewhere
                   </Link>
@@ -270,7 +269,7 @@ class UiCards extends Component {
                     </CardText>
                     <Link
                       to="#"
-                      className="btn btn-primary waves-effect waves-light"
+                      className="btn btn-primary"
                     >
                       Go somewhere
                     </Link>
@@ -405,7 +404,7 @@ class UiCards extends Component {
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -414,12 +413,12 @@ class UiCards extends Component {
               <Col lg={4}>
                 <Card color="success" className="text-white-50">
                   <CardBody>
-                  <CardTitle className="h5 mt-0 mb-4 text-white">
+                    <CardTitle className="h5 mt-0 mb-4 text-white">
                       <i className="mdi mdi-check-all me-3"></i> Success Card
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -434,7 +433,7 @@ class UiCards extends Component {
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -445,12 +444,12 @@ class UiCards extends Component {
               <Col lg={4}>
                 <Card color="warning" className="text-white-50">
                   <CardBody>
-                  <CardTitle className="h5 mt-0 mb-4 text-white">
+                    <CardTitle className="h5 mt-0 mb-4 text-white">
                       <i className="mdi mdi-alert-outline me-3"></i>Warning Card
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -459,12 +458,12 @@ class UiCards extends Component {
               <Col lg={4}>
                 <Card color="danger" className="text-white-50">
                   <CardBody>
-                  <CardTitle className="h5 mt-0 mb-4 text-white">
+                    <CardTitle className="h5 mt-0 mb-4 text-white">
                       <i className="mdi mdi-block-helper me-3"></i>Danger Card
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -479,7 +478,7 @@ class UiCards extends Component {
                     </CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -499,7 +498,7 @@ class UiCards extends Component {
                     <CardTitle className="h5 mt-0">card title</CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -517,7 +516,7 @@ class UiCards extends Component {
                     <CardTitle className="h5 mt-0">card title</CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -534,7 +533,7 @@ class UiCards extends Component {
                     <CardTitle className="h5 mt-0">card title</CardTitle>
                     <CardText>
                       Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
+                      make up the bulk of the card&apos;s content.
                     </CardText>
                   </CardBody>
                 </Card>
@@ -545,55 +544,55 @@ class UiCards extends Component {
               <Col className="col-12 mb-4">
                 <h4 className="my-3">Card groups</h4>
                 <CardDeck className="card-deck-wrapper">
-                <div className="card-group">
-                  <Card className="mb-4">
-                    <CardImg top className="img-fluid" src={img4} alt="Skote" />
-                    <CardBody>
-                      <CardTitle className="mt-0">Card title</CardTitle>
-                      <CardText>
-                        This is a longer card with supporting text below as a
-                        natural lead-in to additional content. This content is a
-                        little bit longer.
-                      </CardText>
-                      <CardText>
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </CardText>
-                    </CardBody>
-                  </Card>
-                  <Card className="mb-4">
-                    <CardImg top className="img-fluid" src={img5} alt="Skote" />
-                    <CardBody>
-                      <CardTitle className="mt-0">Card title</CardTitle>
-                      <CardText>
-                        This card has supporting text below as a natural lead-in
-                        to additional content.
-                      </CardText>
-                      <CardText>
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </CardText>
-                    </CardBody>
-                  </Card>
-                  <Card className="mb-4">
-                    <CardImg top className="img-fluid" src={img6} alt="Skote" />
-                    <CardBody>
-                      <CardTitle className="mt-0">Card title</CardTitle>
-                      <CardText>
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This card has
-                        even longer content than the first to show that equal
-                        height action.
-                      </CardText>
-                      <CardText>
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </CardText>
-                    </CardBody>
-                  </Card>
+                  <div className="card-group">
+                    <Card className="mb-4">
+                      <CardImg top className="img-fluid" src={img4} alt="Skote" />
+                      <CardBody>
+                        <CardTitle className="mt-0">Card title</CardTitle>
+                        <CardText>
+                          This is a longer card with supporting text below as a
+                          natural lead-in to additional content. This content is a
+                          little bit longer.
+                        </CardText>
+                        <CardText>
+                          <small className="text-muted">
+                            Last updated 3 mins ago
+                          </small>
+                        </CardText>
+                      </CardBody>
+                    </Card>
+                    <Card className="mb-4">
+                      <CardImg top className="img-fluid" src={img5} alt="Skote" />
+                      <CardBody>
+                        <CardTitle className="mt-0">Card title</CardTitle>
+                        <CardText>
+                          This card has supporting text below as a natural lead-in
+                          to additional content.
+                        </CardText>
+                        <CardText>
+                          <small className="text-muted">
+                            Last updated 3 mins ago
+                          </small>
+                        </CardText>
+                      </CardBody>
+                    </Card>
+                    <Card className="mb-4">
+                      <CardImg top className="img-fluid" src={img6} alt="Skote" />
+                      <CardBody>
+                        <CardTitle className="mt-0">Card title</CardTitle>
+                        <CardText>
+                          This is a wider card with supporting text below as a
+                          natural lead-in to additional content. This card has
+                          even longer content than the first to show that equal
+                          height action.
+                        </CardText>
+                        <CardText>
+                          <small className="text-muted">
+                            Last updated 3 mins ago
+                          </small>
+                        </CardText>
+                      </CardBody>
+                    </Card>
                   </div>
                 </CardDeck>
               </Col>
@@ -604,7 +603,7 @@ class UiCards extends Component {
                 <h4 className="my-3">Cards Masonry</h4>
                 <CardColumns>
                   <Card>
-                    <CardImg top src={img3} alt="Skote"/>
+                    <CardImg top src={img3} alt="Skote" />
                     <CardBody>
                       <CardTitle className="h5">Card title that wraps to a new line</CardTitle>
                       <CardText>
@@ -622,9 +621,9 @@ class UiCards extends Component {
                           elit. Integer posuere erat a ante.
                         </CardText>
                         <footer className="blockquote-footer mt-0">
-                        <small className="text-muted">
-                          Someone famous in{" "}
-                          <cite title="Source Title">Source Title</cite>
+                          <small className="text-muted">
+                            Someone famous in{" "}
+                            <cite title="Source Title">Source Title</cite>
                           </small>
                         </footer>
                       </blockquote>
@@ -652,9 +651,9 @@ class UiCards extends Component {
                         Integer posuere erat.
                       </CardText>
                       <footer className="blockquote-footer mt-0">
-                      <small className="text-white">
-                        Someone famous in{" "}
-                        <cite title="Source Title">Source Title</cite>
+                        <small className="text-white">
+                          Someone famous in{" "}
+                          <cite title="Source Title">Source Title</cite>
                         </small>
                       </footer>
                     </blockquote>
@@ -711,8 +710,8 @@ class UiCards extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default UiCards
+export default UiCards;

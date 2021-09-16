@@ -10,7 +10,7 @@ class CardBox extends Component {
           <Col md="4" key={key}>
             <Card>
               <CardBody>
-                <Media>
+                <div className="d-flex">
                   <div className="avatar-xs me-3">
                     <span
                       className={
@@ -24,7 +24,7 @@ class CardBox extends Component {
                       <i className={coin.icon} />
                     </span>
                   </div>
-                  <Media body>
+                  <div className="flex-grow-1">
                     <p className="text-muted">{coin.title}</p>
                     <h5>$ {coin.value}</h5>
                     <p className="text-muted text-truncate mb-0">
@@ -37,8 +37,8 @@ class CardBox extends Component {
                         }
                       />
                     </p>
-                  </Media>
-                </Media>
+                  </div>
+                </div>
               </CardBody>
             </Card>
           </Col>

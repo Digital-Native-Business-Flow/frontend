@@ -16,8 +16,8 @@ export default class TwostepVerification2 extends Component {
     return (
       <React.Fragment>
         <div>
-        <MetaTags>
-            <title>Two Step Verification 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Two Step Verification 2 | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid p-0">
             <div className="row g-0">
@@ -71,6 +71,7 @@ export default class TwostepVerification2 extends Component {
                                     </Label>
                                     <AuthCode
                                       characters={4}
+                                      onChange={() => null}
                                       className="form-control form-control-lg text-center"
                                       allowedCharacters="^[0-9]"
                                       inputStyle={{
@@ -83,7 +84,7 @@ export default class TwostepVerification2 extends Component {
                                         marginRight: "15px",
                                         border: "1px solid #ced4da",
                                         textTransform: "uppercase",
-                                        borderRadius:".4rem"
+                                        borderRadius: ".4rem"
                                       }}
                                     />
                                   </FormGroup>

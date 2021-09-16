@@ -100,8 +100,8 @@ class PagesTimeline extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Timeline | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Timeline | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             {/* Render Breadcrumbs */}
@@ -191,13 +191,13 @@ class PagesTimeline extends Component {
                                 </div>
                               </div>
                             </div>
-                            
+
                           </>
                         ) : null}
 
                         {this.state.step2 ? (
                           <>
-                          <div
+                            <div
                               className="item event-list"
                               style={{ display: "inline-table" }}
                             >

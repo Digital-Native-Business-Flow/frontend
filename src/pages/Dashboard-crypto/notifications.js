@@ -20,13 +20,13 @@ class Notifications extends Component {
               <SimpleBar style={{ maxHeight: "390px" }}>
                 <ul className="list-group">
                   <li className="list-group-item border-0">
-                    <Media>
+                    <div className="d-flex">
                       <div className="avatar-xs me-3">
                         <span className="avatar-title rounded-circle bg-light">
                           <img src={img1} alt="" height="18" />
                         </span>
                       </div>
-                      <Media body>
+                      <div className="flex-grow-1">
                         <h5 className="font-size-14">Donec vitae sapien ut</h5>
                         <p className="text-muted">
                           If several languages coalesce, the grammar of the
@@ -35,21 +35,21 @@ class Notifications extends Component {
 
                         <div className="float-end">
                           <p className="text-muted mb-0">
-                            <i className="mdi mdi-account me-1"/> Joseph
+                            <i className="mdi mdi-account me-1" /> Joseph
                           </p>
                         </div>
                         <p className="text-muted mb-0">12 Mar, 2020</p>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </li>
                   <li className="list-group-item border-0">
-                    <Media>
+                    <div className="d-flex">
                       <div className="avatar-xs me-3">
                         <span className="avatar-title rounded-circle bg-light">
                           <img src={img2} alt="" height="18" />
                         </span>
                       </div>
-                      <Media body>
+                      <div className="flex-grow-1">
                         <h5 className="font-size-14">
                           Cras ultricies mi eu turpis
                         </h5>
@@ -60,21 +60,21 @@ class Notifications extends Component {
 
                         <div className="float-end">
                           <p className="text-muted mb-0">
-                            <i className="mdi mdi-account me-1"/> Jerry
+                            <i className="mdi mdi-account me-1" /> Jerry
                           </p>
                         </div>
                         <p className="text-muted mb-0">13 Mar, 2020</p>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </li>
                   <li className="list-group-item border-0">
-                    <Media>
+                    <div className="d-flex">
                       <div className="avatar-xs me-3">
                         <span className="avatar-title rounded-circle bg-light">
                           <img src={img3} alt="" height="18" />
                         </span>
                       </div>
-                      <Media body>
+                      <div className="flex-grow-1">
                         <h5 className="font-size-14">
                           Duis arcu tortor suscipit
                         </h5>
@@ -85,21 +85,21 @@ class Notifications extends Component {
 
                         <div className="float-end">
                           <p className="text-muted mb-0">
-                            <i className="mdi mdi-account me-1"/> Calvin
+                            <i className="mdi mdi-account me-1" /> Calvin
                           </p>
                         </div>
                         <p className="text-muted mb-0">14 Mar, 2020</p>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </li>
                   <li className="list-group-item border-0">
-                    <Media>
+                    <div className="d-flex">
                       <div className="avatar-xs me-3">
                         <span className="avatar-title rounded-circle bg-light">
                           <img src={img1} alt="" height="18" />
                         </span>
                       </div>
-                      <Media body>
+                      <div className="flex-grow-1">
                         <h5 className="font-size-14">Donec vitae sapien ut</h5>
                         <p className="text-muted">
                           If several languages coalesce, the grammar of the
@@ -108,12 +108,12 @@ class Notifications extends Component {
 
                         <div className="float-end">
                           <p className="text-muted mb-0">
-                            <i className="mdi mdi-account me-1"/> Joseph
+                            <i className="mdi mdi-account me-1" /> Joseph
                           </p>
                         </div>
                         <p className="text-muted mb-0">12 Mar, 2020</p>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </SimpleBar>

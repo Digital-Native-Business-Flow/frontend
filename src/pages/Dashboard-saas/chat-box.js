@@ -1,11 +1,11 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import {
   Row,
   Col,
   Card,
   CardBody,
   Button,
-  UncontrolledDropdown,
   UncontrolledTooltip,
   Dropdown,
   DropdownToggle,
@@ -17,10 +17,16 @@ import {
   InputGroup,
   InputGroupAddon,
 } from "reactstrap"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { size } from "lodash"
 
-//Simple bar
-import SimpleBar from "simplebar-react"
+import { chatData } from "../../common/data";
+import Reciver from "./Reciver";
+import Sender from "./Sender";
+
+//Import Scrollbar
+import PerfectScrollbar from "react-perfect-scrollbar"
+import "react-perfect-scrollbar/dist/css/styles.css"
 
 class ChatBox extends Component {
   constructor(props) {
@@ -29,10 +35,14 @@ class ChatBox extends Component {
       search_Menu: false,
       settings_Menu: false,
       other_Menu: false,
-    }
+      messages: [...chatData],
+      text: ""
+    },
+      this.messageBox = null
     this.toggleSearch = this.toggleSearch.bind(this)
     this.toggleSettings = this.toggleSettings.bind(this)
     this.toggleOther = this.toggleOther.bind(this)
+    this.onSendMessage = this.onSendMessage.bind(this)
   }
 
   //Toggle Chat Box Menus
@@ -54,6 +64,40 @@ class ChatBox extends Component {
     }))
   }
 
+  scrollToBottom = () => {
+    if (this.messageBox) {
+      this.messageBox.scrollTop = this.messageBox.scrollHeight + 1000
+    }
+  }
+
+  onSendMessage() {
+    const obj = JSON.parse(localStorage.getItem("authUser"))
+    const name = obj && obj.username ? obj.username : "Admin";
+
+    var modifiedMessages = [...this.state.messages];
+    const lastItem = modifiedMessages.length ? modifiedMessages[modifiedMessages.length - 1] : { id: 1 };
+    const today = new Date();
+    const hour = today.getHours();
+    const minute = today.getMinutes();
+    const senderObj = {
+      id: lastItem['id'] + 1,
+      name: name,
+      msg: this.state.text,
+      time: `${hour}.${minute}`,
+      isSender: true
+    }
+    modifiedMessages.push({ ...senderObj });
+    this.setState({ messages: modifiedMessages });
+    this.setState({ text: "" });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { messages } = this.state
+    if (size(messages) !== size(prevProps.messages)) {
+      this.scrollToBottom()
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -64,7 +108,7 @@ class ChatBox extends Component {
                 <Col md="4" xs="9">
                   <h5 className="font-size-15 mb-1">Steven Franklin</h5>
                   <p className="text-muted mb-0">
-                    <i className="mdi mdi-circle text-success align-middle me-1"/>{" "}
+                    <i className="mdi mdi-circle text-success align-middle me-1" />{" "}
                     Active now
                   </p>
                 </Col>
@@ -76,11 +120,11 @@ class ChatBox extends Component {
                         toggle={this.toggleSearch}
                       >
                         <DropdownToggle
-                          tag="a" className="dropdown-toggle"
-                          className="btn nav-btn dropdown-toggle"
+                          tag="a"
+                          className="btn nav-btn"
                           type="button"
                         >
-                          <i className="bx bx-search-alt-2"/>
+                          <i className="bx bx-search-alt-2" />
                         </DropdownToggle>
                         <DropdownMenu className="py-0 dropdown-menu-md">
                           <Form className="p-3">
@@ -94,7 +138,7 @@ class ChatBox extends Component {
                                 />
                                 <InputGroupAddon addonType="append">
                                   <Button color="primary" type="submit">
-                                    <i className="mdi mdi-magnify"/>
+                                    <i className="mdi mdi-magnify" />
                                   </Button>
                                 </InputGroupAddon>
                               </InputGroup>
@@ -109,7 +153,7 @@ class ChatBox extends Component {
                         toggle={this.toggleSettings}
                       >
                         <DropdownToggle className="btn nav-btn" tag="i" >
-                          <i className="bx bx-cog"/>
+                          <i className="bx bx-cog" />
                         </DropdownToggle>
                         <DropdownMenu className="dropdown-menu-end">
                           <DropdownItem href="#">View Profile</DropdownItem>
@@ -126,7 +170,7 @@ class ChatBox extends Component {
                         toggle={this.toggleOther}
                       >
                         <DropdownToggle className="btn nav-btn" tag="i">
-                          <i className="bx bx-dots-horizontal-rounded"/>
+                          <i className="bx bx-dots-horizontal-rounded" />
                         </DropdownToggle>
                         <DropdownMenu className="dropdown-menu-end">
                           <DropdownItem href="#">Action</DropdownItem>
@@ -142,143 +186,29 @@ class ChatBox extends Component {
             <CardBody className="pb-0">
               <div>
                 <div className="chat-conversation">
-                  <SimpleBar style={{ marginBottom: '1rem' , maxHeight: "260px"}}>
+                  <PerfectScrollbar style={{ marginBottom: '1rem', maxHeight: "260px" }}
+                    containerRef={ref => (this.messageBox = ref)}
+                  >
                     <ul className="list-unstyled">
                       <li>
                         <div className="chat-day-title">
                           <span className="title">Today</span>
                         </div>
                       </li>
-                      <li>
-                        <div className="conversation-list">
-                          <UncontrolledDropdown>
-                            <DropdownToggle tag="a" className="dropdown-toggle">
-                              <i className="bx bx-dots-vertical-rounded"/>
-                            </DropdownToggle>
-                            <DropdownMenu>
-                              <DropdownItem href="#">Copy</DropdownItem>
-                              <DropdownItem href="#">Save</DropdownItem>
-                              <DropdownItem href="#">Forward</DropdownItem>
-                              <DropdownItem href="#">Delete</DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                          <div className="ctext-wrap">
-                            <div className="conversation-name">
-                              Steven Franklin
-                            </div>
-                            <p>Hello!</p>
-                            <p className="chat-time mb-0">
-                              <i className="bx bx-time-five align-middle me-1"/>{" "}
-                              10:00
-                            </p>
-                          </div>
-                        </div>
-                      </li>
+                      {
+                        (this.state.messages || []).map((message, index) =>
+                          <React.Fragment key={index}>
+                            {
+                              message['isSender'] ?
+                                <Sender message={message} />
+                                : <Reciver message={message} />
+                            }
+                          </React.Fragment>
+                        )
+                      }
 
-                      <li className="right">
-                        <div className="conversation-list">
-                          <UncontrolledDropdown direction="left">
-                            <DropdownToggle tag="a" className="dropdown-toggle">
-                              <i className="bx bx-dots-vertical-rounded"/>
-                            </DropdownToggle>
-                            <DropdownMenu direction="right">
-                              <DropdownItem href="#">Copy</DropdownItem>
-                              <DropdownItem href="#">Save</DropdownItem>
-                              <DropdownItem href="#">Forward</DropdownItem>
-                              <DropdownItem href="#">Delete</DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                          <div className="ctext-wrap">
-                            <div className="conversation-name">Henry Wells</div>
-                            <p>Hi, How are you? What about our next meeting?</p>
-
-                            <p className="chat-time mb-0">
-                              <i className="bx bx-time-five align-middle me-1"/>{" "}
-                              10:02
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li>
-                        <div className="conversation-list">
-                          <UncontrolledDropdown direction="left">
-                            <DropdownToggle tag="a" className="dropdown-toggle">
-                              <i className="bx bx-dots-vertical-rounded"/>
-                            </DropdownToggle>
-                            <DropdownMenu direction="right">
-                              <DropdownItem href="#">Copy</DropdownItem>
-                              <DropdownItem href="#">Save</DropdownItem>
-                              <DropdownItem href="#">Forward</DropdownItem>
-                              <DropdownItem href="#">Delete</DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                          <div className="ctext-wrap">
-                            <div className="conversation-name">
-                              Steven Franklin
-                            </div>
-                            <p>Yeah everything is fine</p>
-
-                            <p className="chat-time mb-0">
-                              <i className="bx bx-time-five align-middle me-1"/>{" "}
-                              10:06
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li className="last-chat">
-                        <div className="conversation-list">
-                          <UncontrolledDropdown direction="left">
-                            <DropdownToggle tag="a" className="dropdown-toggle">
-                              <i className="bx bx-dots-vertical-rounded"/>
-                            </DropdownToggle>
-                            <DropdownMenu direction="right">
-                              <DropdownItem href="#">Copy</DropdownItem>
-                              <DropdownItem href="#">Save</DropdownItem>
-                              <DropdownItem href="#">Forward</DropdownItem>
-                              <DropdownItem href="#">Delete</DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                          <div className="ctext-wrap">
-                            <div className="conversation-name">
-                              Steven Franklin
-                            </div>
-                            <p>& Next meeting tomorrow 10.00AM</p>
-                            <p className="chat-time mb-0">
-                              <i className="bx bx-time-five align-middle me-1"/>{" "}
-                              10:06
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-
-                      <li className=" right">
-                        <div className="conversation-list">
-                          <UncontrolledDropdown direction="left">
-                            <DropdownToggle tag="a" className="dropdown-toggle">
-                              <i className="bx bx-dots-vertical-rounded"/>
-                            </DropdownToggle>
-                            <DropdownMenu direction="right">
-                              <DropdownItem href="#">Copy</DropdownItem>
-                              <DropdownItem href="#">Save</DropdownItem>
-                              <DropdownItem href="#">Forward</DropdownItem>
-                              <DropdownItem href="#">Delete</DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
-                          <div className="ctext-wrap">
-                            <div className="conversation-name">Henry Wells</div>
-                            <p>Wow that's great</p>
-
-                            <p className="chat-time mb-0">
-                              <i className="bx bx-time-five align-middle me-1"/>{" "}
-                              10:07
-                            </p>
-                          </div>
-                        </div>
-                      </li>
                     </ul>
-                  </SimpleBar>
+                  </PerfectScrollbar>
                 </div>
               </div>
             </CardBody>
@@ -291,15 +221,19 @@ class ChatBox extends Component {
                       type="text"
                       className="form-control rounded chat-input"
                       placeholder="Enter Message..."
+                      value={this.state.text}
+                      onChange={(e) => {
+                        this.setState({ text: e.target.value })
+                      }}
                     />
                     <div className="chat-input-links">
                       <ul className="list-inline mb-0">
                         <li className="list-inline-item">
                           <Link to="#">
                             <i
-  className="mdi mdi-emoticon-happy-outline"
-  id="Emojitooltip"
-  />
+                              className="mdi mdi-emoticon-happy-outline"
+                              id="Emojitooltip"
+                            />
                             <UncontrolledTooltip
                               placement="top"
                               target="Emojitooltip"
@@ -311,9 +245,9 @@ class ChatBox extends Component {
                         <li className="list-inline-item">
                           <Link to="#">
                             <i
-  className="mdi mdi-file-image-outline"
-  id="Imagetooltip"
-  />
+                              className="mdi mdi-file-image-outline"
+                              id="Imagetooltip"
+                            />
                             <UncontrolledTooltip
                               placement="top"
                               target="Imagetooltip"
@@ -325,9 +259,9 @@ class ChatBox extends Component {
                         <li className="list-inline-item">
                           <Link to="#">
                             <i
-  className="mdi mdi-file-document-outline"
-  id="Filetooltip"
-  />
+                              className="mdi mdi-file-document-outline"
+                              id="Filetooltip"
+                            />
                             <UncontrolledTooltip
                               placement="top"
                               target="Filetooltip"
@@ -344,10 +278,11 @@ class ChatBox extends Component {
                   <Button
                     type="submit"
                     color="primary"
-                    className="chat-send w-md waves-effect waves-light"
+                    className="chat-send w-md"
+                    onClick={() => this.onSendMessage()}
                   >
                     <span className="d-none d-sm-inline-block me-2">Send</span>{" "}
-                    <i className="mdi mdi-send"/>
+                    <i className="mdi mdi-send" />
                   </Button>
                 </div>
               </Row>
@@ -357,6 +292,10 @@ class ChatBox extends Component {
       </React.Fragment>
     )
   }
+}
+
+ChatBox.propTypes = {
+  messages: PropTypes.any
 }
 
 export default ChatBox

@@ -8,7 +8,7 @@ class RenderCardColumn extends Component {
         <div className="text-end">
           <Link
             to="#"
-            className="btn btn-primary btn-block waves-effect waves-light"
+            className="btn btn-primary btn-block"
           >
             <i className="mdi mdi-plus me-1"/>
           </Link>

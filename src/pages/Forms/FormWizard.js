@@ -11,7 +11,6 @@ import {
   Label,
   NavItem,
   NavLink,
-  Progress,
   Row,
   TabContent,
   TabPane,
@@ -29,6 +28,8 @@ class FormWizard extends Component {
     this.state = {
       activeTab: 1,
       activeTabVartical: 1,
+      passedSteps: [1],
+      passedStepsVertical: [1]
     }
     this.toggleTab.bind(this)
     this.toggleTabVertical.bind(this)
@@ -37,8 +38,10 @@ class FormWizard extends Component {
   toggleTab(tab) {
     if (this.state.activeTab !== tab) {
       if (tab >= 1 && tab <= 4) {
+        var modifiedSteps = [...this.state.passedSteps, tab];
         this.setState({
           activeTab: tab,
+          passedSteps: modifiedSteps
         })
       }
     }
@@ -47,8 +50,10 @@ class FormWizard extends Component {
   toggleTabVertical(tab) {
     if (this.state.activesTab !== tab) {
       if (tab >= 1 && tab <= 4) {
+        var modifiedSteps = [...this.state.passedStepsVertical, tab];
         this.setState({
           activeTabVartical: tab,
+          passedStepsVertical: modifiedSteps
         })
       }
     }
@@ -59,7 +64,7 @@ class FormWizard extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Form Wizard | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Form Wizard | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Wizard" />
@@ -93,6 +98,7 @@ class FormWizard extends Component {
                               current: this.state.activeTab === 2,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedSteps || []).includes(2)}
                               className={classnames({
                                 active: this.state.activeTab === 2,
                               })}
@@ -109,6 +115,7 @@ class FormWizard extends Component {
                               current: this.state.activeTab === 3,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedSteps || []).includes(3)}
                               className={classnames({
                                 active: this.state.activeTab === 3,
                               }), 'done'}
@@ -125,6 +132,7 @@ class FormWizard extends Component {
                               current: this.state.activeTab === 4,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedSteps || []).includes(4)}
                               className={classnames({
                                 active: this.state.activeTab === 4,
                               }), 'done'}
@@ -454,6 +462,7 @@ class FormWizard extends Component {
                               current: this.state.activeTabVartical === 2,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedStepsVertical || []).includes(2)}
                               className={classnames({
                                 active: this.state.activeTabVartical === 2,
                               })}
@@ -470,6 +479,7 @@ class FormWizard extends Component {
                               current: this.state.activeTabVartical === 3,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedStepsVertical || []).includes(3)}
                               className={classnames({
                                 active: this.state.activeTabVartical === 3,
                               }), 'done'}
@@ -486,6 +496,7 @@ class FormWizard extends Component {
                               current: this.state.activeTabVartical === 4,
                             })}>
                             <NavLink
+                              disabled={!(this.state.passedStepsVertical || []).includes(4)}
                               className={classnames({
                                 active: this.state.activeTabVartical === 4,
                               }), 'done'}

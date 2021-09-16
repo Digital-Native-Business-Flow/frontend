@@ -9,13 +9,13 @@ class MiniCards extends Component {
         <Col md="4">
           <Card className="mini-stats-wid">
             <CardBody>
-              <Media>
-                <Media body>
+              <div className="d-flex">
+                <div className="flex-grow-1">
                   <p className="text-muted fw-medium mb-2">
                     {this.props.title}
                   </p>
                   <h4 className="mb-0">{this.props.text}</h4>
-                </Media>
+                </div>
 
                 <div className="mini-stat-icon avatar-sm align-self-center rounded-circle bg-primary">
                   <span className="avatar-title">
@@ -24,7 +24,7 @@ class MiniCards extends Component {
                     />
                   </span>
                 </div>
-              </Media>
+              </div>
             </CardBody>
           </Card>
         </Col>

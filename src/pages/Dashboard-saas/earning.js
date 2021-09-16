@@ -1,12 +1,17 @@
-import React, { Component } from "react"
-import { Row, Col, Card, CardBody } from "reactstrap"
-import { Link } from "react-router-dom"
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import { Row, Col, Card, CardBody } from "reactstrap";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import ReactApexChart from "react-apexcharts"
+//actions
+import { getEarningChartsData } from "../../store/actions";
+
+import ReactApexChart from "react-apexcharts";
 
 class Earning extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       series: [
         {
@@ -35,10 +40,31 @@ class Earning extends Component {
           width: 3,
         },
       },
+      earningChartData: [],
+      seletedMonth: "jan"
+    };
+  }
+
+  componentDidMount() {
+    const { onGetEarningChartsData } = this.props;
+    onGetEarningChartsData("jan");
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ ...this.state, earningChartData: this.props.earningChartData });
     }
   }
 
   render() {
+    const { earningChartData, seletedMonth } = this.state;
+
+    const series = [
+      {
+        name: "Series 1",
+        data: [...earningChartData]
+      }
+    ];
     return (
       <React.Fragment>
         <Col xl="8">
@@ -46,12 +72,18 @@ class Earning extends Component {
             <CardBody>
               <div className="clearfix">
                 <div className="float-end">
-                  <div className="input-group input-group">
-                    <select className="form-select form-select-sm">
-                      <option defaultValue>Jan</option>
-                      <option value="1">Dec</option>
-                      <option value="2">Nov</option>
-                      <option value="3">Oct</option>
+                  <div className="input-group input-group-sm">
+                    <select
+                      value={seletedMonth}
+                      onChange={(e) => {
+                        this.setState({ ...this.state, seletedMonth: e.target.value });
+                        this.props.onGetEarningChartsData(e.target.value);
+                      }}
+                      className="form-select form-select-sm">
+                      <option value="jan">Jan</option>
+                      <option value="dec">Dec</option>
+                      <option value="nov">Nov</option>
+                      <option value="oct">Oct</option>
                     </select>
                     <label className="input-group-text">Month</label>
                   </div>
@@ -77,7 +109,7 @@ class Earning extends Component {
                     <div>
                       <Link
                         to="#"
-                        className="btn btn-primary waves-effect waves-light btn-sm"
+                        className="btn btn-primary btn-sm"
                       >
                         View Details{" "}
                         <i className="mdi mdi-chevron-right ms-1"></i>
@@ -94,7 +126,7 @@ class Earning extends Component {
                 <Col lg="8">
                   <div id="line-chart" className="apex-charts" dir="ltr">
                     <ReactApexChart
-                      series={this.state.series}
+                      series={series}
                       options={this.state.options}
                       type="line"
                       height={320}
@@ -107,8 +139,24 @@ class Earning extends Component {
           </Card>
         </Col>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default Earning
+
+Earning.propTypes = {
+  earningChartData: PropTypes.any,
+  onGetEarningChartsData: PropTypes.func
+};
+
+const mapStateToProps = ({ DashboardSaas }) => ({
+  earningChartData: DashboardSaas.earningChartData,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onGetEarningChartsData: (month) => dispatch(getEarningChartsData(month)),
+});
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(Earning);

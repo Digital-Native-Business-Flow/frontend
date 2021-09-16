@@ -87,7 +87,7 @@ class Transactions extends Component {
                           <tr>
                             <td style={{ width: "50px" }}>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -116,7 +116,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -145,7 +145,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -174,7 +174,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -203,7 +203,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -232,7 +232,7 @@ class Transactions extends Component {
                           <tr>
                             <td style={{ width: "50px" }}>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -261,7 +261,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -296,39 +296,11 @@ class Transactions extends Component {
                     <div className="table-responsive">
                       <Table className="align-middle table-nowrap">
                         <tbody>
+
                           <tr>
                             <td style={{ width: "50px" }}>
-                              <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Sell ETH</h5>
-                                <p className="text-muted mb-0">15 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.56 ETH</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $112.34
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -357,7 +329,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -386,7 +358,7 @@ class Transactions extends Component {
                           <tr>
                             <td>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -415,7 +387,7 @@ class Transactions extends Component {
                           <tr>
                             <td style={{ width: "50px" }}>
                               <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
+                                <i className="bx bx-down-arrow-circle" />
                               </div>
                             </td>
 
@@ -441,63 +413,6 @@ class Transactions extends Component {
                             </td>
                           </tr>
 
-                          <tr>
-                            <td>
-                              <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Sell BTC</h5>
-                                <p className="text-muted mb-0">18 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.018 BTC</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $145.80
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Sell ETH</h5>
-                                <p className="text-muted mb-0">15 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.56 ETH</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $112.34
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
                         </tbody>
                       </Table>
                     </div>
@@ -509,96 +424,11 @@ class Transactions extends Component {
                     <div className="table-responsive">
                       <Table className="align-middle table-nowrap">
                         <tbody>
-                          <tr>
-                            <td style={{ width: "50px" }}>
-                              <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
-                              </div>
-                            </td>
 
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Buy BTC</h5>
-                                <p className="text-muted mb-0">14 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.016 BTC</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $125.20
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Buy LTC</h5>
-                                <p className="text-muted mb-0">16 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">1.88 LTC</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $94.22
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>
-                              <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Buy ETH</h5>
-                                <p className="text-muted mb-0">17 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.42 ETH</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $84.32
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -619,14 +449,14 @@ class Transactions extends Component {
                               <div className="text-end">
                                 <h5 className="font-size-14 text-muted mb-0">
                                   $112.34
-                                </h5>
+                             </h5>
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -647,14 +477,14 @@ class Transactions extends Component {
                               <div className="text-end">
                                 <h5 className="font-size-14 text-muted mb-0">
                                   $145.80
-                                </h5>
+                             </h5>
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td>
                               <div className="font-size-22 text-danger">
-                                <i className="bx bx-up-arrow-circle"/>
+                                <i className="bx bx-up-arrow-circle" />
                               </div>
                             </td>
 
@@ -675,39 +505,11 @@ class Transactions extends Component {
                               <div className="text-end">
                                 <h5 className="font-size-14 text-muted mb-0">
                                   $112.34
-                                </h5>
+                             </h5>
                               </div>
                             </td>
                           </tr>
 
-                          <tr>
-                            <td>
-                              <div className="font-size-22 text-primary">
-                                <i className="bx bx-down-arrow-circle"/>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div>
-                                <h5 className="font-size-14 mb-1">Buy BTC</h5>
-                                <p className="text-muted mb-0">14 Mar, 2020</p>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 mb-0">0.016 BTC</h5>
-                              </div>
-                            </td>
-
-                            <td>
-                              <div className="text-end">
-                                <h5 className="font-size-14 text-muted mb-0">
-                                  $125.20
-                                </h5>
-                              </div>
-                            </td>
-                          </tr>
                         </tbody>
                       </Table>
                     </div>

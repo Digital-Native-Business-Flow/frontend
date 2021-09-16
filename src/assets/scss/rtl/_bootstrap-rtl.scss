@@ -139,7 +139,7 @@ dd {
 
 .breadcrumb-item {
   + .breadcrumb-item {
-    padding-right: $breadcrumb-item-padding;
+    padding-right: 0.5rem;
     padding-left: 0px;
   }
 }
@@ -446,7 +446,7 @@ dd {
   margin-left: unset;
 }
 .wizard > .actions > ul {
-    display: block;
-    text-align: left;
-    padding-right: 0;
+  display: block;
+  text-align: left;
+  padding-right: 0;
 }

@@ -1,7 +1,10 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
+import { Link, withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 import MetaTags from 'react-meta-tags';
 import Dropzone from "react-dropzone"
+import { AvForm, AvField } from "availity-reactstrap-validation"
 import {
   Container,
   Row,
@@ -9,15 +12,17 @@ import {
   Card,
   CardBody,
   CardTitle,
-  Form,
   FormGroup,
-  Input,
   Label,
   Button,
 } from "reactstrap"
 
+import {
+  addNewProject,
+  getProjects,
+} from "../../store/projects/actions"
+
 //Import Date Picker
-import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 
 //Import Breadcrumb
@@ -30,11 +35,35 @@ class ProjectsCreate extends Component {
       startDate: new Date(),
       endDate: new Date(),
       selectedFiles: [],
+      projects: [],
     }
     this.startDateChange.bind(this)
     this.endDateChange.bind(this)
     this.handleAcceptedFiles.bind(this)
+    this.handleValidProjectSubmit = this.handleValidProjectSubmit.bind(this)
   }
+
+  componentDidMount() {
+    const { projects, onGetProjects } = this.props;
+    onGetProjects()
+    this.setState({ projects })
+  }
+
+  handleValidProjectSubmit = (project, values) => {
+
+    const newProject = {
+      id: Math.floor(Math.random() * (30 - 20)) + 20,
+      img: values["img"],
+      name: values["name"],
+      description: values["description"],
+      status: values["status"],
+      color: values["color"],
+      dueDate: values["dueDate"],
+      team: values["team"]
+    }
+
+  }
+
   startDateChange = date => {
     this.setState({
       startDate: date,
@@ -69,11 +98,14 @@ class ProjectsCreate extends Component {
   }
 
   render() {
+    const { projects } = this.props
+
     return (
       <React.Fragment>
         <div className="page-content">
+
           <MetaTags>
-            <title>Create New Projects | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Create New | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}
@@ -84,7 +116,9 @@ class ProjectsCreate extends Component {
                 <Card>
                   <CardBody>
                     <CardTitle className="mb-4">Create New Project</CardTitle>
-                    <Form>
+                    <AvForm onValidSubmit={
+                      this.handleValidProjectSubmit
+                    }>
                       <FormGroup className="mb-4" row>
                         <Label
                           htmlFor="projectname"
@@ -93,13 +127,17 @@ class ProjectsCreate extends Component {
                           Project Name
                         </Label>
                         <Col lg="10">
-                          <Input
-                            id="projectname"
-                            name="projectname"
+                          <AvField
+                            name="name"
                             type="text"
+                            errorMessage="Invalid name"
+                            validate={{
+                              required: { value: true },
+                            }}
                             className="form-control"
                             placeholder="Enter Project Name..."
                           />
+
                         </Col>
                       </FormGroup>
                       <FormGroup className="mb-4" row>
@@ -110,10 +148,15 @@ class ProjectsCreate extends Component {
                           Project Description
                         </Label>
                         <Col lg="10">
-                          <textarea
-                            className="form-control"
-                            id="projectdesc"
+                          <AvField
+                            name="description"
+                            type="textarea"
+                            errorMessage="Invalid Description"
                             rows="3"
+                            validate={{
+                              required: { value: true },
+                            }}
+                            className="form-control"
                             placeholder="Enter Project Description..."
                           />
                         </Col>
@@ -126,18 +169,33 @@ class ProjectsCreate extends Component {
                         <Col lg="10">
                           <Row>
                             <Col md="6" className="pe-md-0 md-pe-3">
-                              <DatePicker
-                                className="form-control"
+                              <AvField
+                                name="dueDate"
+                                type="date"
+                                errorMessage="Invalid To Date"
                                 selected={this.state.startDate}
-                                onChange={this.startDateChange}
+                                rows="3"
+                                validate={{
+                                  required: { value: true },
+                                }}
+                                className="form-control"
+                                placeholder="Enter Project To Date..."
                               />
+
                             </Col>
                             <Col md="6" className="ps-md-0">
-                              <DatePicker
+                              <AvField
+                                name="fromDate"
+                                type="date"
+                                errorMessage="Invalid From Date"
+                                rows="3"
+                                validate={{
+                                  required: { value: true },
+                                }}
                                 className="form-control"
-                                selected={this.state.endDate}
-                                onChange={this.endDateChange}
+                                placeholder="Enter From Date..."
                               />
+
                             </Col>
                           </Row>
                         </Col>
@@ -151,22 +209,26 @@ class ProjectsCreate extends Component {
                           Budget
                         </label>
                         <Col lg="10">
-                          <Input
-                            id="projectbudget"
+                          <AvField
                             name="projectbudget"
                             type="text"
-                            placeholder="Enter Project Budget..."
+                            errorMessage="Invalid Project Budget"
+                            rows="3"
+                            validate={{
+                              required: { value: true },
+                            }}
                             className="form-control"
+                            placeholder="Enter Project Budget..."
                           />
                         </Col>
                       </FormGroup>
-                    </Form>
-                    <FormGroup className="mb-4" row>
-                      <Label className="col-form-label col-lg-2">
-                        Attached Files
+
+                      <FormGroup className="mb-4" row>
+                        <Label className="col-form-label col-lg-2">
+                          Attached Files
                       </Label>
-                      <Col lg="10">
-                        <Form>
+                        <Col lg="10">
+
                           <Dropzone
                             onDrop={acceptedFiles =>
                               this.handleAcceptedFiles(acceptedFiles)
@@ -227,16 +289,17 @@ class ProjectsCreate extends Component {
                               )
                             })}
                           </div>
-                        </Form>
-                      </Col>
-                    </FormGroup>
-                    <Row className="justify-content-end">
-                      <Col lg="10">
-                        <Button type="submit" color="primary">
-                          Create Project
+                        </Col>
+                      </FormGroup>
+                      <Row className="justify-content-end">
+                        <Col lg="10">
+                          <Button type="submit" color="primary">
+                            Create Project
                         </Button>
-                      </Col>
-                    </Row>
+                        </Col>
+                      </Row>
+
+                    </AvForm>
                   </CardBody>
                 </Card>
               </Col>
@@ -248,4 +311,22 @@ class ProjectsCreate extends Component {
   }
 }
 
-export default ProjectsCreate
+ProjectsCreate.propTypes = {
+  projects: PropTypes.array,
+  onGetProjects: PropTypes.func,
+  onAddNewProject: PropTypes.func,
+}
+
+const mapStateToProps = ({ projects }) => ({
+  projects: projects.projects,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onGetProjects: () => dispatch(getProjects()),
+  onAddNewProject: project => dispatch(addNewProject(project)),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ProjectsCreate))

@@ -16,7 +16,6 @@ import {
 import Navbar from "./Navbar"
 import Header from "./Header"
 import Footer from "./Footer"
-import Rightbar from "../CommonForBoth/Rightbar"
 
 class Layout extends Component {
   constructor(props) {
@@ -55,7 +54,7 @@ class Layout extends Component {
     // let currentage = title.charAt(1).toUpperCase() + title.slice(2)
 
     // document.title =
-    //   currentage + " | Skote - Responsive Bootstrap 5 Admin Dashboard"
+    //   currentage + " | Skote - React Admin & Dashboard Template"
 
     this.props.changeLayout("horizontal")
     if (this.props.topbarTheme) {
@@ -102,7 +101,6 @@ class Layout extends Component {
             <div className="main-content">{this.props.children}</div>
             <Footer />
           </div>
-          <Rightbar />
         </I18nextProvider>
       </React.Fragment>
     )

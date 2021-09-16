@@ -59,7 +59,7 @@ class ForgetPasswordPage extends Component {
                     <div className="p-2">
                       <Alert color="success" className="text-center mb-4">
                         Enter your Email and instructions will be sent to you!
-                        </Alert>
+                      </Alert>
                       <AvForm className="mb-3">
                         <div className="form-group">
                           <AvField
@@ -71,13 +71,13 @@ class ForgetPasswordPage extends Component {
                             required
                           />
                         </div>
-                        <div className="text-end">
+                        <div className="text-end mt-2">
                           <button
-                            className="btn btn-primary w-md waves-effect waves-light"
+                            className="btn btn-primary w-md"
                             type="submit"
                           >
                             Reset
-                            </button>
+                          </button>
                         </div>
                       </AvForm>
                     </div>

@@ -27,9 +27,9 @@ export default class TwostepVerification extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className="account-pages my-5 pt-sm-5">
           <MetaTags>
-            <title>Two Step Verification | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Two Step Verification | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row>
@@ -49,7 +49,7 @@ export default class TwostepVerification extends Component {
                       className="auth-logo-light mx-auto"
                     />
                   </Link>
-                  <p className="mt-3">Responsive Bootstrap 5 Admin Dashboard</p>
+                  <p className="mt-3">React Admin & Dashboard Template</p>
                 </div>
               </Col>
             </Row>
@@ -85,6 +85,7 @@ export default class TwostepVerification extends Component {
                                   </label>
                                   <AuthCode
                                     characters={4}
+                                    onChange={() => null}
                                     className="form-control form-control-lg text-center"
                                     allowedCharacters="^[0-9]"
                                     inputStyle={{
@@ -106,7 +107,7 @@ export default class TwostepVerification extends Component {
 
                           <div className="mt-4">
                             <Link
-                              to="dashboard"
+                              to="/dashboard"
                               className="btn btn-success w-md"
                             >
                               Confirm
@@ -119,11 +120,11 @@ export default class TwostepVerification extends Component {
                 </Card>
                 <div className="mt-5 text-center">
                   <p>
-                    Did't receive a code ?{" "}
-                    <a href="#" className="fw-medium text-primary">
+                    Did&apos;t receive a code ?{" "}
+                    <Link to="#" className="fw-medium text-primary">
                       {" "}
                       Resend{" "}
-                    </a>{" "}
+                    </Link>{" "}
                   </p>
                   <p>
                     © {new Date().getFullYear()} Skote. Crafted with{" "}

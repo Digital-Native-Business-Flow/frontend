@@ -87,7 +87,7 @@ class Dashboard extends Component {
           title: "Bitcoin",
           icon: "mdi mdi-bitcoin",
           color: "warning",
-          value: "$ 9134.39",
+          value: "$ 57,986.76",
           arrow: 'mdi-arrow-up text-success',
           desc: "+ 0.0012 ( 0.2 % )",
           series: series1,
@@ -98,7 +98,7 @@ class Dashboard extends Component {
           icon: "mdi mdi-ethereum",
           color: "primary",
           arrow: 'mdi-arrow-down text-danger',
-          value: "$ 245.44",
+          value: "$ 2,077.53",
           desc: "- 4.102 ( 0.1 % )",
           series: series2,
           options: options2,
@@ -108,7 +108,7 @@ class Dashboard extends Component {
           icon: "mdi mdi-litecoin",
           color: "info",
           arrow: 'mdi-arrow-up text-success',
-          value: "$ 63.61",
+          value: "$ 225.01",
           desc: "+ 1.792 ( 0.1 % )",
           series: series3,
           options: options3,
@@ -122,7 +122,7 @@ class Dashboard extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Crypto Dashboard | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Crypto Dashboard | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}

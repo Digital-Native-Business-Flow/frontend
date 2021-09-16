@@ -1,8 +1,11 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom"
 import MetaTags from 'react-meta-tags';
+import { Col, Container, Row, Alert } from "reactstrap"
 
-import { Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
+// availity-reactstrap-validation
+import { AvField, AvForm } from "availity-reactstrap-validation"
 
 // import images
 import logodark from "../../assets/images/logo-dark.png"
@@ -14,8 +17,8 @@ export default class Register2 extends Component {
     return (
       <React.Fragment>
         <div>
-        <MetaTags>
-            <title>Register 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Register 2 | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid className="p-0">
             <Row className="g-0">
@@ -50,94 +53,80 @@ export default class Register2 extends Component {
                         </div>
 
                         <div className="mt-4">
-                          <Form action="dashboard" className="needs-validation">
-                            <FormGroup className="mb-3">
-                              <Label htmlFor="useremail" className="form-label">Email</Label>
-                              <Input
-                                type="email"
-                                className="form-control"
-                                id="useremail"
-                                placeholder="Enter email"
-                              />
-                            </FormGroup>
+                          <AvForm className="form-horizontal">
+                            {this.props.error && this.props.error ? (
+                              <Alert color="danger">{this.props.error}</Alert>
+                            ) : null}
 
-                            <FormGroup className="mb-3">
-                              <Label htmlFor="username" className="form-label">Username</Label>
-                              <Input
-                                type="text"
+                            <div className="mb-3">
+                              <AvField name="username"
+                                label="Username"
+                                value=""
                                 className="form-control"
-                                id="username"
                                 placeholder="Enter username"
+                                type="text"
+                                required
                               />
-                            </FormGroup>
-
-                            <FormGroup className="mb-3">
-                              <Label htmlFor="userpassword" className="form-label">Password</Label>
-                              <Input
-                                type="password"
-                                className="form-control"
-                                id="userpassword"
-                                placeholder="Enter password"
-                              />
-                            </FormGroup>
-
-                            <div>
-                              <p className="mb-0">
-                                By registering you agree to the Skote{" "}
-                                <a href="#" className="text-primary">
-                                  Terms of Use
-                                </a>
-                              </p>
                             </div>
 
-                            <div className="mt-4 d-grid">
-                              <button
-                                className="btn btn-primary btn-block waves-effect waves-light"
-                                type="submit"
-                              >
-                                Register
-                              </button>
+                            <div className="mb-3">
+                              <AvField name="email"
+                                label="Email"
+                                value=""
+                                className="form-control"
+                                placeholder="Enter email"
+                                type="email"
+                                required
+                              />
+                            </div>
+
+                            <div className="mb-3">
+                              <AvField name="password"
+                                label="password"
+                                value=""
+                                className="form-control"
+                                placeholder="Enter Password"
+                                type="password"
+                                required
+                              />
+                            </div>
+                            <div>
+                              <p className="mb-0">By registering you agree to the Skote
+                                <Link to="#" className="text-primary">Terms of Use</Link></p>
+                            </div>
+
+                            <div className="mt-3 d-grid">
+                              <button className="btn btn-primary btn-block" type="submit" > Register </button>
                             </div>
 
                             <div className="mt-4 text-center">
-                              <h5 className="font-size-14 mb-3">
-                                Sign up using
-                              </h5>
+                              <h5 className="font-size-14 mb-3">Sign in using</h5>
 
                               <ul className="list-inline">
                                 <li className="list-inline-item">
-                                  <Link
-                                    to="#"
-                                    className="social-list-item bg-primary text-white border-primary"
-                                  >
+                                  <Link to="#" className="social-list-item bg-primary text-white border-primary">
                                     <i className="mdi mdi-facebook"></i>
                                   </Link>
-                                </li>{" "}
+                                </li>
                                 <li className="list-inline-item">
-                                  <Link
-                                    to="#"
-                                    className="social-list-item bg-info text-white border-info"
-                                  >
+                                  <Link to="#" className="social-list-item bg-info text-white border-info">
                                     <i className="mdi mdi-twitter"></i>
                                   </Link>
-                                </li>{" "}
+                                </li>
                                 <li className="list-inline-item">
-                                  <Link
-                                    to="#"
-                                    className="social-list-item bg-danger text-white border-danger"
-                                  >
+                                  <Link to="#" className="social-list-item bg-danger text-white border-danger">
                                     <i className="mdi mdi-google"></i>
                                   </Link>
                                 </li>
                               </ul>
                             </div>
-                          </Form>
+                          </AvForm>
 
                           <div className="mt-5 text-center">
                             <p>
                               Already have an account ?{" "}
                               <Link
-                                to="page-login-2"
+                                to="pages-login-2"
                                 className="fw-medium text-primary"
                               >
                                 {" "}
@@ -151,9 +140,7 @@ export default class Register2 extends Component {
                       <div className="mt-4 mt-md-5 text-center">
                         <p className="mb-0">
                           ©{" "}
-                          <script>
-                            document.write(new Date().getFullYear())
-                          </script>{" "}
+                          {new Date().getFullYear()}
                           Skote. Crafted with{" "}
                           <i className="mdi mdi-heart text-danger"></i> by
                           Themesbrand
@@ -169,4 +156,8 @@ export default class Register2 extends Component {
       </React.Fragment>
     )
   }
+}
+
+Register2.propTypes = {
+  error: PropTypes.any,
 }

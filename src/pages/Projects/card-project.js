@@ -8,7 +8,6 @@ import {
   CardBody,
   Col,
   Media,
-  UncontrolledTooltip,
 } from "reactstrap"
 import images from "assets/images"
 import companies from "assets/images/companies"
@@ -19,15 +18,15 @@ const CardProject = ({ projects }) => {
       {map(projects, (project, dkey) => (
         <Col xl="4" sm="6" key={"__projectcd_" + dkey}>
           <Card>
-            <CardBody>``
-              <Media>
+            <CardBody>
+              <div className="d-flex">
                 <div className="avatar-md me-4">
                   <span className="avatar-title rounded-circle bg-light text-danger font-size-16">
                     <img src={companies[project.img]} alt="" height="30" />
                   </span>
                 </div>
 
-                <Media className="overflow-hidden" body>
+                <div className="flex-grow-1 overflow-hidden">
                   <h5 className="text-truncate font-size-15">
                     <Link
                       to={`/projects-overview/${project.id}`}
@@ -81,8 +80,8 @@ const CardProject = ({ projects }) => {
                         </React.Fragment>
                     )}
                   </div>
-                </Media>
-              </Media>
+                </div>
+              </div>
             </CardBody>
             <div className="px-4 py-3 border-top">
               <ul className="list-inline mb-0">

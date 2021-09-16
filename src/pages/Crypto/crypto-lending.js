@@ -100,7 +100,7 @@ class CryptoLending extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Lending | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Lending | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -172,11 +172,11 @@ class CryptoLending extends Component {
                           <div className="event-timeline-dot">
                             <i className="bx bx-right-arrow-circle"></i>
                           </div>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3">
                               <i className="bx bx-user-plus h2 text-primary"></i>
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <div>
                                 <h5 className="font-size-14">
                                   Register account
@@ -186,18 +186,18 @@ class CryptoLending extends Component {
                                   regular than the existing.
                                 </p>
                               </div>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </li>
                         <li className="event-list">
                           <div className="event-timeline-dot">
                             <i className="bx bx-right-arrow-circle"></i>
                           </div>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3">
                               <i className="bx bx-copy-alt h2 text-primary"></i>
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <div>
                                 <h5 className="font-size-14">Select Deposit</h5>
                                 <p className="text-muted">
@@ -205,19 +205,19 @@ class CryptoLending extends Component {
                                   uniform grammar.
                                 </p>
                               </div>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </li>
 
                         <li className="event-list">
                           <div className="event-timeline-dot">
                             <i className="bx bx-right-arrow-circle"></i>
                           </div>
-                          <Media>
+                          <div className="d-flex">
                             <div className="me-3">
                               <i className="bx bx-cloud-download h2 text-primary"></i>
                             </div>
-                            <Media body>
+                            <div className="flex-grow-1">
                               <div>
                                 <h5 className="font-size-14">Get Earnings</h5>
                                 <p className="text-muted">
@@ -225,8 +225,8 @@ class CryptoLending extends Component {
                                   regular than the existing.
                                 </p>
                               </div>
-                            </Media>
-                          </Media>
+                            </div>
+                          </div>
                         </li>
                       </ul>
                     </div>

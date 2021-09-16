@@ -17,8 +17,8 @@ class ResponsiveTables extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Responsive Table | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Responsive Table | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Tables" breadcrumbItem="Responsive Table" />

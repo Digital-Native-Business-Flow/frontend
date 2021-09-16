@@ -13,17 +13,20 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Media,
   Table,
   Input
 } from "reactstrap"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 
 //import Charts
 import StackedColumnChart from "./StackedColumnChart"
 
 import modalimage1 from "../../assets/images/product/img-7.png"
 import modalimage2 from "../../assets/images/product/img-4.png"
+
+//import action
+import { getChartsData } from "../../store/actions"
 
 // Pages Components
 import WelcomeComp from "./WelcomeComp"
@@ -38,6 +41,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 //i18n
 import { withTranslation } from "react-i18next"
+import classNames from "classnames";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -63,6 +67,8 @@ class Dashboard extends Component {
       ],
       modal: false,
       subscribemodal: false,
+      chartSeries: [],
+      periodType: "yearly"
     }
 
     this.togglemodal.bind(this)
@@ -70,8 +76,11 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    const { onGetChartsData } = this.props
     setTimeout(() => this.setState({ subscribemodal: true }), 2000);
+    onGetChartsData("yearly");
   }
+
 
   togglemodal = () => {
     this.setState(prevState => ({
@@ -85,12 +94,18 @@ class Dashboard extends Component {
     }))
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ ...this.state, chartSeries: this.props.chartsData })
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Dashboard | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Dashboard | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -98,7 +113,6 @@ class Dashboard extends Component {
               title={this.props.t("Dashboards")}
               breadcrumbItem={this.props.t("Dashboard")}
             />
-
             <Row>
               <Col xl="4">
                 <WelcomeComp />
@@ -111,13 +125,13 @@ class Dashboard extends Component {
                     <Col md="4" key={"_col_" + key}>
                       <Card className="mini-stats-wid">
                         <CardBody>
-                          <Media>
-                            <Media body>
+                          <div className="d-flex">
+                            <div className="flex-grow-1">
                               <p className="text-muted fw-medium">
                                 {report.title}
                               </p>
                               <h4 className="mb-0">{report.description}</h4>
-                            </Media>
+                            </div>
                             <div className="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
                               <span className="avatar-title">
                                 <i
@@ -127,7 +141,7 @@ class Dashboard extends Component {
                                 />
                               </span>
                             </div>
-                          </Media>
+                          </div>
                         </CardBody>
                       </Card>
                     </Col>
@@ -139,27 +153,62 @@ class Dashboard extends Component {
                     <div className="d-sm-flex flex-wrap">
                       <CardTitle className="card-title mb-4 h4">
                         Email Sent
-                    </CardTitle>
+                      </CardTitle>
                       <div className="ms-auto">
                         <ul className="nav nav-pills">
-                          {this.state.email.map((mail, key) => (
-                            <li className="nav-item" key={"_li_" + key}>
-                              <Link
-                                className={
-                                  mail.isActive ? "nav-link active" : "nav-link"
-                                }
-                                to={mail.linkto}
-                              >
-                                {mail.title}
-                              </Link>
-                            </li>
-                          ))}
+                          <li className="nav-item">
+                            <Link
+                              to="#"
+                              className={classNames(
+                                { "active": this.state.periodType === "weekly" },
+                                "nav-link"
+                              )}
+                              onClick={() => {
+                                this.setState({ ...this.state, periodType: "weekly" });
+                                this.props.onGetChartsData("weekly")
+                              }}
+                              id="one_month"
+                            >
+                              Week
+                            </Link>{" "}
+                          </li>
+                          <li className="nav-item">
+                            <Link
+                              to="#"
+                              className={classNames(
+                                { "active": this.state.periodType === "monthly" },
+                                "nav-link"
+                              )}
+                              onClick={() => {
+                                this.setState({ ...this.state, periodType: "monthly" });
+                                this.props.onGetChartsData("monthly")
+                              }}
+                              id="one_month"
+                            >
+                              Month
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link
+                              to="#"
+                              className={classNames(
+                                { "active": this.state.periodType === "yearly" },
+                                "nav-link"
+                              )}
+                              onClick={() => {
+                                this.setState({ ...this.state, periodType: "yearly" });
+                                this.props.onGetChartsData("yearly")
+                              }}
+                              id="one_month"
+                            >
+                              Year
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                     </div>
                     <div className="clearfix" />
-                    <StackedColumnChart />
-
+                    <StackedColumnChart chartSeries={this.state.chartSeries} />
                   </CardBody>
                 </Card>
               </Col>
@@ -172,12 +221,10 @@ class Dashboard extends Component {
               <Col xl="4">
                 <ActivityComp />
               </Col>
-
               <Col xl="4">
                 <TopCities />
               </Col>
             </Row>
-
             <Row>
               <Col lg="12">
                 <LatestTranaction />
@@ -190,9 +237,8 @@ class Dashboard extends Component {
           isOpen={this.state.subscribemodal}
           role="dialog"
           autoFocus={true}
-          centered={true}
-          tabIndex="-1"
           data-toggle="modal"
+          centered
           toggle={this.togglesubscribemodal}
         >
           <div className="modal-content">
@@ -203,8 +249,9 @@ class Dashboard extends Component {
             </div>
             <div className="modal-body">
               <div className="text-center mb-4">
+
                 <div className="avatar-md mx-auto mb-4">
-                  <div className="avatar-title bg-light rounded-circle text-primary h1">
+                  <div className="avatar-title bg-light  rounded-circle text-primary h1">
                     <i className="mdi mdi-email-open"></i>
                   </div>
                 </div>
@@ -214,9 +261,8 @@ class Dashboard extends Component {
                     <h4 className="text-primary">Subscribe !</h4>
                     <p className="text-muted font-size-14 mb-4">Subscribe our newletter and get notification to stay update.</p>
 
-                    <div className="input-group bg-light rounded">
+                    <div className="input-group  rounded bg-light"  >
                       <Input type="email" className="form-control bg-transparent border-0" placeholder="Enter Email address" />
-
                       <Button color="primary" type="button" id="button-addon2">
                         <i className="bx bxs-paper-plane"></i>
                       </Button>
@@ -269,7 +315,7 @@ class Dashboard extends Component {
                       <td>
                         <div>
                           <h5 className="text-truncate font-size-14">
-                            Wireless Headphone (Black)
+                            Solid Color T-Shirt
                           </h5>
                           <p className="text-muted mb-0">$ 225 x 1</p>
                         </div>
@@ -325,13 +371,26 @@ class Dashboard extends Component {
             </ModalFooter>
           </div>
         </Modal>
-      </React.Fragment>
+      </React.Fragment >
     )
   }
 }
 
 Dashboard.propTypes = {
-  t: PropTypes.any
+  t: PropTypes.any,
+  chartsData: PropTypes.any,
+  onGetChartsData: PropTypes.func
 }
 
-export default withTranslation()(Dashboard)
+const mapStateToProps = ({ Dashboard }) => ({
+  chartsData: Dashboard.chartsData,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onGetChartsData: (periodType) => dispatch(getChartsData(periodType)),
+})
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(withTranslation()(Dashboard))
+

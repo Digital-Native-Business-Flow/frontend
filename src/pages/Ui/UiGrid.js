@@ -24,7 +24,7 @@ class UiGrid extends Component {
       <React.Fragment>
         <div className="page-content">
         <MetaTags>
-            <title>Grid | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Grid | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Grid" />

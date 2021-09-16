@@ -191,7 +191,7 @@ class CryptoExchange extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Exchange | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Exchange | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -201,7 +201,7 @@ class CryptoExchange extends Component {
               <Col lg="12">
                 <Card>
                   <CardBody>
-                    <Media>
+                    <div className="d-flex">
                       <div className="me-3">
                         <img
                           src={avatar}
@@ -209,13 +209,13 @@ class CryptoExchange extends Component {
                           className="avatar-md rounded-circle img-thumbnail"
                         />
                       </div>
-                      <Media body className="align-self-center">
+                      <div className="flex-grow-1 align-self-center">
                         <div className="text-muted">
                           <h5>Henry wells</h5>
                           <p className="mb-1">henrywells@abc.com</p>
                           <p className="mb-0">Id no: #SK0234</p>
                         </div>
-                      </Media>
+                      </div>
                       <Dropdown
                         isOpen={this.state.isMenu}
                         toggle={this.toggleMenu}
@@ -263,7 +263,7 @@ class CryptoExchange extends Component {
                           </DropdownItem>
                         </DropdownMenu>
                       </Dropdown>
-                    </Media>
+                    </div>
                   </CardBody>
                 </Card>
               </Col>
@@ -277,18 +277,18 @@ class CryptoExchange extends Component {
 
                     <Row>
                       <Col xl="3" sm="4">
-                        <Media>
+                        <div className="d-flex">
                           <div className="avatar-sm me-3">
                             <span className="avatar-title rounded-circle bg-soft bg-warning text-warning font-size-22">
                               <i className="mdi mdi-bitcoin"></i>
                             </span>
                           </div>
 
-                          <Media body>
+                          <div className="flex-1">
                             <p className="text-muted mb-2">Bitcoin</p>
                             <h5>1.02356 BTC</h5>
-                          </Media>
-                        </Media>
+                          </div>
+                        </div>
                       </Col>
 
                       <Col xl="3" sm="4">

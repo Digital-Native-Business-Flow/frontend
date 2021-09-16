@@ -29,7 +29,7 @@ class UiDropdown extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Dropdowns | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Dropdowns | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Dropdowns" />
@@ -73,6 +73,7 @@ class UiDropdown extends Component {
                               singlebtn1: !this.state.singlebtn1,
                             })
                           }
+                          className="mt-4 mt-sm-0"
                         >
                           <DropdownToggle className="btn btn-secondary" caret>
                             Dropdown Link{" "}
@@ -547,7 +548,7 @@ class UiDropdown extends Component {
                     <p className="card-title-desc">
                       Add{" "}
                       <code className="highlighter-rouge">
-                        .dropdown-menu-right
+                        .dropdown-menu-end
                       </code>{" "}
                       to a{" "}
                       <code className="highlighter-rouge">.dropdown-menu</code>{" "}
@@ -568,7 +569,7 @@ class UiDropdown extends Component {
                         Menu is right-aligned{" "}
                         <i className="mdi mdi-chevron-down"></i>
                       </DropdownToggle>
-                      <DropdownMenu className="dropdown-menu-right-custom">
+                      <DropdownMenu className="dropdown-menu-end">
                         <DropdownItem disabled>Action</DropdownItem>
                         <DropdownItem>Another Action</DropdownItem>
                         <DropdownItem divider />
@@ -594,6 +595,7 @@ class UiDropdown extends Component {
                       <Dropdown
                         isOpen={this.state.info_dropup1}
                         direction="right"
+                        className="btn-group dropend"
                         toggle={() =>
                           this.setState({
                             info_dropup1: !this.state.info_dropup1,
@@ -603,7 +605,7 @@ class UiDropdown extends Component {
                         <DropdownToggle className="btn btn-info" caret>
                           Dropright <i className="mdi mdi-chevron-right"></i>
                         </DropdownToggle>
-                        <DropdownMenu>
+                        <DropdownMenu data-popper-placement="right-start">
                           <DropdownItem>Action</DropdownItem>
                           <DropdownItem>Another action</DropdownItem>
                           <DropdownItem>Something else here</DropdownItem>
@@ -611,6 +613,7 @@ class UiDropdown extends Component {
                       </Dropdown>
                       <ButtonDropdown
                         direction="right"
+                        className="btn-group dropend"
                         isOpen={this.state.infodrp_up11}
                         toggle={() =>
                           this.setState({
@@ -624,7 +627,7 @@ class UiDropdown extends Component {
                         <DropdownToggle caret color="info">
                           <i className="mdi mdi-chevron-right"></i>
                         </DropdownToggle>
-                        <DropdownMenu>
+                        <DropdownMenu data-popper-placement="right-start">
                           <DropdownItem header>Header</DropdownItem>
                           <DropdownItem disabled>Action</DropdownItem>
                           <DropdownItem>Another Action</DropdownItem>
@@ -650,6 +653,7 @@ class UiDropdown extends Component {
                       <Dropdown
                         isOpen={this.state.info_dropup111}
                         direction="left"
+                        className="btn-group dropstart"
                         toggle={() =>
                           this.setState({
                             info_dropup111: !this.state.info_dropup111,
@@ -659,14 +663,17 @@ class UiDropdown extends Component {
                         <DropdownToggle className="btn btn-info">
                           <i className="mdi mdi-chevron-left"></i> Dropleft
                         </DropdownToggle>
-                        <DropdownMenu>
-                          <DropdownItem>Action</DropdownItem>
-                          <DropdownItem>Another action</DropdownItem>
-                          <DropdownItem>Something else here</DropdownItem>
+                        <DropdownMenu data-popper-placement="left-start">
+                          <DropdownItem header>Header</DropdownItem>
+                          <DropdownItem disabled>Action</DropdownItem>
+                          <DropdownItem>Another Action</DropdownItem>
+                          <DropdownItem divider />
+                          <DropdownItem>Another Action</DropdownItem>
                         </DropdownMenu>
                       </Dropdown>
                       <ButtonDropdown
                         direction="left"
+                        className="btn-group dropstart"
                         isOpen={this.state.infodrp_up1111}
                         toggle={() =>
                           this.setState({
@@ -680,7 +687,7 @@ class UiDropdown extends Component {
                         <Button id="caret" color="info">
                           Split dropstart
                         </Button>
-                        <DropdownMenu>
+                        <DropdownMenu data-popper-placement="left-start">
                           <DropdownItem header>Header</DropdownItem>
                           <DropdownItem disabled>Action</DropdownItem>
                           <DropdownItem>Another Action</DropdownItem>

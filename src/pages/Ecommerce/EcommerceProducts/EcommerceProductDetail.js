@@ -75,7 +75,7 @@ class EcommerceProductDetail extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Products Details | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Products Details | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             <Breadcrumbs title="Ecommerce" breadcrumbItem="Product Details" />
@@ -100,11 +100,11 @@ class EcommerceProductDetail extends Component {
                                       }}
                                     >
                                       <img
-                                        src={productImages[product.image]}
+                                        src={product['subImage'][0]}
                                         alt=""
                                         onClick={() => {
                                           this.imageShow(
-                                            productImages[product.image],
+                                            product['subImage'][0],
                                             1
                                           )
                                         }}
@@ -122,11 +122,11 @@ class EcommerceProductDetail extends Component {
                                       }}
                                     >
                                       <img
-                                        src={productImages[product.image]}
+                                        src={product['subImage'][1]}
                                         alt=""
                                         onClick={() => {
                                           this.imageShow(
-                                            productImages[product.image],
+                                            product['subImage'][1],
                                             2
                                           )
                                         }}
@@ -144,11 +144,11 @@ class EcommerceProductDetail extends Component {
                                       }}
                                     >
                                       <img
-                                        src={productImages[product.image]}
+                                        src={product['subImage'][2]}
                                         alt=""
                                         onClick={() => {
                                           this.imageShow(
-                                            productImages[product.image],
+                                            product['subImage'][2],
                                             3
                                           )
                                         }}
@@ -205,7 +205,7 @@ class EcommerceProductDetail extends Component {
                                   <Button
                                     type="button"
                                     color="primary"
-                                    className="btn waves-effect waves-light mt-2 me-1"
+                                    className="btn mt-2 me-1"
                                   >
                                     <i className="bx bx-cart me-2" /> Add to
                                     cart
@@ -213,7 +213,7 @@ class EcommerceProductDetail extends Component {
                                   <Button
                                     type="button"
                                     color="success"
-                                    className="ml-1 btn waves-effect  mt-2 waves-light"
+                                    className="ml-1 btn  mt-2"
                                   >
                                     <i className="bx bx-shopping-bag me-2" />
                                     Buy now

@@ -18,11 +18,11 @@ class MapsLeaflet extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Leaflet | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Leaflet Maps | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
-            <Breadcrumbs title="Maps" breadcrumbItem="Leaflet" />
+            <Breadcrumbs title="Maps" breadcrumbItem="Leaflet Maps" />
             <Row>
               <Col lg="6">
                 <Card>

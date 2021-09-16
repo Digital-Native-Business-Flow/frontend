@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import { Col, Card, CardBody, Button } from "reactstrap"
-import ReactApexChart from "react-apexcharts"
+import React, { Component } from "react";
+import { Col, Card, CardBody, Button } from "reactstrap";
+import ReactApexChart from "react-apexcharts";
 
 class OverView extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       series: [
         {
@@ -314,84 +314,84 @@ class OverView extends Component {
       active6M: false,
       activeY: true,
       activeA: false,
-    }
-    this.updateChartMonthly = this.updateChartMonthly.bind(this)
-    this.updateChartSixMonth.bind(this)
-    this.updateChartYearly.bind(this)
-    this.updateChartAll.bind(this)
+    };
+    this.updateChartMonthly = this.updateChartMonthly.bind(this);
+    this.updateChartSixMonth.bind(this);
+    this.updateChartYearly.bind(this);
+    this.updateChartAll.bind(this);
   }
 
   updateChartMonthly() {
     var newxaxis = {
       min: new Date("28 Jan 2013").getTime(),
       max: new Date("27 Feb 2013").getTime(),
-    }
+    };
     this.setState(prevState => ({
       options: {
         ...prevState.options,
         xaxis: newxaxis,
       },
-    }))
+    }));
     this.setState({
       activeM: true,
       active6M: false,
       activeY: false,
       activeA: false,
-    })
+    });
   }
 
   updateChartSixMonth() {
     var newxaxis = {
       min: new Date("27 Sep 2012").getTime(),
       max: new Date("27 Feb 2013").getTime(),
-    }
+    };
     this.setState(prevState => ({
       options: {
         ...prevState.options,
         xaxis: newxaxis,
       },
-    }))
+    }));
     this.setState({
       activeM: false,
       active6M: true,
       activeY: false,
       activeA: false,
-    })
+    });
   }
 
   updateChartYearly() {
     var newxaxis = {
       min: new Date("27 Feb 2012").getTime(),
       max: new Date("27 Feb 2013").getTime(),
-    }
+    };
     this.setState(prevState => ({
       options: {
         ...prevState.options,
         xaxis: newxaxis,
       },
-    }))
+    }));
     this.setState({
       activeM: false,
       active6M: false,
       activeY: true,
       activeA: false,
-    })
+    });
   }
 
   updateChartAll() {
-    var newxaxis = { min: void 0, max: void 0 }
+    var newxaxis = { min: void 0, max: void 0 };
     this.setState(prevState => ({
       options: {
         ...prevState.options,
         xaxis: newxaxis,
       },
-    }))
+    }));
     this.setState({
       activeM: false,
       active6M: false,
       activeY: false,
       activeA: true,
-    })
+    });
   }
 
   render() {
@@ -404,7 +404,7 @@ class OverView extends Component {
 
               <div>
                 <div id="overview-chart" className="apex-charts" dir="ltr">
-                  <div className="toolbar button-items text-center">
+                  <div className="toolbar d-flex flex-wrap gap-2 justify-content-center">
                     <Button
                       color="light"
                       size="sm"
@@ -460,8 +460,8 @@ class OverView extends Component {
           </Card>
         </Col>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default OverView
+export default OverView;

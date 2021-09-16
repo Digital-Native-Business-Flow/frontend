@@ -49,21 +49,18 @@ class EmailToolbar extends Component {
             <Button
               type="button"
               color="primary"
-              className="waves-light waves-effect"
             >
               <i className="fa fa-inbox"/>
             </Button>
             <Button
               type="button"
               color="primary"
-              className="waves-light waves-effect"
             >
               <i className="fa fa-exclamation-circle"/>
             </Button>
             <Button
               type="button"
               color="primary"
-              className="waves-light waves-effect"
             >
               <i className="far fa-trash-alt"/>
             </Button>
@@ -74,7 +71,7 @@ class EmailToolbar extends Component {
             className="btn-group me-2 mb-2 mb-sm-0"
           >
             <DropdownToggle
-              className="btn btn-primary waves-light waves-effect dropdown-toggle"
+              className="btn btn-primary dropdown-toggle"
               tag="i"
             >
               <i className="fa fa-folder"/>{" "}
@@ -92,7 +89,7 @@ class EmailToolbar extends Component {
             className="btn-group me-2 mb-2 mb-sm-0"
           >
             <DropdownToggle
-              className="btn btn-primary waves-light waves-effect dropdown-toggle"
+              className="btn btn-primary dropdown-toggle"
               tag="i"
             >
               <i className="fa fa-tag"/>{" "}
@@ -110,7 +107,7 @@ class EmailToolbar extends Component {
             className="btn-group me-2 mb-2 mb-sm-0"
           >
             <DropdownToggle
-              className="btn btn-primary waves-light waves-effect dropdown-toggle"
+              className="btn btn-primary dropdown-toggle"
               tag="div"
             >
               More <i className="mdi mdi-dots-vertical ms-2"/>

@@ -57,6 +57,12 @@
     }
 }
 
+body[data-layout="horizontal"] {
+    #page-topbar{
+        left: 0;
+    }
+}
+
 @include media-breakpoint-up(xl) {
 
     body[data-layout="horizontal"] {

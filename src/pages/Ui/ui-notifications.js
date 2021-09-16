@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import MetaTags from 'react-meta-tags';
 import {
   Button,
@@ -9,16 +9,16 @@ import {
   FormGroup,
   Label,
   Row,
-} from "reactstrap"
-import toastr from "toastr"
-import "toastr/build/toastr.min.css"
+} from "reactstrap";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 class UiNotifications extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showEasing: "swing",
       hideEasing: "linear",
@@ -29,74 +29,74 @@ class UiNotifications extends Component {
       hideDuration: 1000,
       timeOut: 5000,
       extendedTimeOut: 1000,
-    }
-    this.showToast.bind(this)
-    this.clearToast.bind(this)
+    };
+    this.showToast.bind(this);
+    this.clearToast.bind(this);
   }
 
   showToast() {
-    var ele = document.getElementsByName("toastType")
-    var position = document.getElementsByName("positions")
-    var toastType
-    var title = document.getElementById("title").value
-    var message = "Have fun storming the castle!"
+    var ele = document.getElementsByName("toastType");
+    var position = document.getElementsByName("positions");
+    var toastType;
+    var title = document.getElementById("title").value;
+    var message = "Have fun storming the castle!";
 
     if (document.getElementById("message").value !== "")
-      message = document.getElementById("message").value
+      message = document.getElementById("message").value;
 
     //Close Button
-    var closeButton = document.getElementById("closeButton").checked
+    var closeButton = document.getElementById("closeButton").checked;
 
     //Add behavior on toast click Button
-    var behaviorButton = document.getElementById("behaviorButton").checked
+    var behaviorButton = document.getElementById("behaviorButton").checked;
 
     //Debug
-    var debug = document.getElementById("debugInfo").checked
+    var debug = document.getElementById("debugInfo").checked;
 
     //Progressbar
-    var progressBar = document.getElementById("progressBar").checked
+    var progressBar = document.getElementById("progressBar").checked;
 
     //Duplicates
-    var preventDuplicates = document.getElementById("preventDuplicates").checked
+    var preventDuplicates = document.getElementById("preventDuplicates").checked;
 
     //Newest on Top
-    var newestOnTop = document.getElementById("newestOnTop").checked
+    var newestOnTop = document.getElementById("newestOnTop").checked;
 
     //position class
-    var positionClass = "toast-top-right"
+    var positionClass = "toast-top-right";
 
     //Fetch position
     for (var p = 0; p < position.length; p++) {
-      if (position[p].checked) positionClass = position[p].value
+      if (position[p].checked) positionClass = position[p].value;
     }
 
     //Show Easing
-    var showEasing = document.getElementById("showEasing").value
+    var showEasing = document.getElementById("showEasing").value;
 
     //Hide Easing
-    var hideEasing = document.getElementById("hideEasing").value
+    var hideEasing = document.getElementById("hideEasing").value;
 
     //show method
-    var showMethod = document.getElementById("showMethod").value
+    var showMethod = document.getElementById("showMethod").value;
 
     //Hide method
-    var hideMethod = document.getElementById("hideMethod").value
+    var hideMethod = document.getElementById("hideMethod").value;
 
     //show duration
-    var showDuration = document.getElementById("showDuration").value
+    var showDuration = document.getElementById("showDuration").value;
 
     //Hide duration
-    var hideDuration = document.getElementById("hideDuration").value
+    var hideDuration = document.getElementById("hideDuration").value;
 
     //timeout
-    var timeOut = document.getElementById("timeOut").value
+    var timeOut = document.getElementById("timeOut").value;
 
     //extended timeout
-    var extendedTimeOut = document.getElementById("extendedTimeOut").value
+    var extendedTimeOut = document.getElementById("extendedTimeOut").value;
 
     //Fetch checked Type
     for (var i = 0; i < ele.length; i++) {
-      if (ele[i].checked) toastType = ele[i].value
+      if (ele[i].checked) toastType = ele[i].value;
     }
 
     toastr.options = {
@@ -115,26 +115,26 @@ class UiNotifications extends Component {
       hideMethod: hideMethod,
       showDuration: showDuration,
       hideDuration: hideDuration,
-    }
+    };
 
     // setTimeout(() => toastr.success(`Settings updated `), 300)
     //Toaster Types
-    if (toastType === "info") toastr.info(message, title)
-    else if (toastType === "warning") toastr.warning(message, title)
-    else if (toastType === "error") toastr.error(message, title)
-    else toastr.success(message, title)
+    if (toastType === "info") toastr.info(message, title);
+    else if (toastType === "warning") toastr.warning(message, title);
+    else if (toastType === "error") toastr.error(message, title);
+    else toastr.success(message, title);
   }
 
   clearToast() {
-    toastr.clear()
+    toastr.clear();
   }
 
   render() {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Notifications | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Notifications | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Notifications" />
@@ -156,7 +156,7 @@ class UiNotifications extends Component {
                                 placeholder="Enter a title ..."
                               />
                             </FormGroup>
-                            <FormGroup className="mb-3"> 
+                            <FormGroup className="mb-3">
                               <Label className="control-label">Message</Label>
                               <textarea
                                 className="input-large form-control"
@@ -358,6 +358,7 @@ class UiNotifications extends Component {
                                 name="positions"
                                 className="form-check-input"
                                 value="toast-top-right"
+                                defaultChecked
                               />
                               <Label
                                 className="form-check-label"
@@ -494,7 +495,7 @@ class UiNotifications extends Component {
                                 className="input-mini form-control"
                                 value={this.state.showEasing}
                                 onChange={e => {
-                                  this.setState({ showEasing: e.target.value })
+                                  this.setState({ showEasing: e.target.value });
                                 }}
                               />
                             </FormGroup>
@@ -507,7 +508,7 @@ class UiNotifications extends Component {
                                 className="input-mini form-control"
                                 value={this.state.hideEasing}
                                 onChange={e => {
-                                  this.setState({ hideEasing: e.target.value })
+                                  this.setState({ hideEasing: e.target.value });
                                 }}
                               />
                             </FormGroup>
@@ -520,7 +521,7 @@ class UiNotifications extends Component {
                                 className="input-mini form-control"
                                 value={this.state.showMethod}
                                 onChange={e => {
-                                  this.setState({ showMethod: e.target.value })
+                                  this.setState({ showMethod: e.target.value });
                                 }}
                               />
                             </FormGroup>
@@ -533,7 +534,7 @@ class UiNotifications extends Component {
                                 className="input-mini form-control"
                                 value={this.state.hideMethod}
                                 onChange={e => {
-                                  this.setState({ hideMethod: e.target.value })
+                                  this.setState({ hideMethod: e.target.value });
                                 }}
                               />
                             </FormGroup>
@@ -555,7 +556,7 @@ class UiNotifications extends Component {
                                 onChange={e => {
                                   this.setState({
                                     showDuration: e.target.value,
-                                  })
+                                  });
                                 }}
                               />
                             </FormGroup>
@@ -570,7 +571,7 @@ class UiNotifications extends Component {
                                 onChange={e => {
                                   this.setState({
                                     hideDuration: e.target.value,
-                                  })
+                                  });
                                 }}
                               />
                             </FormGroup>
@@ -583,7 +584,7 @@ class UiNotifications extends Component {
                                 className="form-control"
                                 value={this.state.timeOut}
                                 onChange={e => {
-                                  this.setState({ timeOut: e.target.value })
+                                  this.setState({ timeOut: e.target.value });
                                 }}
                               />
                             </FormGroup>
@@ -600,7 +601,7 @@ class UiNotifications extends Component {
                                 onChange={e => {
                                   this.setState({
                                     extendedTimeOut: e.target.value,
-                                  })
+                                  });
                                 }}
                               />
                             </FormGroup>
@@ -630,7 +631,7 @@ class UiNotifications extends Component {
                           </Button>
                           <Button
                             type="button"
-                                                                                                                                                                                                                color="danger"
+                            color="danger"
                             id="clearlasttoast"
                           >
                             Clear Last Toast
@@ -654,8 +655,8 @@ class UiNotifications extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default UiNotifications
+export default UiNotifications;

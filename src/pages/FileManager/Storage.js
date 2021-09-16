@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom"
 import { Card, CardBody } from "reactstrap"
 import ReactApexChart from "react-apexcharts"
@@ -169,3 +170,8 @@ export default class Storage extends Component {
     )
   }
 }
+
+Storage.propTypes = {
+  filemanager: PropTypes.any
+}
+

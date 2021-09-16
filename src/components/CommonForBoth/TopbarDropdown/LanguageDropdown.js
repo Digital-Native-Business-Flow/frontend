@@ -1,17 +1,17 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap"
-import { map } from "lodash"
+} from "reactstrap";
+import { map } from "lodash";
 
 //i18n
-import i18n from "../../../i18n"
-import { withTranslation } from "react-i18next"
+import i18n from "../../../i18n";
+import { withTranslation } from "react-i18next";
 
-import languages from "../../../common/languages"
+import languages from "../../../common/languages";
 
 class LanguageDropdown extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class LanguageDropdown extends Component {
     return (
       <React.Fragment>
         <Dropdown isOpen={menu} toggle={this.toggle} className="d-inline-block">
-          <DropdownToggle className="btn header-item waves-effect" tag="button">
+          <DropdownToggle className="btn header-item" tag="button">
             <img
               src={languages[selectedLang].flag}
               alt="Skote"
@@ -54,7 +54,7 @@ class LanguageDropdown extends Component {
               className="me-1"
             />
           </DropdownToggle>
-          <DropdownMenu className="language-switch" right>
+          <DropdownMenu className="language-switch dropdown-menu-end">
             {map(Object.keys(languages), key => (
               <DropdownItem
                 key={key}
@@ -81,4 +81,4 @@ class LanguageDropdown extends Component {
   }
 }
 
-export default withTranslation()(LanguageDropdown)
+export default withTranslation()(LanguageDropdown);

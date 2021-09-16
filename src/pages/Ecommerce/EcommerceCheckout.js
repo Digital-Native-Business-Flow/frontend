@@ -65,7 +65,7 @@ class EcommerceCheckout extends Component {
         {
           id: 2,
           img: img7,
-          productTitle: "Wirless Headphone",
+          productTitle: "Solid Color T-Shirt",
           price: 225,
           qty: 1,
         },
@@ -95,7 +95,7 @@ class EcommerceCheckout extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Checkout | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Checkout | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -289,7 +289,7 @@ class EcommerceCheckout extends Component {
                                     <option value="CG">Congo</option>
                                     <option value="CK">Cook Islands</option>
                                     <option value="CR">Costa Rica</option>
-                                    <option value="CI">Cote d'Ivoire</option>
+                                    <option value="CI">Cote d&apos;Ivoire</option>
                                     <option value="HR">
                                       Croatia (Hrvatska)
                                     </option>
@@ -700,7 +700,7 @@ class EcommerceCheckout extends Component {
                                           <td>
                                             <h5 className="font-size-14 text-truncate">
                                               <a
-                                                href="ecommerce-product-detail.html"
+                                                href="/ecommerce-product-details/1"
                                                 className="text-dark"
                                               >
                                                 {orderitem.productTitle}{" "}

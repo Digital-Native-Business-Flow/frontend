@@ -33,6 +33,15 @@ import tasks from "./tasks/reducer"
 //contacts
 import contacts from "./contacts/reducer"
 
+//mails
+import mails from "./mails/reducer";
+
+//Dashboard 
+import Dashboard from "./dashboard/reducer";
+
+//Dasboard saas
+import DashboardSaas from "./dashboard-saas/reducer";
+
 const rootReducer = combineReducers({
   // public
   Layout,
@@ -43,11 +52,14 @@ const rootReducer = combineReducers({
   ecommerce,
   calendar,
   chat,
+  mails,
   crypto,
   invoices,
   projects,
   tasks,
   contacts,
+  Dashboard,
+  DashboardSaas
 })
 
 export default rootReducer

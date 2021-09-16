@@ -62,8 +62,8 @@ class IconFontawesome extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Font awesome | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Font Awesome | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Icons" breadcrumbItem="Font awesome" />
@@ -74,7 +74,7 @@ class IconFontawesome extends Component {
                   <CardBody>
                     <h4 className="card-title">Solid</h4>
                     <p className="card-title-desc mb-2">
-                      Use <code>&lt;i className="fas fa-ad"&gt;&lt;/i&gt;</code>{" "}
+                      Use <code>&lt;i className=&quot;fas fa-ad&ldquo;&gt;&lt;/i&gt;</code>{" "}
                       <span className="badge badge-success">v 5.13.0</span>.
                     </p>
                     <Row className="icon-demo-content" id="solid"></Row>
@@ -86,7 +86,7 @@ class IconFontawesome extends Component {
                     <p className="card-title-desc mb-2">
                       Use{" "}
                       <code>
-                        &lt;i className="far fa-address-book"&gt;&lt;/i&gt;
+                        &lt;i className=&quot;far fa-address-book&ldquo;&gt;&lt;/i&gt;
                       </code>{" "}
                       <span className="badge badge-success">v 5.13.0</span>.
                     </p>
@@ -98,7 +98,7 @@ class IconFontawesome extends Component {
                     <h4 className="card-title">Brands</h4>
                     <p className="card-title-desc mb-2">
                       Use{" "}
-                      <code>&lt;i className="fab fa-500px"&gt;&lt;/i&gt;</code>{" "}
+                      <code>&lt;i className=&quot;fab fa-500px&ldquo;&gt;&lt;/i&gt;</code>{" "}
                       <span className="badge badge-success">v 5.13.0</span>.
                     </p>
                     <Row className="icon-demo-content" id="brand"></Row>

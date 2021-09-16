@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
-  FormGroup,
   Input,
   Media,
   Modal,
@@ -11,6 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap"
+import classnames from "classnames"
 
 // Import Editor
 import { Editor } from "react-draft-wysiwyg"
@@ -24,11 +25,24 @@ import avatar6 from "../../assets/images/users/avatar-6.jpg"
 
 class EmailSideBar extends Component {
   constructor(props) {
+
     super(props)
     this.state = {
       modal: false,
+      activeTab: "1",
     }
+
     this.togglemodal.bind(this)
+    this.toggleTab = this.toggleTab.bind(this)
+  }
+
+  toggleTab(tab) {
+
+    if (this.props.activeTab !== tab) {
+      this.setState({
+        activeTab: tab,
+      })
+    }
   }
 
   togglemodal = () => {
@@ -38,13 +52,13 @@ class EmailSideBar extends Component {
   }
 
   render() {
+
     return (
       <React.Fragment>
         <Card className="email-leftbar">
           <Button
             type="button"
             color="danger"
-            className="waves-effect waves-light"
             onClick={this.togglemodal}
             block
           >
@@ -55,19 +69,19 @@ class EmailSideBar extends Component {
               <i className="mdi mdi-email-outline me-2"></i> Inbox{" "}
               <span className="ml-1 float-end">(18)</span>
             </Link>
-            <Link to="#">
+            <Link to="/email-inbox" filter="SHOW_COMPLETED">
               <i className="mdi mdi-star-outline me-2"></i>Starred
             </Link>
-            <Link to="#">
+            <Link to="/email-inbox">
               <i className="mdi mdi-diamond-stone me-2"></i>Important
             </Link>
-            <Link to="#">
+            <Link to="/email-inbox">
               <i className="mdi mdi-file-outline me-2"></i>Draft
             </Link>
-            <Link to="#">
+            <Link to="/email-inbox">
               <i className="mdi mdi-email-check-outline me-2"></i>Sent Mail
             </Link>
-            <Link to="#">
+            <Link to="/email-inbox">
               <i className="mdi mdi-trash-can-outline me-2"></i>Trash
             </Link>
           </div>
@@ -148,7 +162,7 @@ class EmailSideBar extends Component {
               />
               <Media className="chat-user-box" body>
                 <p className="user-title m-0">Jay Baker</p>
-                <p className="text-muted">Wow that's great</p>
+                <p className="text-muted">Wow that&apos;s great</p>
               </Media>
             </Link>
           </div>
@@ -207,5 +221,7 @@ class EmailSideBar extends Component {
     )
   }
 }
-
+EmailSideBar.propTypes = {
+  activeTab: PropTypes.any
+}
 export default EmailSideBar

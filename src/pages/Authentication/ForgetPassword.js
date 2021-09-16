@@ -98,13 +98,13 @@ class ForgetPasswordPage extends Component {
                           />
                         </div>
                         <div className="text-end">
-                            <button
-                              className="btn btn-primary w-md waves-effect waves-light"
-                              type="submit"
-                            >
-                              Reset
+                          <button
+                            className="btn btn-primary w-md"
+                            type="submit"
+                          >
+                            Reset
                             </button>
-                          </div>
+                        </div>
                       </AvForm>
                     </div>
                   </CardBody>

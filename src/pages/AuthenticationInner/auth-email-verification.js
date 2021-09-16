@@ -12,8 +12,8 @@ export default class EmailVerification extends Component {
     return (
       <React.Fragment>
         <div className="account-pages my-5 pt-sm-5">
-        <MetaTags>
-            <title>Email Verification | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Email Verification | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row>
@@ -33,7 +33,7 @@ export default class EmailVerification extends Component {
                       className="auth-logo-light mx-auto"
                     />
                   </Link>
-                  <p className="mt-3">Responsive Bootstrap 5 Admin Dashboard</p>
+                  <p className="mt-3">React Admin & Dashboard Template</p>
                 </div>
               </Col>
             </Row>
@@ -72,7 +72,7 @@ export default class EmailVerification extends Component {
                 </Card>
                 <div className="mt-5 text-center">
                   <p>
-                    Did't receive an email ?{" "}
+                    Didn&apos;t receive an email ?{" "}
                     <a href="#" className="fw-medium text-primary">
                       {" "}
                       Resend{" "}

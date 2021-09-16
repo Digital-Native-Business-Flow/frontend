@@ -46,7 +46,7 @@ class PagesComingsoon extends Component {
     return (
       <React.Fragment>
           <MetaTags>
-            <title>Coming Soon | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Coming Soon | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
         <div className="home-btn d-none d-sm-block">
           <Link to="/" className="text-white">
@@ -60,8 +60,7 @@ class PagesComingsoon extends Component {
               <Col lg="12">
                 <div className="text-center">
                   <Link to="/">
-                    <img src={logo} alt="" height="20" className="auth-logo-dark mx-auto" />
-                    <img src={lightlogo} alt="" height="20" className="auth-logo-light mx-auto" />
+                    <img src={logo} alt="" height="20" />
                   </Link>
                   <Row className="justify-content-center mt-5">
                     <Col sm="4">

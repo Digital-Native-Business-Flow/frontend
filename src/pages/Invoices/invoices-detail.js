@@ -1,48 +1,48 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import MetaTags from 'react-meta-tags';
-import { Link, withRouter } from "react-router-dom"
-import { Card, CardBody, Col, Container, Row, Table } from "reactstrap"
-import { isEmpty, map } from "lodash"
+import { Link, withRouter } from "react-router-dom";
+import { Card, CardBody, Col, Container, Row, Table } from "reactstrap";
+import { isEmpty, map } from "lodash";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 //Import Image
-import logo from "../../assets/images/logo-dark.png"
-import PropTypes from "prop-types"
-import { getInvoiceDetail } from "../../store/invoices/actions"
-import { connect } from "react-redux"
+import logo from "../../assets/images/logo-dark.png";
+import PropTypes from "prop-types";
+import { getInvoiceDetail } from "../../store/invoices/actions";
+import { connect } from "react-redux";
 
 class InvoiceDetail extends Component {
   componentDidMount() {
     const {
       match: { params },
       onGetInvoiceDetail,
-    } = this.props
+    } = this.props;
     if (params && params.id) {
-      onGetInvoiceDetail(params.id)
+      onGetInvoiceDetail(params.id);
     } else {
-      onGetInvoiceDetail(1) //remove this after full integration
+      onGetInvoiceDetail(1); //remove this after full integration
     }
   }
 
   //Print the Invoice
   printInvoice = () => {
-    window.print()
-  }
+    window.print();
+  };
 
   render() {
-    const { invoiceDetail } = this.props
+    const { invoiceDetail } = this.props;
 
     return (
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Invoice Details | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Invoice Detail | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}
-            <Breadcrumbs title="Invoices" breadcrumbItem="Invoice Details" />
+            <Breadcrumbs title="Invoices" breadcrumbItem="Invoice Detail" />
             {!isEmpty(invoiceDetail) && (
               <Row>
                 <Col lg="12">
@@ -168,13 +168,13 @@ class InvoiceDetail extends Component {
                           <Link
                             to="#"
                             onClick={this.printInvoice}
-                            className="btn btn-success waves-effect waves-light me-1"
+                            className="btn btn-success me-1"
                           >
                             <i className="fa fa-print" />
                           </Link>{" "}
                           <Link
                             to="#"
-                            className="btn btn-primary w-md waves-effect waves-light"
+                            className="btn btn-primary w-md"
                           >
                             Send
                           </Link>
@@ -188,7 +188,7 @@ class InvoiceDetail extends Component {
           </Container>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
@@ -196,17 +196,17 @@ InvoiceDetail.propTypes = {
   invoiceDetail: PropTypes.object,
   match: PropTypes.object,
   onGetInvoiceDetail: PropTypes.func,
-}
+};
 
 const mapStateToProps = ({ invoices }) => ({
   invoiceDetail: invoices.invoiceDetail,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   onGetInvoiceDetail: id => dispatch(getInvoiceDetail(id)),
-})
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(InvoiceDetail))
+)(withRouter(InvoiceDetail));

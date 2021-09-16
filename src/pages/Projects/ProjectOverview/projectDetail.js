@@ -8,14 +8,14 @@ const ProjectDetail = ({ project }) => {
   return (
     <Card>
       <CardBody>
-        <Media>
+        <div className="d-flex">
           <img src={img1} alt="" className="avatar-sm me-4" />
 
-          <Media className="overflow-hidden" body>
+          <div className="flex-grow-1 overflow-hidden">
             <h5 className="text-truncate font-size-15">{project.name}</h5>
             <p className="text-muted">{project.description}</p>
-          </Media>
-        </Media>
+          </div>
+        </div>
 
         <h5 className="font-size-15 mt-4">Project Details :</h5>
 

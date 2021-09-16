@@ -17,7 +17,7 @@ class CardMaintenance extends Component {
 }
 
 CardMaintenance.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.array
 }
 
 export default CardMaintenance

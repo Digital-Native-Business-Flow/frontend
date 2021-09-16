@@ -105,12 +105,12 @@ class SidebarContent extends Component {
   render() {
     return (
       <React.Fragment>
-        <SimpleBar style={{ maxHeight: "100%" }} ref={this.refDiv}>
+        <SimpleBar className="h-100" ref={this.refDiv}>
           <div id="sidebar-menu">
             <ul className="metismenu list-unstyled" id="side-menu">
               <li className="menu-title">{this.props.t("Menu")}</li>
               <li>
-                <Link to="/#" className="waves-effect">
+                <Link to="/#">
                   <i className="bx bx-home-circle" />
                   <span className="badge rounded-pill bg-info float-end">
                     04
@@ -136,20 +136,20 @@ class SidebarContent extends Component {
               <li className="menu-title">{this.props.t("Apps")}</li>
 
               <li>
-                <Link to="/calendar" className=" waves-effect">
+                <Link to="/calendar" className="">
                   <i className="bx bx-calendar" />
                   <span>{this.props.t("Calendar")}</span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/chat" className=" waves-effect">
+                <Link to="/chat" className="">
                   <i className="bx bx-chat" />
                   <span>{this.props.t("Chat")}</span>
                 </Link>
               </li>
               <li>
-                <Link to="/apps-filemanager" className=" waves-effect">
+                <Link to="/apps-filemanager" className="">
                   <i className="bx bx-file" />
                   <span className="badge rounded-pill bg-success float-end">
                     {this.props.t("New")}
@@ -159,7 +159,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-store" />
                   <span>{this.props.t("Ecommerce")}</span>
                 </Link>
@@ -170,8 +170,8 @@ class SidebarContent extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/ecommerce-product-detail/1">
-                      {this.props.t("Product Detail")}
+                    <Link to="/ecommerce-product-details/1">
+                      {this.props.t("Product Details")}
                     </Link>
                   </li>
                   <li>
@@ -202,7 +202,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-bitcoin" />
                   <span>{this.props.t("Crypto")}</span>
                 </Link>
@@ -240,7 +240,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-envelope"></i>
                   <span>{this.props.t("Email")}</span>
                 </Link>
@@ -254,7 +254,7 @@ class SidebarContent extends Component {
                   <li>
                     <Link to="/#">
                       <span
-                        className="badge rounded-pill bg-success float-end"
+                        className="badge rounded-pill badge-soft-success float-end"
                         key="t-new"
                       >
                         {this.props.t("New")}
@@ -285,7 +285,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-receipt" />
                   <span>{this.props.t("Invoices")}</span>
                 </Link>
@@ -304,7 +304,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-briefcase-alt-2" />
                   <span>{this.props.t("Projects")}</span>
                 </Link>
@@ -333,7 +333,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-task" />
                   <span>{this.props.t("Tasks")}</span>
                 </Link>
@@ -355,7 +355,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bxs-user-detail" />
                   <span>{this.props.t("Contacts")}</span>
                 </Link>
@@ -375,7 +375,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="waves-effect">
+                <Link to="/#">
                   <span className="badge rounded-pill bg-success float-end">
                     {this.props.t("New")}
                   </span>
@@ -400,7 +400,7 @@ class SidebarContent extends Component {
 
               <li className="menu-title">Pages</li>
               <li>
-                <Link to="/#" className="waves-effect">
+                <Link to="/#">
                   <i className="bx bx-user-circle" />
                   <span className="badge rounded-pill bg-success float-end">
                     {this.props.t("New")}
@@ -428,7 +428,7 @@ class SidebarContent extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/page-recoverpw-2">
+                    <Link to="/pages-recoverpw-2">
                       {this.props.t("Recover Password 2")}
                     </Link>
                   </li>
@@ -454,28 +454,28 @@ class SidebarContent extends Component {
                   </li>
                   <li>
                     <Link to="/auth-email-verification">
-                      {this.props.t("Email verification")}
+                      {this.props.t("Email Verification")}
                     </Link>
                   </li>
                   <li>
                     <Link to="/auth-email-verification-2">
-                      {this.props.t("Email verification 2")}
+                      {this.props.t("Email Verification 2")}
                     </Link>
                   </li>
                   <li>
                     <Link to="/auth-two-step-verification">
-                      {this.props.t("Two step verification")}
+                      {this.props.t("Two Step Verification")}
                     </Link>
                   </li>
                   <li>
                     <Link to="/auth-two-step-verification-2">
-                      {this.props.t("Two step verification 2")}
+                      {this.props.t("Two Step Verification 2")}
                     </Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-file" />
                   <span>{this.props.t("Utility")}</span>
                 </Link>
@@ -516,7 +516,7 @@ class SidebarContent extends Component {
               <li className="menu-title">{this.props.t("Components")}</li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-tone" />
                   <span>{this.props.t("UI Elements")}</span>
                 </Link>
@@ -535,6 +535,9 @@ class SidebarContent extends Component {
                   </li>
                   <li>
                     <Link to="/ui-dropdowns">{this.props.t("Dropdowns")}</Link>
+                  </li>
+                  <li>
+                    <Link to="/ui-drawer">{this.props.t("Drawer")}</Link>
                   </li>
                   <li>
                     <Link to="/ui-grid">{this.props.t("Grid")}</Link>
@@ -595,11 +598,16 @@ class SidebarContent extends Component {
                       {this.props.t("Notifications")}
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/ui-breadcrumb">
+                      {this.props.t("Breadcrumb")}
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
               <li>
-                <Link to="/#" className="waves-effect">
+                <Link to="/#">
                   <i className="bx bxs-eraser" />
                   <span className="badge rounded-pill bg-danger float-end">
                     10
@@ -653,11 +661,16 @@ class SidebarContent extends Component {
                   <li>
                     <Link to="/form-mask">{this.props.t("Form Mask")}</Link>
                   </li>
+                  <li>
+                    <Link to="/dual-listbox">
+                      {this.props.t("Transfer List")}
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-list-ul" />
                   <span>{this.props.t("Tables")}</span>
                 </Link>
@@ -682,11 +695,16 @@ class SidebarContent extends Component {
                       {this.props.t("Editable Table")}
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/tables-dragndrop">
+                      {this.props.t("Drag & Drop Table")}
+                    </Link>
+                  </li>
                 </ul>
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bxs-bar-chart-alt-2" />
                   <span>{this.props.t("Charts")}</span>
                 </Link>
@@ -709,11 +727,6 @@ class SidebarContent extends Component {
                     <Link to="/e-charts">{this.props.t("E Chart")}</Link>
                   </li>
                   <li>
-                    <Link to="/tui-charts">
-                      {this.props.t("Toast UI Chart")}
-                    </Link>
-                  </li>
-                  <li>
                     <Link to="/sparkline-charts">
                       {this.props.t("Sparkline Chart")}
                     </Link>
@@ -721,11 +734,14 @@ class SidebarContent extends Component {
                   <li>
                     <Link to="/charts-knob">{this.props.t("Knob Chart")}</Link>
                   </li>
+                  <li>
+                    <Link to="/re-charts">{this.props.t("Re Chart")}</Link>
+                  </li>
                 </ul>
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-aperture" />
                   <span>{this.props.t("Icons")}</span>
                 </Link>
@@ -752,7 +768,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-map" />
                   <span>{this.props.t("Maps")}</span>
                 </Link>
@@ -772,7 +788,7 @@ class SidebarContent extends Component {
               </li>
 
               <li>
-                <Link to="/#" className="has-arrow waves-effect">
+                <Link to="/#" className="has-arrow">
                   <i className="bx bx-share-alt" />
                   <span>{this.props.t("Multi Level")}</span>
                 </Link>

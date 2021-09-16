@@ -179,7 +179,7 @@ class Login extends Component {
 
                         <div className="mt-3 d-grid">
                           <button
-                            className="btn btn-primary btn-block waves-effect waves-light"
+                            className="btn btn-primary btn-block"
                             type="submit"
                           >
                             Log In
@@ -199,7 +199,6 @@ class Login extends Component {
                                   <Link
                                     to={""}
                                     className="social-list-item bg-primary text-white border-primary"
-                                  // onClick={renderProps.onClick}
                                   >
                                     <i className="mdi mdi-facebook" />
                                   </Link>
@@ -213,7 +212,6 @@ class Login extends Component {
                                   <Link
                                     to={""}
                                     className="social-list-item bg-danger text-white border-danger"
-                                  // onClick={renderProps.onClick}
                                   >
                                     <i className="mdi mdi-google" />
                                   </Link>
@@ -236,18 +234,16 @@ class Login extends Component {
                   </CardBody>
                 </Card>
                 <div className="mt-5 text-center">
-                  <p>
-                    Don't have an account ?{" "}
+                  <p>Don&apos;t have an account ?
                     <Link
                       to="register"
                       className="fw-medium text-primary"
                     >
-                      {" "}
-                      Signup now{" "}
-                    </Link>{" "}
+                      Signup Now
+                    </Link>
                   </p>
                   <p>
-                    © {new Date().getFullYear()} Skote. Crafted with{" "}
+                    © {new Date().getFullYear()} Skote. Crafted with
                     <i className="mdi mdi-heart text-danger" /> by Themesbrand
                   </p>
                 </div>

@@ -14,7 +14,7 @@ import {
 //Import Images
 import avatar1 from "../../assets/images/users/avatar-1.jpg"
 
-class   CardUser extends Component {
+class CardUser extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -39,7 +39,7 @@ class   CardUser extends Component {
               <CardBody>
                 <Row>
                   <Col lg="4">
-                    <Media>
+                    <div className="d-flex">
                       <div className="me-3">
                         <img
                           src={avatar1}
@@ -47,14 +47,14 @@ class   CardUser extends Component {
                           className="avatar-md rounded-circle img-thumbnail"
                         />
                       </div>
-                      <Media className="align-self-center" body>
+                      <div className="flex-grow-1 align-self-center">
                         <div className="text-muted">
                           <p className="mb-2">Welcome to skote dashboard</p>
                           <h5 className="mb-1">Henry wells</h5>
                           <p className="mb-0">UI / UX Designer</p>
                         </div>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </Col>
 
                   <Col lg="4" className="align-self-center">

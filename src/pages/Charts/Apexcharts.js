@@ -26,8 +26,8 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Apex Charts | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Apex Charts | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Charts" breadcrumbItem="Apex Charts" />
@@ -67,7 +67,7 @@ class Dashboard extends Component {
               <Col lg={6}>
                 <Card>
                   <CardBody>
-                    <CardTitle className="mb-4"> Column Charts </CardTitle>
+                    <CardTitle className="mb-4"> Column Chart </CardTitle>
                     <Apaexlinecolumn />
                   </CardBody>
                 </Card>

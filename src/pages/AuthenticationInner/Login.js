@@ -23,9 +23,9 @@ class Login extends Component {
   render() {
     return (
       <React.Fragment>
-       <MetaTags>
-            <title>Login | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
-          </MetaTags>
+        <MetaTags>
+          <title>Login | Skote - React Admin & Dashboard Template</title>
+        </MetaTags>
         <div className="home-btn d-none d-sm-block">
           <Link to="/" className="text-dark">
             <i className="bx bx-home h2" />
@@ -117,7 +117,7 @@ class Login extends Component {
 
                         <div className="mt-3 d-grid">
                           <button
-                            className="btn btn-primary btn-block waves-effect waves-light"
+                            className="btn btn-primary btn-block"
                             type="submit"
                           >
                             Log In
@@ -167,7 +167,7 @@ class Login extends Component {
                 </Card>
                 <div className="mt-5 text-center">
                   <p>
-                    Don't have an account ?{" "}
+                    Don&apos;t have an account ?{" "}
                     <Link
                       to="pages-register"
                       className="fw-medium text-primary"

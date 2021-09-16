@@ -23,8 +23,8 @@ class UiProgressbar extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Progress Bars | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Progress Bars | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Progress Bars" />
@@ -191,9 +191,9 @@ class UiProgressbar extends Component {
                     <CardTitle className="h4">Striped</CardTitle>
                     <p className="card-title-desc">
                       Add <code className="highlighter-rouge"> striped </code>{" "}
-                                          to any to apply a stripe via CSS gradient over the
-                                          progress bar’s background color.
-                                        </p>
+                      to any to apply a stripe via CSS gradient over the
+                      progress bar’s background color.
+                    </p>
 
                     <div className="">
                       <div className="mb-4">
@@ -212,9 +212,9 @@ class UiProgressbar extends Component {
                     <CardTitle className="h4">Animated stripes</CardTitle>
                     <p className="card-title-desc">
                       The striped gradient can also be
-                                            animated. Add <code>.progress-bar-animated</code> to <code>.progress-bar</code> to animate the
-                                            stripes right to left via CSS3 animations.
-                                        </p>
+                      animated. Add <code>.progress-bar-animated</code> to <code>.progress-bar</code> to animate the
+                      stripes right to left via CSS3 animations.
+                    </p>
                     <div className="">
                       <Progress
                         value={75}
@@ -235,7 +235,7 @@ class UiProgressbar extends Component {
                     <CardTitle className="h4">Animated Progress</CardTitle>
                     <p className="card-title-desc">
                       Add <code>.animated-progess</code> class with <code>.progress-bar</code> for animated progressbar.
-                                        </p>
+                    </p>
                     <div className="">
                       <div className="animated-progess mb-4">
                         <Progress
@@ -277,7 +277,7 @@ class UiProgressbar extends Component {
                     <CardTitle className="h4">Custom progress</CardTitle>
                     <p className="card-title-desc mb-4">
                       Example of Custom progress
-                                        </p>
+                    </p>
 
                     <div className="">
                       <div className="custom-progess mb-5">
@@ -332,15 +332,15 @@ class UiProgressbar extends Component {
                   <CardBody>
                     <CardTitle className="h5">
                       Progress Example
-                      </CardTitle>
+                    </CardTitle>
                     <p className="card-title-desc">You can use these classes with existing components to create new ones.</p>
                     <div className="mt-5">
                       <div className="position-relative m-4">
-                          <Progress
-                            value={50}
-                            color="primary"
-                            style={{ height: '1px'}}
-                          ></Progress>
+                        <Progress
+                          value={50}
+                          color="primary"
+                          style={{ height: '1px' }}
+                        ></Progress>
                         <button className="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style={{ width: "2rem", height: "2rem" }}>
                           1
                         </button>

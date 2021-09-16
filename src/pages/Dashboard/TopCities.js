@@ -15,7 +15,7 @@ class TopCities extends Component {
             <CardTitle className="mb-4 h4">Top Cities Selling Product</CardTitle>
             <div className="text-center">
               <div className="mb-4">
-                <i className="bx bx-map-pin text-primary display-4" style={{ lineHeight : '1'}}/>
+                <i className="bx bx-map-pin text-primary display-4" style={{ lineHeight: '1' }} />
               </div>
               <h3>1,456</h3>
               <p>San Francisco</p>

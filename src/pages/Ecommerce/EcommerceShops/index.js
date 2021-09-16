@@ -26,7 +26,7 @@ class EcommerceShops extends Component {
       <React.Fragment>
         <div className="page-content">
         <MetaTags>
-            <title>Shops | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Shops | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}

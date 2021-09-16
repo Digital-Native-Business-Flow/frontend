@@ -1,16 +1,16 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 // import SettingMenu from "../../Shared/SettingMenu";
-import { Row, Col } from "reactstrap"
+import { Row, Col } from "reactstrap";
 import MetaTags from 'react-meta-tags';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 class EmailAlertTemplte extends Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
 
   componentDidMount() { }
@@ -20,7 +20,7 @@ class EmailAlertTemplte extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Alert Email | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Alert Email | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Email Template" breadcrumbItem="Alert Email" />
@@ -34,10 +34,8 @@ class EmailAlertTemplte extends Component {
                     boxSizing: "border-box",
                     fontSize: "14px",
                     width: "100%",
-                    backgroundColor: "#f6f6f6",
                     margin: "0",
                   }}
-                  bgcolor="#f6f6f6"
                 >
                   <tbody>
                     <tr
@@ -99,7 +97,6 @@ class EmailAlertTemplte extends Component {
                               boxSizing: "border-box",
                               fontSize: "14px",
                               borderRadius: "7px",
-                              backgroundColor: "#fff",
                               margin: "0",
                               boxShadow: "0 0.75rem 1.5rem rgba(18,38,63,.03)",
                             }}
@@ -133,7 +130,7 @@ class EmailAlertTemplte extends Component {
                                   align="center"
                                   valign="top"
                                 >
-                                  Warning: You're approaching your limit. Please
+                                  Warning: You&apos;re approaching your limit. Please
                                   upgrade.
                                 </td>
                               </tr>
@@ -243,7 +240,7 @@ class EmailAlertTemplte extends Component {
                                         >
                                           Add your credit card now to upgrade
                                           your account to a premium plan to
-                                          ensure you don't miss out on any
+                                          ensure you don&apos;t miss out on any
                                           reports.
                                         </td>
                                       </tr>
@@ -392,8 +389,8 @@ class EmailAlertTemplte extends Component {
           </div>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default EmailAlertTemplte
+export default EmailAlertTemplte;

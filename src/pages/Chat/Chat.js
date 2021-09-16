@@ -162,8 +162,8 @@ class Chat extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Chat | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Chat | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -175,7 +175,7 @@ class Chat extends Component {
                   <div className="chat-leftsidebar me-lg-4">
                     <div className="">
                       <div className="py-4 border-bottom">
-                        <Media>
+                        <div className="d-flex">
                           <div className="align-self-center me-3">
                             <img
                               src={images.avatar1}
@@ -183,7 +183,7 @@ class Chat extends Component {
                               alt=""
                             />
                           </div>
-                          <Media body>
+                          <div className="flex-grow-1">
                             <h5 className="font-size-15 mt-0 mb-1">
                               {currentUser.name}
                             </h5>
@@ -191,7 +191,7 @@ class Chat extends Component {
                               <i className="mdi mdi-circle text-success align-middle me-1" />
                               Active
                             </p>
-                          </Media>
+                          </div>
 
                           <div>
                             <Dropdown
@@ -213,7 +213,7 @@ class Chat extends Component {
                               </DropdownMenu>
                             </Dropdown>
                           </div>
-                        </Media>
+                        </div>
                       </div>
 
                       <div className="search-box chat-search-box py-4">
@@ -279,7 +279,7 @@ class Chat extends Component {
                             <div>
                               <h5 className="font-size-14 mb-3">Recent</h5>
                               <ul className="list-unstyled chat-list">
-                                <PerfectScrollbar style={{ height: "410px"}}>
+                                <PerfectScrollbar style={{ height: "410px" }}>
                                   {chats.map(chat => (
                                     <li
                                       key={chat.id + chat.status}
@@ -300,7 +300,7 @@ class Chat extends Component {
                                           )
                                         }}
                                       >
-                                        <Media>
+                                        <div className="d-flex">
                                           <div className="align-self-center me-3">
                                             <i
                                               className={
@@ -308,8 +308,8 @@ class Chat extends Component {
                                                   ? "mdi mdi-circle text-success font-size-10"
                                                   : chat.status ===
                                                     "intermediate"
-                                                  ? "mdi mdi-circle text-warning font-size-10"
-                                                  : "mdi mdi-circle font-size-10"
+                                                    ? "mdi mdi-circle text-warning font-size-10"
+                                                    : "mdi mdi-circle font-size-10"
                                               }
                                             />
                                           </div>
@@ -321,9 +321,8 @@ class Chat extends Component {
                                             />
                                           </div>
 
-                                          <Media
-                                            className="overflow-hidden"
-                                            body
+                                          <div
+                                            className="flex-grow-1 overflow-hidden"
                                           >
                                             <h5 className="text-truncate font-size-14 mb-1">
                                               {chat.name}
@@ -331,11 +330,11 @@ class Chat extends Component {
                                             <p className="text-truncate mb-0">
                                               {chat.description}
                                             </p>
-                                          </Media>
+                                          </div>
                                           <div className="font-size-11">
                                             {chat.time}
                                           </div>
-                                        </Media>
+                                        </div>
                                       </Link>
                                     </li>
                                   ))}
@@ -449,8 +448,8 @@ class Chat extends Component {
                                     ? "mdi mdi-circle text-success align-middle me-1"
                                     : this.state.Chat_Box_User_Status ===
                                       "intermediate"
-                                    ? "mdi mdi-circle text-warning align-middle me-1"
-                                    : "mdi mdi-circle align-middle me-1"
+                                      ? "mdi mdi-circle text-warning align-middle me-1"
+                                      : "mdi mdi-circle align-middle me-1"
                                 }
                               />
                               {this.state.Chat_Box_User_Status}
@@ -471,7 +470,6 @@ class Chat extends Component {
                                   </DropdownToggle>
                                   <DropdownMenu
                                     className="dropdown-menu-md dropdown-menu-end"
-                                    direction="right"
                                   >
                                     <Form className="p-3">
                                       <FormGroup className="m-0">
@@ -550,7 +548,7 @@ class Chat extends Component {
                         <div className="chat-conversation p-3">
                           <ul className="list-unstyled mb-0">
                             <PerfectScrollbar
-                              style={{ height: "486px" ,minHeight: "486px" }}
+                              style={{ height: "486px", minHeight: "486px" }}
                               containerRef={ref => (this.messageBox = ref)}
                             >
                               <li>
@@ -561,7 +559,7 @@ class Chat extends Component {
                               {messages &&
                                 messages.map(message => (
                                   <li
-                                    key={"test_k" + message.id}
+                                    key={"test_k2" + message.id}
                                     className={
                                       message.sender === currentUser.name
                                         ? "right"
@@ -577,7 +575,7 @@ class Chat extends Component {
                                         >
                                           <i className="bx bx-dots-vertical-rounded" />
                                         </DropdownToggle>
-                                        <DropdownMenu direction="right">
+                                        <DropdownMenu className="dropdown-menu-end">
                                           <DropdownItem href="#">
                                             Copy
                                           </DropdownItem>
@@ -684,7 +682,7 @@ class Chat extends Component {
                                     currentUser.name
                                   )
                                 }
-                                className="btn-rounded chat-send w-md waves-effect waves-light"
+                                className="btn-rounded chat-send w-md"
                               >
                                 <span className="d-none d-sm-inline-block me-2">
                                   Send

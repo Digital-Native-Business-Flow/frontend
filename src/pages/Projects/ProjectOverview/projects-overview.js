@@ -37,7 +37,7 @@ class ProjectsOverview extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Projects Overview | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Project Overview | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}

@@ -14,7 +14,7 @@ export default class index extends Component {
       <React.Fragment>
         <div className="page-content">
         <MetaTags>
-            <title>Blog Grid | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Blog Grid | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             <Breadcrumbs title="Blog" breadcrumbItem="Blog Grid" />

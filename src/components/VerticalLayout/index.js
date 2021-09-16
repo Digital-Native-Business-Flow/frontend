@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom"
 import {
   changeLayout,
   changeSidebarTheme,
+  changeSidebarThemeImage,
   changeSidebarType,
   toggleRightSidebar,
   changeTopbarTheme,
@@ -15,13 +16,14 @@ import {
 import Header from "./Header"
 import Sidebar from "./Sidebar"
 import Footer from "./Footer"
-import Rightbar from "../CommonForBoth/Rightbar"
 
 class Layout extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
+      width: 0,
+      height: 0
     }
     this.toggleMenuCallback = this.toggleMenuCallback.bind(this)
     this.toggleRightSidebar = this.toggleRightSidebar.bind(this)
@@ -54,9 +56,13 @@ class Layout extends Component {
     // let currentage = this.capitalizeFirstLetter(this.props.location.pathname)
 
     // document.title =
-    //   currentage + " | Skote - Responsive Bootstrap 5 Admin Dashboard"
+    //   currentage + " | Skote - React Admin & Dashboard Template"
     if (this.props.leftSideBarTheme) {
       this.props.changeSidebarTheme(this.props.leftSideBarTheme)
+    }
+
+    if (this.props.leftSideBarThemeImage) {
+      this.props.changeSidebarThemeImage(this.props.leftSideBarThemeImage)
     }
 
     if (this.props.layoutWidth) {
@@ -74,15 +80,19 @@ class Layout extends Component {
       this.toggleRightSidebar()
     }
   }
+
   toggleMenuCallback = () => {
-    if (this.props.leftSideBarType === "default") {
-      this.props.changeSidebarType("condensed", this.state.isMobile)
-    } else if (this.props.leftSideBarType === "condensed") {
-      this.props.changeSidebarType("default", this.state.isMobile)
+    var body = document.body;
+    if (window.screen.width <= 998) {
+      body.classList.toggle("sidebar-enable");
+    } else {
+      body.classList.toggle("vertical-collpsed");
+      body.classList.toggle("sidebar-enable");
     }
   }
 
   render() {
+
     return (
       <React.Fragment>
         <div id="preloader">
@@ -111,7 +121,6 @@ class Layout extends Component {
           <div className="main-content">{this.props.children}</div>
           <Footer />
         </div>
-        <Rightbar />
       </React.Fragment>
     )
   }
@@ -120,12 +129,14 @@ class Layout extends Component {
 Layout.propTypes = {
   changeLayoutWidth: PropTypes.func,
   changeSidebarTheme: PropTypes.func,
+  changeSidebarThemeImage: PropTypes.func,
   changeSidebarType: PropTypes.func,
   changeTopbarTheme: PropTypes.func,
   children: PropTypes.any,
   isPreloader: PropTypes.bool,
   layoutWidth: PropTypes.any,
   leftSideBarTheme: PropTypes.any,
+  leftSideBarThemeImage: PropTypes.any,
   leftSideBarType: PropTypes.any,
   location: PropTypes.object,
   showRightSidebar: PropTypes.any,
@@ -141,6 +152,7 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   changeLayout,
   changeSidebarTheme,
+  changeSidebarThemeImage,
   changeSidebarType,
   toggleRightSidebar,
   changeTopbarTheme,

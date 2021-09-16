@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import { Card, CardBody, Col, Row } from "reactstrap"
 import ReactApexChart from "react-apexcharts"
 
@@ -144,3 +145,8 @@ export default class CardUser extends Component {
     )
   }
 }
+
+CardUser.propTypes = {
+  cardreport: PropTypes.any
+}
+

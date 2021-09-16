@@ -125,6 +125,7 @@ class FormAdvanced extends Component {
 
       data_attr: 56,
       postfix: 20,
+      postfix1: 20,
       prefix: 25,
       empty_val: 0,
       not_attr: 15,
@@ -328,12 +329,12 @@ class FormAdvanced extends Component {
   }
 
   getDateFormateMethod = () => {
-    const today = new Date()
+    var today = new Date()
     const dd = today.getDate().toString()
     const mm = today.getMonth() + 1
     const yyyy = today.getFullYear()
-    const current_date_method = (today = dd + "/" + mm + "/" + yyyy)
-    this.setState({ current_date_method })
+    const fromate_date = (today = dd + "/" + mm + "/" + yyyy)
+    this.setState({ fromate_date })
   }
 
   getMonthMethod = () => {
@@ -413,8 +414,8 @@ class FormAdvanced extends Component {
     const { dateValue } = this.state
 
     // state define for datepicker
-    const { current_date_method } = this.state
     const { current_month } = this.state
+    const { fromate_date } = this.state
     const { current_month_short } = this.state
     const { current_day } = this.state
     const { current_day_short } = this.state
@@ -462,8 +463,8 @@ class FormAdvanced extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Form Advanced | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Form Advanced | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Advanced" />
@@ -481,7 +482,7 @@ class FormAdvanced extends Component {
                     <form>
                       <Row>
                         <Col lg="6">
-                          <FormGroup className="mb-3 select2-container">
+                          <div className="mb-3 select2-container">
                             <Label>Single Select</Label>
                             <Select
                               value={selectedGroup}
@@ -489,8 +490,8 @@ class FormAdvanced extends Component {
                               options={optionGroup}
                               classNamePrefix="select2-selection"
                             />
-                          </FormGroup>
-                          <FormGroup className="mb-3 select2-container">
+                          </div>
+                          <div className="mb-3 select2-container">
                             <label className="control-label">
                               Multiple Select
                             </label>
@@ -501,7 +502,7 @@ class FormAdvanced extends Component {
                               options={optionGroup}
                               classNamePrefix="select2-selection"
                             />
-                          </FormGroup>
+                          </div>
 
                           <FormGroup className="select2-container">
                             <Label>Search Disable</Label>
@@ -858,7 +859,7 @@ class FormAdvanced extends Component {
                       id="defaultconfig"
                     />
                     {this.state.disDefault ? (
-                      <span className="badgecount badge badge-success">
+                      <span className="badgecount badge bg-success">
                         {this.state.threshholdDefault} / 25{" "}
                       </span>
                     ) : null}
@@ -877,7 +878,7 @@ class FormAdvanced extends Component {
                         id="thresholdconfig"
                       />
                       {this.state.disthresh ? (
-                        <span className="badgecount badge badge-success">
+                        <span className="badgecount badge bg-success">
                           {this.state.threshholdcount} / 25{" "}
                         </span>
                       ) : null}
@@ -899,10 +900,10 @@ class FormAdvanced extends Component {
                       {this.state.disbadge ? (
                         <span className="badgecount">
                           You Types{" "}
-                          <span className="badge badge-success">
+                          <span className="badge bg-success">
                             {this.state.optioncount}
                           </span>{" "}
-                          out of <span className="badge badge-success">25</span>{" "}
+                          out of <span className="badge bg-success">25</span>{" "}
                           chars available
                         </span>
                       ) : null}
@@ -913,7 +914,7 @@ class FormAdvanced extends Component {
                       <p className="text-muted m-b-15">
                         All you need to do is specify the <code>placement</code>{" "}
                         option, with one of those strings. If none is specified,
-                        the positioning will be defauted to 'bottom'.
+                        the positioning will be defauted to &apos;bottom&lsquo;.
                       </p>
                       <Input
                         type="text"
@@ -925,7 +926,7 @@ class FormAdvanced extends Component {
                       {this.state.placementbadge ? (
                         <span
                           style={{ float: "right" }}
-                          className="badgecount badge badge-success"
+                          className="badgecount badge bg-success"
                         >
                           {this.state.placementcount} / 25{" "}
                         </span>
@@ -933,7 +934,7 @@ class FormAdvanced extends Component {
                     </div>
 
                     <div className="mt-3">
-                      <Label>textarea</Label>
+                      <Label>Textarea</Label>
                       <p className="text-muted m-b-15">
                         Bootstrap maxlength supports textarea as well as inputs.
                         Even on old IE.
@@ -947,7 +948,7 @@ class FormAdvanced extends Component {
                         placeholder="This textarea has a limit of 225 chars."
                       />
                       {this.state.textareabadge ? (
-                        <span className="badgecount badge badge-success">
+                        <span className="badgecount badge bg-success">
                           {" "}
                           {this.state.textcount} / 225{" "}
                         </span>
@@ -1046,7 +1047,7 @@ class FormAdvanced extends Component {
                           <span
                             className="input-group-btn input-group-prepend"
                             onClick={() =>
-                              this.setState({ postfix: this.state.postfix - 1 })
+                              this.setState({ postfix1: this.state.postfix1 - 1 })
                             }
                           >
                             <Button type="button" color="primary">
@@ -1059,17 +1060,17 @@ class FormAdvanced extends Component {
                           <input
                             type="number"
                             className="form-control"
-                            value={this.state.postfix}
+                            value={this.state.postfix1}
                             placeholder="number"
                             readOnly
                           />
-                          
+
                           <span className="input-group-append">
                             <Button
                               type="button"
                               onClick={() =>
                                 this.setState({
-                                  postfix: this.state.postfix + 1
+                                  postfix1: this.state.postfix1 + 1
                                 })
                               }
                               color="primary"
@@ -1213,7 +1214,7 @@ class FormAdvanced extends Component {
                         <div>
                           <Switch
                             uncheckedIcon={<Offsymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             checkedIcon={<OnSymbol />}
                             onColor="#626ed4"
                             onChange={() =>
@@ -1223,7 +1224,7 @@ class FormAdvanced extends Component {
                           />
                           <Switch
                             uncheckedIcon={<Offsymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             checkedIcon={<OnSymbol />}
                             onColor="#a2a2a2"
                             onChange={() =>
@@ -1234,7 +1235,7 @@ class FormAdvanced extends Component {
                           <Switch
                             uncheckedIcon={<Offsymbol />}
                             checkedIcon={<OnSymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             onColor="#02a499"
                             onChange={() =>
                               this.setState({ switch3: !this.state.switch3 })
@@ -1243,7 +1244,7 @@ class FormAdvanced extends Component {
                           />
                           <Switch
                             uncheckedIcon={<Offsymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             checkedIcon={<OnSymbol />}
                             onColor="#626ed4"
                             onChange={() =>
@@ -1253,7 +1254,7 @@ class FormAdvanced extends Component {
                           />
                           <Switch
                             uncheckedIcon={<Offsymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             checkedIcon={<OnSymbol />}
                             onColor="#02a499"
                             onChange={() =>
@@ -1263,7 +1264,7 @@ class FormAdvanced extends Component {
                           />
                           <Switch
                             uncheckedIcon={<Offsymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             checkedIcon={<OnSymbol />}
                             onColor="#38a4f8"
                             onChange={() =>
@@ -1274,7 +1275,7 @@ class FormAdvanced extends Component {
                           <Switch
                             uncheckedIcon={<Offsymbol />}
                             checkedIcon={<OnSymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             onColor="#f8b425"
                             onChange={() =>
                               this.setState({ switch7: !this.state.switch7 })
@@ -1284,7 +1285,7 @@ class FormAdvanced extends Component {
                           <Switch
                             uncheckedIcon={<Offsymbol />}
                             checkedIcon={<OnSymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             onColor="#ec4561"
                             onChange={() =>
                               this.setState({ switch8: !this.state.switch8 })
@@ -1294,7 +1295,7 @@ class FormAdvanced extends Component {
                           <Switch
                             uncheckedIcon={<Offsymbol />}
                             checkedIcon={<OnSymbol />}
-                            className="me-1 mb-sm-8"
+                            className="me-1 mb-sm-8 mb-2"
                             onColor="#2a3142"
                             onChange={() =>
                               this.setState({ switch9: !this.state.switch9 })
@@ -1422,27 +1423,6 @@ class FormAdvanced extends Component {
                           </div>
                         </div>
                       </Col>
-                      {/* <div className="col-xl-3 col-sm-6">
-                        <div className="mt-4 mt-sm-0">
-                          <h4 className="font-size-14 mb-3">Options</h4>
-                          <div className="docs-options">
-                            <div className="mb-3">
-                              <ul>
-                                <li>
-                                  You can simply check the config option from
-                                  the beloe link. <br />{" "}
-                                  <a
-                                    href="https://flatpickr.js.org/options/"
-                                    target="_blank"
-                                  >
-                                    https://flatpickr.js.org/options
-                                  </a>{" "}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div> */}
                       <div className="col-xl-6 col-sm-6">
                         <div className="mt-4 mt-xl-0">
                           <h4 className="font-size-14 mb-3">Methods</h4>
@@ -1473,7 +1453,7 @@ class FormAdvanced extends Component {
                                 </button>
                               </div>
                               <Input
-                                defaultValue={current_date_method || ""}
+                                defaultValue={fromate_date || ""}
                                 className="form-control"
                               />
                             </div>

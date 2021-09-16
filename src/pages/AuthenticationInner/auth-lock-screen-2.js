@@ -1,11 +1,15 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import CarouselPage from "./CarouselPage"
 import MetaTags from 'react-meta-tags';
+
+// availity-reactstrap-validation
+import { AvField, AvForm } from "availity-reactstrap-validation"
 // import images
 import logodark from "../../assets/images/logo-dark.png"
 import logolight from "../../assets/images/logo-light.png"
 import user from "../../assets/images/users/avatar-1.jpg"
-import { Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import { Col, Container, Row, Alert } from "reactstrap"
 import { Link } from "react-router-dom"
 
 export default class LockScreen2 extends Component {
@@ -13,8 +17,8 @@ export default class LockScreen2 extends Component {
     return (
       <React.Fragment>
         <div>
-        <MetaTags>
-            <title>Lock Screen 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Lock Screen 2 | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid className="p-0">
             <Row className="g-0">
@@ -50,7 +54,12 @@ export default class LockScreen2 extends Component {
                         </div>
 
                         <div className="mt-4">
-                          <Form className="form-horizontal" action="dashboard">
+
+                          <AvForm className="form-horizontal">
+                            {this.props.error && this.props.error ? (
+                              <Alert color="danger">{this.props.error}</Alert>
+                            ) : null}
+
                             <div className="user-thumb text-center mb-4">
                               <img
                                 src={user}
@@ -60,30 +69,27 @@ export default class LockScreen2 extends Component {
                               <h5 className="font-size-15 mt-3">Maria Laird</h5>
                             </div>
 
-                            <FormGroup className="mb-3">
-                              <Label htmlFor="userpassword">Password</Label>
-                              <Input
-                                type="password"
+                            <div className="mb-3">
+                              <AvField name="email"
+                                label="Email"
+                                value=""
                                 className="form-control"
-                                id="userpassword"
-                                placeholder="Enter password"
+                                placeholder="Enter email"
+                                type="email"
+                                required
                               />
-                            </FormGroup>
+                            </div>
 
                             <div className="text-end">
-                              <button
-                                className="btn btn-primary w-md waves-effect waves-light"
-                                type="submit"
-                              >
-                                Unlock
-                                </button>
+                              <button className="btn btn-primary w-md" type="submit" > Unlock </button>
                             </div>
-                          </Form>
+                          </AvForm>
+
                           <div className="mt-5 text-center">
                             <p>
                               Not you ? return{" "}
                               <Link
-                                to="page-login-2"
+                                to="pages-login-2"
                                 className="fw-medium text-primary"
                               >
                                 {" "}
@@ -114,3 +120,8 @@ export default class LockScreen2 extends Component {
     )
   }
 }
+
+LockScreen2.propTypes = {
+  error: PropTypes.any,
+}
+

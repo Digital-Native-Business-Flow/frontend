@@ -175,13 +175,13 @@ export default class Settings extends Component {
                         aria-label="Recipient's username"
                         aria-describedby="button-addon2"
                       />
-                        <button
-                          className="btn btn-primary"
-                          type="button"
-                          id="button-addon2"
-                        >
-                          <i className="bx bxs-paper-plane"></i>
-                        </button>
+                      <button
+                        className="btn btn-primary"
+                        type="button"
+                        id="button-addon2"
+                      >
+                        <i className="bx bxs-paper-plane"></i>
+                      </button>
                     </div>
                   </Col>
                 </Row>

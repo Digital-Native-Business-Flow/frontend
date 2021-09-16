@@ -4,7 +4,6 @@ import MetaTags from 'react-meta-tags';
 import {
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -35,7 +34,7 @@ class MapsVector extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Vector Maps | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Vector Maps | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Maps" breadcrumbItem="Vector Maps" />

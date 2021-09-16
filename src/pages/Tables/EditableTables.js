@@ -47,7 +47,7 @@ class EditableTables extends Component {
       <React.Fragment>
         <div className="page-content">
         <MetaTags>
-            <title>Editable Table | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Editable Table | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Tables" breadcrumbItem="Editable Table" />

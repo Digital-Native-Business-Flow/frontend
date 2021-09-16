@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -62,8 +61,8 @@ class EcommerceAddProduct extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Add Product | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Add Product | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -153,19 +152,17 @@ class EcommerceAddProduct extends Component {
                         </Col>
                       </Row>
                       <div className="d-flex flex-wrap gap-2">
-                      <Button
-                        type="submit"
-                        color="primary"
-                        className="waves-effect waves-light"
-                      >
-                        Save Changes
+                        <Button
+                          type="submit"
+                          color="primary"
+                        >
+                          Save Changes
                       </Button>
-                      <Button
-                        type="submit"
-                        color="secondary"
-                        className="waves-effect waves-light"
-                      >
-                        Cancel
+                        <Button
+                          type="submit"
+                          color="secondary"
+                        >
+                          Cancel
                       </Button>
                       </div>
                     </Form>
@@ -250,7 +247,7 @@ class EcommerceAddProduct extends Component {
                     <Form>
                       <Row>
                         <Col sm={6}>
-                          <FormGroup className="mb-3">
+                          <div className="mb-3">
                             <Label htmlFor="metatitle">Meta title</Label>
                             <Input
                               id="metatitle"
@@ -258,8 +255,8 @@ class EcommerceAddProduct extends Component {
                               type="text"
                               className="form-control"
                             />
-                          </FormGroup>
-                          <FormGroup className="mb-3">
+                          </div>
+                          <div className="mb-3">
                             <Label htmlFor="metakeywords">Meta Keywords</Label>
                             <Input
                               id="metakeywords"
@@ -267,11 +264,11 @@ class EcommerceAddProduct extends Component {
                               type="text"
                               className="form-control"
                             />
-                          </FormGroup>
+                          </div>
                         </Col>
 
                         <Col sm={6}>
-                          <FormGroup>
+                          <div className="mb-3">
                             <Label htmlFor="metadescription">
                               Meta Description
                             </Label>
@@ -280,21 +277,20 @@ class EcommerceAddProduct extends Component {
                               id="metadescription"
                               rows="5"
                             />
-                          </FormGroup>
+                          </div>
                         </Col>
                       </Row>
 
                       <Button
                         type="submit"
                         color="primary"
-                        className="me-1 waves-effect waves-light"
+                        className="me-1"
                       >
                         Save Changes
                       </Button>{" "}
                       <Button
                         type="submit"
                         color="secondary"
-                        className="waves-effect"
                       >
                         Cancel
                       </Button>

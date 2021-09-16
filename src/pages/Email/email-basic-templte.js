@@ -13,7 +13,7 @@ export default class EmailBasicTemplte extends Component {
         <div className="page-content">
           {/* add meta title */}
           <MetaTags>
-            <title>Basic Action | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Basic Action | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Email Template" breadcrumbItem="Basic Action" />

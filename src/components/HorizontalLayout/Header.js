@@ -1,46 +1,55 @@
-import React, { Component } from "react"
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import ReactDrawer from 'react-drawer';
+import 'react-drawer/lib/react-drawer.css';
 
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 // reactstrap
-import { Row, Col, Dropdown, DropdownToggle, DropdownMenu } from "reactstrap"
+import { Row, Col, Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 
 // Import menuDropdown
-import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown"
-import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown"
-import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
+import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown";
+import NotificationDropdown from "../CommonForBoth/TopbarDropdown/NotificationDropdown";
+import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
+import RightSidebar from '../CommonForBoth/RightSidebar';
 
-import megamenuImg from "../../assets/images/megamenu-img.png"
-import logo from "../../assets/images/logo-sm-light.png"
-import logoLight from "../../assets/images/logo-light.png"
-import logoLightSvg from "../../assets/images/logo-light.svg"
-import logoDark from "../../assets/images/logo-dark.png"
+import megamenuImg from "../../assets/images/megamenu-img.png";
+import logo from "../../assets/images/logo.svg";
+import logoLight from "../../assets/images/logo-light.png";
+import logoLightSvg from "../../assets/images/logo-light.svg";
+import logoDark from "../../assets/images/logo-dark.png";
 
 // import images
-import github from "../../assets/images/brands/github.png"
-import bitbucket from "../../assets/images/brands/bitbucket.png"
-import dribbble from "../../assets/images/brands/dribbble.png"
-import dropbox from "../../assets/images/brands/dropbox.png"
-import mail_chimp from "../../assets/images/brands/mail_chimp.png"
-import slack from "../../assets/images/brands/slack.png"
+import github from "../../assets/images/brands/github.png";
+import bitbucket from "../../assets/images/brands/bitbucket.png";
+import dribbble from "../../assets/images/brands/dribbble.png";
+import dropbox from "../../assets/images/brands/dropbox.png";
+import mail_chimp from "../../assets/images/brands/mail_chimp.png";
+import slack from "../../assets/images/brands/slack.png";
 
 // Redux Store
-import { toggleRightSidebar } from "../../store/actions"
+import { toggleRightSidebar } from "../../store/actions";
 
 //i18n
-import { withTranslation } from "react-i18next"
+import { withTranslation } from "react-i18next";
 
 class Header extends Component {
   constructor(props) {
     super(props)
-    this.state = { isSearch: false }
+    this.state = {
+      isSearch: false,
+      open: false,
+      position: 'right',
+    }
     this.toggleMenu = this.toggleMenu.bind(this)
-    this.toggleRightbar = this.toggleRightbar.bind(this)
     this.toggleFullscreen = this.toggleFullscreen.bind(this)
     this.toggleSearch = this.toggleSearch.bind(this)
+    this.toggleRightDrawer = this.toggleRightDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
+    this.onDrawerClose = this.onDrawerClose.bind(this);
   }
 
   toggleSearch = () => {
@@ -56,8 +65,15 @@ class Header extends Component {
   /**
    * Toggles the sidebar
    */
-  toggleRightbar() {
-    this.props.toggleRightSidebar()
+  toggleRightDrawer() {
+    this.setState({ position: 'right' });
+    this.setState({ open: !this.state.open });
+  }
+  closeDrawer() {
+    this.setState({ open: false });
+  }
+  onDrawerClose() {
+    this.setState({ open: false });
   }
 
   toggleFullscreen() {
@@ -115,12 +131,12 @@ class Header extends Component {
 
               <button
                 type="button"
-                className="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
+                className="btn btn-sm px-3 font-size-16 d-lg-none header-item"
                 data-toggle="collapse"
                 onClick={this.toggleMenu}
                 data-target="#topnav-menu-content"
               >
-                <i className="fa fa-fw fa-bars"/>
+                <i className="fa fa-fw fa-bars" />
               </button>
 
               <form className="app-search d-none d-lg-block">
@@ -130,10 +146,9 @@ class Header extends Component {
                     className="form-control"
                     placeholder="Search..."
                   />
-                  <span className="bx bx-search-alt"/>
+                  <span className="bx bx-search-alt" />
                 </div>
               </form>
-
               <Dropdown
                 className="dropdown-mega d-none d-lg-block ms-2"
                 isOpen={this.state.megaMenuDrp}
@@ -142,14 +157,14 @@ class Header extends Component {
                 }}
               >
                 <DropdownToggle
-                  className="btn header-item waves-effect"
+                  className="btn header-item"
                   caret
                   tag="button"
                 >
                   {this.props.t("Mega Menu")}{" "}
-                  <i className="mdi mdi-chevron-down"/>
+                  <i className="mdi mdi-chevron-down" />
                 </DropdownToggle>
-                <DropdownMenu className="dropdown-menu-end dropdown-megamenu">
+                <DropdownMenu className="dropdown-menu dropdown-megamenu">
                   <Row>
                     <Col sm={8}>
                       <Row>
@@ -295,19 +310,19 @@ class Header extends Component {
               <div className="dropdown d-inline-block d-lg-none ms-2">
                 <button
                   type="button"
-                  className="btn header-item noti-icon waves-effect"
+                  className="btn header-item noti-icon"
                   id="page-header-search-dropdown"
                   onClick={() => {
                     this.setState({ isSearch: !this.state.isSearch })
                   }}
                 >
-                  <i className="mdi mdi-magnify"/>
+                  <i className="mdi mdi-magnify" />
                 </button>
                 <div
                   className={
                     this.state.isSearch
-                      ? "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 show"
-                      : "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                      ? "dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 show"
+                      : "dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                   }
                   aria-labelledby="page-header-search-dropdown"
                 >
@@ -322,7 +337,7 @@ class Header extends Component {
                         />
                         <div className="input-group-append">
                           <button className="btn btn-primary" type="submit">
-                            <i className="mdi mdi-magnify"/>
+                            <i className="mdi mdi-magnify" />
                           </button>
                         </div>
                       </div>
@@ -341,11 +356,11 @@ class Header extends Component {
                 }}
               >
                 <DropdownToggle
-                  className="btn header-item noti-icon waves-effect"
+                  className="btn header-item noti-icon"
                   caret
                   tag="button"
                 >
-                  <i className="bx bx-customize"/>
+                  <i className="bx bx-customize" />
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-menu-lg dropdown-menu-end">
                   <div className="px-lg-2">
@@ -396,11 +411,11 @@ class Header extends Component {
               <div className="dropdown d-none d-lg-inline-block ms-1">
                 <button
                   type="button"
-                  className="btn header-item noti-icon waves-effect"
+                  className="btn header-item noti-icon"
                   onClick={this.toggleFullscreen}
                   data-toggle="fullscreen"
                 >
-                  <i className="bx bx-fullscreen"/>
+                  <i className="bx bx-fullscreen" />
                 </button>
               </div>
 
@@ -410,16 +425,23 @@ class Header extends Component {
 
               <div className="dropdown d-inline-block">
                 <button
-                  onClick={this.toggleRightbar}
+                  onClick={this.toggleRightDrawer} disabled={this.state.open}
                   type="button"
-                  className="btn header-item noti-icon right-bar-toggle waves-effect"
+                  className="btn header-item noti-icon right-bar-toggle"
                 >
-                  <i className="bx bx-cog bx-spin"/>
+                  <i className="bx bx-cog bx-spin" />
                 </button>
               </div>
             </div>
           </div>
         </header>
+        <ReactDrawer
+          open={this.state.open}
+          position={this.state.position}
+          onClose={this.onDrawerClose}
+        >
+          <RightSidebar onClose={this.onDrawerClose} />
+        </ReactDrawer>
       </React.Fragment>
     )
   }

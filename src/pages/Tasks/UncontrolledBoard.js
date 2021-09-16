@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types';
 import Board from "@lourenci/react-kanban"
 import { Col, Row } from "reactstrap"
 import CardTaskBox from "./card-task-box"
@@ -31,6 +32,10 @@ class UncontrolledBoard extends Component {
       </React.Fragment>
     )
   }
+}
+
+UncontrolledBoard.propTypes = {
+  board: PropTypes.any
 }
 
 export default UncontrolledBoard

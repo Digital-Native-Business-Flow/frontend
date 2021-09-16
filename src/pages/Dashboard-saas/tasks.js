@@ -63,289 +63,289 @@ class TotalSellingProduct extends Component {
                   <div className="table-responsive">
                     <Table className="table table-nowrap align-middle table-hover mb-0">
                       <tbody>
-                      <tr>
-                        <td style={{ width: "50px" }}>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck01"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck01"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Skote Saas Dashboard
+                        <tr>
+                          <td style={{ width: "50px" }}>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck01"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck01"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Skote Saas Dashboard
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">Assigned to Mark</p>
-                        </td>
-                        <td style={{ width: "90px" }}>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                            </h5>
+                            <p className="text-muted mb-0">Assigned to Mark</p>
+                          </td>
+                          <td style={{ width: "90px" }}>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
 
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck02"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck02"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              New Landing UI
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck02"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck02"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                New Landing UI
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">
-                            Assigned to Team A
+                            </h5>
+                            <p className="text-muted mb-0">
+                              Assigned to Team A
                           </p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
 
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck03"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck03"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Brand logo design
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck03"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck03"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Brand logo design
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">Assigned to Janis</p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                            </h5>
+                            <p className="text-muted mb-0">Assigned to Janis</p>
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
 
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck04"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck04"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Blog Template UI
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck04"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck04"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Blog Template UI
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">
-                            Assigned to Dianna
+                            </h5>
+                            <p className="text-muted mb-0">
+                              Assigned to Dianna
                           </p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
 
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck05"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck05"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Multipurpose Landing
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck05"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck05"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Multipurpose Landing
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">
-                            Assigned to Team B
+                            </h5>
+                            <p className="text-muted mb-0">
+                              Assigned to Team B
                           </p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck06"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck06"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Redesign - Landing page
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck06"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck06"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Redesign - Landing page
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">Assigned to Jerry</p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className="form-check">
-                            <Input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="tasklistCheck07"
-                            />
-                            <Label
-                              className="form-check-label"
-                              htmlFor="tasklistCheck07"
-                            />
-                          </div>
-                        </td>
-                        <td>
-                          <h5 className="text-truncate font-size-14 mb-1">
-                            <Link to="#" className="text-dark">
-                              Skote Crypto Dashboard
+                            </h5>
+                            <p className="text-muted mb-0">Assigned to Jerry</p>
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div className="form-check">
+                              <Input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="tasklistCheck07"
+                              />
+                              <Label
+                                className="form-check-label"
+                                htmlFor="tasklistCheck07"
+                              />
+                            </div>
+                          </td>
+                          <td>
+                            <h5 className="text-truncate font-size-14 mb-1">
+                              <Link to="#" className="text-dark">
+                                Skote Crypto Dashboard
                             </Link>
-                          </h5>
-                          <p className="text-muted mb-0">Assigned to Eric</p>
-                        </td>
-                        <td>
-                          <div>
-                            <ul className="list-inline mb-0 font-size-16">
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-success p-1">
-                                  <i className="bx bxs-edit-alt" />
-                                </Link>
-                              </li>{" "}
-                              <li className="list-inline-item">
-                                <Link to="#" className="text-danger p-1">
-                                  <i className="bx bxs-trash" />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
+                            </h5>
+                            <p className="text-muted mb-0">Assigned to Eric</p>
+                          </td>
+                          <td>
+                            <div>
+                              <ul className="list-inline mb-0 font-size-16">
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-success p-1">
+                                    <i className="bx bxs-edit-alt" />
+                                  </Link>
+                                </li>{" "}
+                                <li className="list-inline-item">
+                                  <Link to="#" className="text-danger p-1">
+                                    <i className="bx bxs-trash" />
+                                  </Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
                       </tbody>
                     </Table>
                   </div>
@@ -357,7 +357,7 @@ class TotalSellingProduct extends Component {
               <div className="text-center">
                 <Link
                   to="#"
-                  className="btn btn-primary waves-effect waves-light"
+                  className="btn btn-primary"
                 >
                   {" "}
                   Add new Task

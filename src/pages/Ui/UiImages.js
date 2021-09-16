@@ -38,7 +38,7 @@ class UiImages extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Images | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Images | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Images" />

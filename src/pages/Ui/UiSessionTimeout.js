@@ -77,8 +77,8 @@ class UiSessionTimeout extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Session Timeout | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Session Timeout | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             {this.state.timeralert}
@@ -99,9 +99,9 @@ class UiSessionTimeout extends Component {
                       <p>
                         After a set amount of idle time, a Bootstrap warning
                         dialog is shown to the user with the option to either
-                        log out, or stay connected. If "Logout" button is
+                        log out, or stay connected. If &quot;Logout&ldquo; button is
                         selected, the page is redirected to a logout URL. If
-                        "Stay Connected" is selected the dialog closes and the
+                        &quot;Stay Connected&ldquo; is selected the dialog closes and the
                         session is kept alive. If no option is selected after
                         another set amount of idle time, the page is
                         automatically redirected to a set timeout URL.

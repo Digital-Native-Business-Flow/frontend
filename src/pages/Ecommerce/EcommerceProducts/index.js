@@ -41,6 +41,7 @@ import { discountData, productsData } from "common/data"
 
 //Import actions
 import { getProducts } from "store/e-commerce/actions"
+import { any } from "prop-types";
 
 class EcommerceProducts extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class EcommerceProducts extends Component {
         { id: 3, name: "Jeans", link: "#" },
         { id: 4, name: "Jackets", link: "#" },
       ],
+      ratingvalues: [],
       products: [],
       activeTab: "1",
       discountData: [],
@@ -144,6 +146,10 @@ class EcommerceProducts extends Component {
     this.setState({
       products: productsData.filter(product => product.rating >= value),
     })
+
+    var modifiedRating = [...this.state.ratingvalues];
+    modifiedRating.push(value);
+    this.setState({ ratingvalues: modifiedRating });
   }
 
   onSelectRating = value => {
@@ -152,11 +158,26 @@ class EcommerceProducts extends Component {
     })
   }
 
-  onUncheckMark = () => {
-    this.setState({
-      products: productsData,
-    })
-    // setProductList(productsData)
+  onUncheckMark = (value) => {
+    var modifiedRating = [...this.state.ratingvalues];
+    const modifiedData = (modifiedRating || []).filter((x) => x !== value);
+    /*
+    find min values
+    */
+    var filteredProducts = productsData;
+    if (modifiedData && modifiedData.length && value !== 1) {
+      var minValue = Math.min(...modifiedData);
+      if (minValue && minValue !== Infinity) {
+
+        filteredProducts = productsData.filter(product => product.rating >= minValue);
+
+        this.setState({ ratingvalues: modifiedData });
+      }
+    } else {
+      filteredProducts = productsData;
+    }
+    this.setState({ products: filteredProducts });
+
   }
 
   handlePageClick = page => {
@@ -169,8 +190,8 @@ class EcommerceProducts extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Products | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Products | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             <Breadcrumbs title="Ecommerce" breadcrumbItem="Products" />
@@ -370,12 +391,12 @@ class EcommerceProducts extends Component {
                     products.map((product, key) => (
                       <Col xl="4" sm="6" key={"_col_" + key}>
                         <Card onClick={() =>
-                              history.push(
-                                `/ecommerce-product-detail/${product.id}`
-                              )
-                            }>
+                          history.push(
+                            `/ecommerce-product-details/${product.id}`
+                          )
+                        }>
                           <CardBody>
-                              <Link to="#">
+                            <Link to="#">
                               <div className="product-img position-relative">
                                 {product.isOffer ? (
                                   <div className="avatar-sm product-ribbon">
@@ -391,36 +412,36 @@ class EcommerceProducts extends Component {
                                   className="img-fluid mx-auto d-block"
                                 />
                               </div>
-                              </Link>
-                              
-                              <div className="mt-4 text-center">
-                                <h5 className="mb-3 text-truncate">
-                                  <Link
-                                    to={"/ecommerce-product-detail/" + product.id}
-                                    className="text-dark"
-                                  >
-                                    {product.name}{" "}
-                                  </Link>
-                                </h5>
-                                <div className="text-muted mb-3">
-                                  <StarRatings
-                                    rating={product.rating}
-                                    starRatedColor="#F1B44C"
-                                    starEmptyColor="#2D363F"
-                                    numberOfStars={5}
-                                    name="rating"
-                                    starDimension="14px"
-                                    starSpacing="3px"
-                                  />
-                                </div>
-                                <h5 className="my-0">
-                                  <span className="text-muted me-2">
-                                    <del>${product.oldPrice}</del>
-                                  </span>{" "}
-                                  <b>${product.newPrice}</b>
-                                </h5>
+                            </Link>
+
+                            <div className="mt-4 text-center">
+                              <h5 className="mb-3 text-truncate">
+                                <Link
+                                  to={"/ecommerce-product-details/" + product.id}
+                                  className="text-dark"
+                                >
+                                  {product.name}{" "}
+                                </Link>
+                              </h5>
+                              <div className="text-muted mb-3">
+                                <StarRatings
+                                  rating={product.rating}
+                                  starRatedColor="#F1B44C"
+                                  starEmptyColor="#2D363F"
+                                  numberOfStars={5}
+                                  name="rating"
+                                  starDimension="14px"
+                                  starSpacing="3px"
+                                />
                               </div>
-                            
+                              <h5 className="my-0">
+                                <span className="text-muted me-2">
+                                  <del>${product.oldPrice}</del>
+                                </span>{" "}
+                                <b>${product.newPrice}</b>
+                              </h5>
+                            </div>
+
                           </CardBody>
                         </Card>
                       </Col>
@@ -429,7 +450,7 @@ class EcommerceProducts extends Component {
 
                 <Row>
                   <Col lg="12">
-                    <Pagination className="pagination pagination-rounded justify-content-center mt-3 mb-4 pb-1 pagination-b-0">
+                    <Pagination className="pagination pagination-rounded justify-content-end mb-2">
                       <PaginationItem disabled={page === 1}>
                         <PaginationLink
                           previous
@@ -468,6 +489,7 @@ class EcommerceProducts extends Component {
 
 EcommerceProducts.propTypes = {
   products: PropTypes.array,
+  history: any,
   onGetProducts: PropTypes.func,
 }
 

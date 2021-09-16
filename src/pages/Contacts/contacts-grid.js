@@ -15,9 +15,12 @@ import CardContact from "./card-contact"
 import { getUsers } from "../../store/contacts/actions"
 
 class ContactsGrid extends Component {
+
   componentDidMount() {
-    const { onGetUsers } = this.props
-    onGetUsers()
+    const { users, onGetUsers } = this.props
+    if(users && !users.length) {
+      onGetUsers()
+    }
   }
 
   render() {

@@ -12,8 +12,8 @@ export default class ConfirmMail extends Component {
     return (
       <React.Fragment>
         <div className="account-pages my-5 pt-sm-5">
-        <MetaTags>
-            <title>Confirm Mail 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Confirm Mail | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container>
             <Row>
@@ -33,7 +33,7 @@ export default class ConfirmMail extends Component {
                       className="auth-logo-light mx-auto"
                     />
                   </Link>
-                  <p className="mt-3">Responsive Bootstrap 5 Admin Dashboard</p>
+                  <p className="mt-3">React Admin & Dashboard Template</p>
                 </div>
               </Col>
             </Row>

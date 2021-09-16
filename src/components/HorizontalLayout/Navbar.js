@@ -77,7 +77,7 @@ class Navbar extends Component {
                         e.preventDefault()
                         this.setState({ isDashboard: !this.state.isDashboard })
                       }}
-                      to="dashboard"
+                      to="/dashboard"
                     >
                       <i className="bx bx-home-circle me-2" />
                       {this.props.t("Dashboard")} {this.props.menuOpen}
@@ -88,16 +88,16 @@ class Navbar extends Component {
                         show: this.state.isDashboard,
                       })}
                     >
-                      <Link to="dashboard" className="dropdown-item">
+                      <Link to="/dashboard" className="dropdown-item">
                         {this.props.t("Default")}
                       </Link>
-                      <Link to="dashboard-saas" className="dropdown-item">
+                      <Link to="/dashboard-saas" className="dropdown-item">
                         {this.props.t("Saas")}
                       </Link>
-                      <Link to="dashboard-crypto" className="dropdown-item">
+                      <Link to="/dashboard-crypto" className="dropdown-item">
                         {this.props.t("Crypto")}
                       </Link>
-                      <Link to="dashboard-blog" className="dropdown-item">
+                      <Link to="/dashboard-blog" className="dropdown-item">
                         {this.props.t("Blog")}
                       </Link>
                     </div>
@@ -125,85 +125,91 @@ class Navbar extends Component {
                       <Row>
                         <Col lg={4}>
                           <div>
-                            <Link to="ui-alerts" className="dropdown-item">
+                            <Link to="/ui-alerts" className="dropdown-item">
                               {this.props.t("Alerts")}
                             </Link>
-                            <Link to="ui-buttons" className="dropdown-item">
+                            <Link to="/ui-buttons" className="dropdown-item">
                               {this.props.t("Buttons")}
                             </Link>
-                            <Link to="ui-cards" className="dropdown-item">
+                            <Link to="/ui-cards" className="dropdown-item">
                               {this.props.t("Cards")}
                             </Link>
-                            <Link to="ui-carousel" className="dropdown-item">
+                            <Link to="/ui-carousel" className="dropdown-item">
                               {this.props.t("Carousel")}
                             </Link>
-                            <Link to="ui-dropdowns" className="dropdown-item">
+                            <Link to="/ui-dropdowns" className="dropdown-item">
                               {this.props.t("Dropdowns")}
                             </Link>
-                            <Link to="ui-grid" className="dropdown-item">
+                            <Link to="/ui-grid" className="dropdown-item">
                               {this.props.t("Grid")}
                             </Link>
-                            <Link to="ui-images" className="dropdown-item">
+                            <Link to="/ui-images" className="dropdown-item">
                               {this.props.t("Images")}
+                            </Link>
+                            <Link to="/ui-lightbox" className="dropdown-item">
+                              {this.props.t("Lightbox")}
                             </Link>
                           </div>
                         </Col>
                         <Col lg={4}>
                           <div>
-                            <Link to="ui-lightbox" className="dropdown-item">
-                              {this.props.t("Lightbox")}
-                            </Link>
-                            <Link to="ui-modals" className="dropdown-item">
+                            <Link to="/ui-modals" className="dropdown-item">
                               {this.props.t("Modals")}
                             </Link>
-                            <Link to="ui-rangeslider" className="dropdown-item">
+                            <Link to="/ui-rangeslider" className="dropdown-item">
                               {this.props.t("Range Slider")}
                             </Link>
                             <Link
-                              to="ui-session-timeout"
+                              to="/ui-session-timeout"
                               className="dropdown-item"
                             >
                               {this.props.t("Session Timeout")}
                             </Link>
                             <Link
-                              to="ui-progressbars"
+                              to="/ui-progressbars"
                               className="dropdown-item"
                             >
                               {this.props.t("Progress Bars")}
                             </Link>
-                            <Link to="ui-sweet-alert" className="dropdown-item">
+                            <Link to="/ui-sweet-alert" className="dropdown-item">
                               {this.props.t("Sweet-Alert")}
                             </Link>
                             <Link
-                              to="ui-tabs-accordions"
+                              to="/ui-tabs-accordions"
                               className="dropdown-item"
                             >
                               {this.props.t("Tabs & Accordions")}
+                            </Link>
+                            <Link to="/ui-typography" className="dropdown-item">
+                              {this.props.t("Typography")}
+                            </Link>
+                            <Link to="/ui-video" className="dropdown-item">
+                              {this.props.t("Video")}
                             </Link>
                           </div>
                         </Col>
                         <Col lg={4}>
                           <div>
-                            <Link to="ui-typography" className="dropdown-item">
-                              {this.props.t("Typography")}
-                            </Link>
-                            <Link to="ui-video" className="dropdown-item">
-                              {this.props.t("Video")}
-                            </Link>
-                            <Link to="ui-general" className="dropdown-item">
+                            <Link to="/ui-general" className="dropdown-item">
                               {this.props.t("General")}
                             </Link>
-                            <Link to="ui-colors" className="dropdown-item">
+                            <Link to="/ui-colors" className="dropdown-item">
                               {this.props.t("Colors")}
                             </Link>
-                            <Link to="ui-rating" className="dropdown-item">
+                            <Link to="/ui-rating" className="dropdown-item">
                               {this.props.t("Rating")}
                             </Link>
                             <Link
-                              to="ui-notifications"
+                              to="/ui-notifications"
                               className="dropdown-item"
                             >
                               {this.props.t("Notifications")}
+                            </Link>
+                            <Link to="/ui-breadcrumb" className="dropdown-item">
+                              {this.props.t("Breadcrumb")}
+                            </Link>
+                            <Link to="/ui-drawer" className="dropdown-item">
+                              {this.props.t("Drawer")}
                             </Link>
                           </div>
                         </Col>
@@ -228,13 +234,13 @@ class Navbar extends Component {
                         show: this.state.appState,
                       })}
                     >
-                      <Link to="calendar" className="dropdown-item">
+                      <Link to="/calendar" className="dropdown-item">
                         {this.props.t("Calendar")}
                       </Link>
-                      <Link to="chat" className="dropdown-item">
+                      <Link to="/chat" className="dropdown-item">
                         {this.props.t("Chat")}
                       </Link>
-                      <Link to="apps-filemanager" className="dropdown-item">
+                      <Link to="/apps-filemanager" className="dropdown-item">
                         {this.props.t("File Manager")}
                       </Link>
                       <div className="dropdown">
@@ -255,51 +261,51 @@ class Navbar extends Component {
                             show: this.state.emailState,
                           })}
                         >
-                          <Link to="email-inbox" className="dropdown-item">
+                          <Link to="/email-inbox" className="dropdown-item">
                             {this.props.t("Inbox")}
                           </Link>
-                          <Link to="email-read" className="dropdown-item">
+                          <Link to="/email-read" className="dropdown-item">
                             {this.props.t("Read Email")}
                           </Link>
                           <div className="dropdown">
-                          <Link
-                            className="dropdown-item dropdown-toggle arrow-none"
-                            to="/#"
-                            onClick={e => {
-                            e.preventDefault()
-                            this.setState({
-                              emailState: !this.state.emailState,
-                            })
-                          }}
-                          >
-                            <span key="t-email-templates">Templates</span>{" "}
-                            <div className="arrow-down"></div>
-                          </Link>
-                          <div
-                            className={classname("dropdown-menu", {
-                              show: this.state.emailState,
-                            })}
-                          >
                             <Link
-                              to="email-template-basic"
-                              className="dropdown-item"
+                              className="dropdown-item dropdown-toggle arrow-none"
+                              to="/#"
+                              onClick={e => {
+                                e.preventDefault()
+                                this.setState({
+                                  emailState: !this.state.emailState,
+                                })
+                              }}
                             >
-                              {this.props.t("Basic Action")}
+                              <span key="t-email-templates">Templates</span>{" "}
+                              <div className="arrow-down"></div>
                             </Link>
-                            <Link
-                              to="email-template-alert"
-                              className="dropdown-item"
+                            <div
+                              className={classname("dropdown-menu", {
+                                show: this.state.emailState,
+                              })}
                             >
-                              {this.props.t("Alert Email")}
-                            </Link>
-                            <Link
-                              to="email-template-billing"
-                              className="dropdown-item"
-                            >
-                              {this.props.t("Billing Email")}
-                            </Link>
+                              <Link
+                                to="/email-template-basic"
+                                className="dropdown-item"
+                              >
+                                {this.props.t("Basic Action")}
+                              </Link>
+                              <Link
+                                to="/email-template-alert"
+                                className="dropdown-item"
+                              >
+                                {this.props.t("Alert Email")}
+                              </Link>
+                              <Link
+                                to="/email-template-billing"
+                                className="dropdown-item"
+                              >
+                                {this.props.t("Billing Email")}
+                              </Link>
+                            </div>
                           </div>
-                        </div>
                         </div>
                       </div>
                       <div className="dropdown">
@@ -322,40 +328,40 @@ class Navbar extends Component {
                           })}
                         >
                           <Link
-                            to="ecommerce-products"
+                            to="/ecommerce-products"
                             className="dropdown-item"
                           >
                             {this.props.t("Products")}
                           </Link>
                           <Link
-                            to="ecommerce-product-detail/1"
+                            to="/ecommerce-product-details/1"
                             className="dropdown-item"
                           >
-                            {this.props.t("Product Detail")}
+                            {this.props.t("Product Details")}
                           </Link>
-                          <Link to="ecommerce-orders" className="dropdown-item">
+                          <Link to="/ecommerce-orders" className="dropdown-item">
                             {this.props.t("Orders")}
                           </Link>
                           <Link
-                            to="ecommerce-customers"
+                            to="/ecommerce-customers"
                             className="dropdown-item"
                           >
                             {this.props.t("Customers")}
                           </Link>
-                          <Link to="ecommerce-cart" className="dropdown-item">
+                          <Link to="/ecommerce-cart" className="dropdown-item">
                             {this.props.t("Cart")}
                           </Link>
                           <Link
-                            to="ecommerce-checkout"
+                            to="/ecommerce-checkout"
                             className="dropdown-item"
                           >
                             {this.props.t("Checkout")}
                           </Link>
-                          <Link to="ecommerce-shops" className="dropdown-item">
+                          <Link to="/ecommerce-shops" className="dropdown-item">
                             {this.props.t("Shops")}
                           </Link>
                           <Link
-                            to="ecommerce-add-product"
+                            to="/ecommerce-add-product"
                             className="dropdown-item"
                           >
                             {this.props.t("Add Product")}
@@ -380,29 +386,29 @@ class Navbar extends Component {
                             show: this.state.isCrypto,
                           })}
                         >
-                          <Link to="crypto-wallet" className="dropdown-item">
+                          <Link to="/crypto-wallet" className="dropdown-item">
                             {this.props.t("Wallet")}
                           </Link>
-                          <Link to="crypto-buy-sell" className="dropdown-item">
+                          <Link to="/crypto-buy-sell" className="dropdown-item">
                             {this.props.t("Buy/Sell")}
                           </Link>
-                          <Link to="crypto-exchange" className="dropdown-item">
+                          <Link to="/crypto-exchange" className="dropdown-item">
                             {this.props.t("Exchange")}
                           </Link>
-                          <Link to="crypto-lending" className="dropdown-item">
+                          <Link to="/crypto-lending" className="dropdown-item">
                             {this.props.t("Lending")}
                           </Link>
-                          <Link to="crypto-orders" className="dropdown-item">
+                          <Link to="/crypto-orders" className="dropdown-item">
                             {this.props.t("Orders")}
                           </Link>
                           <Link
-                            to="crypto-kyc-application"
+                            to="/crypto-kyc-application"
                             className="dropdown-item"
                           >
                             {this.props.t("KYC Application")}
                           </Link>
                           <Link
-                            to="crypto-ico-landing"
+                            to="/crypto-ico-landing"
                             className="dropdown-item"
                           >
                             {this.props.t("ICO Landing")}
@@ -429,19 +435,19 @@ class Navbar extends Component {
                             show: this.state.projectState,
                           })}
                         >
-                          <Link to="projects-grid" className="dropdown-item">
+                          <Link to="/projects-grid" className="dropdown-item">
                             {this.props.t("Projects Grid")}
                           </Link>
-                          <Link to="projects-list" className="dropdown-item">
+                          <Link to="/projects-list" className="dropdown-item">
                             {this.props.t("Projects List")}
                           </Link>
                           <Link
-                            to="projects-overview"
+                            to="/projects-overview"
                             className="dropdown-item"
                           >
                             {this.props.t("Project Overview")}
                           </Link>
-                          <Link to="projects-create" className="dropdown-item">
+                          <Link to="/projects-create" className="dropdown-item">
                             {this.props.t("Create New")}
                           </Link>
                         </div>
@@ -462,13 +468,13 @@ class Navbar extends Component {
                             show: this.state.taskState,
                           })}
                         >
-                          <Link to="tasks-list" className="dropdown-item">
+                          <Link to="/tasks-list" className="dropdown-item">
                             {this.props.t("Task List")}
                           </Link>
-                          <Link to="tasks-kanban" className="dropdown-item">
+                          <Link to="/tasks-kanban" className="dropdown-item">
                             {this.props.t("Kanban Board")}
                           </Link>
-                          <Link to="tasks-create" className="dropdown-item">
+                          <Link to="/tasks-create" className="dropdown-item">
                             {this.props.t("Create Task")}
                           </Link>
                         </div>
@@ -492,13 +498,13 @@ class Navbar extends Component {
                             show: this.state.contactState,
                           })}
                         >
-                          <Link to="contacts-grid" className="dropdown-item">
+                          <Link to="/contacts-grid" className="dropdown-item">
                             {this.props.t("User Grid")}
                           </Link>
-                          <Link to="contacts-list" className="dropdown-item">
+                          <Link to="/contacts-list" className="dropdown-item">
                             {this.props.t("User List")}
                           </Link>
-                          <Link to="contacts-profile" className="dropdown-item">
+                          <Link to="/contacts-profile" className="dropdown-item">
                             {this.props.t("Profile")}
                           </Link>
                         </div>
@@ -521,13 +527,13 @@ class Navbar extends Component {
                             show: this.state.blogState,
                           })}
                         >
-                          <Link to="blog-list" className="dropdown-item">
+                          <Link to="/blog-list" className="dropdown-item">
                             {this.props.t("Blog List")}
                           </Link>
-                          <Link to="blog-grid" className="dropdown-item">
+                          <Link to="/blog-grid" className="dropdown-item">
                             {this.props.t("Blog Grid")}
                           </Link>
-                          <Link to="blog-details" className="dropdown-item">
+                          <Link to="/blog-details" className="dropdown-item">
                             {this.props.t("Blog Details")}
                           </Link>
                         </div>
@@ -571,35 +577,38 @@ class Navbar extends Component {
                             show: this.state.formState,
                           })}
                         >
-                          <Link to="form-elements" className="dropdown-item">
+                          <Link to="/form-elements" className="dropdown-item">
                             {this.props.t("Form Elements")}
                           </Link>
-                          <Link to="form-layouts" className="dropdown-item">
+                          <Link to="/form-layouts" className="dropdown-item">
                             {this.props.t("Form Layouts")}
                           </Link>
-                          <Link to="form-validation" className="dropdown-item">
+                          <Link to="/form-validation" className="dropdown-item">
                             {this.props.t("Form Validation")}
                           </Link>
-                          <Link to="form-advanced" className="dropdown-item">
+                          <Link to="/form-advanced" className="dropdown-item">
                             {this.props.t("Form Advanced")}
                           </Link>
-                          <Link to="form-editors" className="dropdown-item">
+                          <Link to="/form-editors" className="dropdown-item">
                             {this.props.t("Form Editors")}
                           </Link>
-                          <Link to="form-uploads" className="dropdown-item">
+                          <Link to="/form-uploads" className="dropdown-item">
                             {this.props.t("Form File Upload")}{" "}
                           </Link>
-                          <Link to="form-xeditable" className="dropdown-item">
+                          <Link to="/form-xeditable" className="dropdown-item">
                             {this.props.t("Form Xeditable")}
                           </Link>
-                          <Link to="form-repeater" className="dropdown-item">
+                          <Link to="/form-repeater" className="dropdown-item">
                             {this.props.t("Form Repeater")}
                           </Link>
-                          <Link to="form-wizard" className="dropdown-item">
+                          <Link to="/form-wizard" className="dropdown-item">
                             {this.props.t("Form Wizard")}
                           </Link>
-                          <Link to="form-mask" className="dropdown-item">
+                          <Link to="/form-mask" className="dropdown-item">
                             {this.props.t("Form Mask")}
+                          </Link>
+                          <Link to="/dual-listbox" className="dropdown-item">
+                            {this.props.t("Transfer List")}
                           </Link>
                         </div>
                       </div>
@@ -622,20 +631,23 @@ class Navbar extends Component {
                             show: this.state.tableState,
                           })}
                         >
-                          <Link to="tables-basic" className="dropdown-item">
+                          <Link to="/tables-basic" className="dropdown-item">
                             {this.props.t("Basic Tables")}
                           </Link>
-                          <Link to="tables-datatable" className="dropdown-item">
+                          <Link to="/tables-datatable" className="dropdown-item">
                             {this.props.t("Data Tables")}
                           </Link>
                           <Link
-                            to="tables-responsive"
+                            to="/tables-responsive"
                             className="dropdown-item"
                           >
                             {this.props.t("Responsive Table")}
                           </Link>
-                          <Link to="tables-editable" className="dropdown-item">
+                          <Link to="/tables-editable" className="dropdown-item">
                             {this.props.t("Editable Table")}
+                          </Link>
+                          <Link to="/tables-dragndrop" className="dropdown-item">
+                            {this.props.t("Drag & Drop Table")}
                           </Link>
                         </div>
                       </div>
@@ -658,27 +670,27 @@ class Navbar extends Component {
                             show: this.state.chartState,
                           })}
                         >
-                          <Link to="apex-charts" className="dropdown-item">
+                          <Link to="/apex-charts" className="dropdown-item">
                             {" "}
                             {this.props.t("Apex charts")}
                           </Link>
-                          <Link to="chartist-charts" className="dropdown-item">
+                          <Link to="/chartist-charts" className="dropdown-item">
                             {" "}
                             {this.props.t("Chartjs Chart")}
                           </Link>
-                          <Link to="e-charts" className="dropdown-item">
+                          <Link to="/e-charts" className="dropdown-item">
                             {" "}
                             {this.props.t("E Chart")}
                           </Link>
-                          <Link to="tui-charts" className="dropdown-item">
-                            {this.props.t("Toast UI Chart")}
-                          </Link>
-                          <Link to="sparkline-charts" className="dropdown-item">
+                          <Link to="/sparkline-charts" className="dropdown-item">
                             {" "}
                             {this.props.t("Sparkline Chart")}
                           </Link>
-                          <Link to="charts-knob" className="dropdown-item">
+                          <Link to="/charts-knob" className="dropdown-item">
                             {this.props.t("Knob Chart")}
+                          </Link>
+                          <Link to="/re-charts" className="dropdown-item">
+                            {this.props.t("Re Chart")}
                           </Link>
                         </div>
                       </div>
@@ -698,20 +710,20 @@ class Navbar extends Component {
                             show: this.state.iconState,
                           })}
                         >
-                          <Link to="icons-boxicons" className="dropdown-item">
+                          <Link to="/icons-boxicons" className="dropdown-item">
                             {this.props.t("Boxicons")}
                           </Link>
                           <Link
-                            to="icons-materialdesign"
+                            to="/icons-materialdesign"
                             className="dropdown-item"
                           >
                             {this.props.t("Material Design")}
                           </Link>
-                          <Link to="icons-dripicons" className="dropdown-item">
+                          <Link to="/icons-dripicons" className="dropdown-item">
                             {this.props.t("Dripicons")}
                           </Link>
                           <Link
-                            to="icons-fontawesome"
+                            to="/icons-fontawesome"
                             className="dropdown-item"
                           >
                             {this.props.t("Font awesome")}{" "}
@@ -734,13 +746,13 @@ class Navbar extends Component {
                             show: this.state.mapState,
                           })}
                         >
-                          <Link to="maps-google" className="dropdown-item">
+                          <Link to="/maps-google" className="dropdown-item">
                             {this.props.t("Google Maps")}{" "}
                           </Link>
-                          <Link to="maps-vector" className="dropdown-item">
+                          <Link to="/maps-vector" className="dropdown-item">
                             {this.props.t("Vector Maps")}{" "}
                           </Link>
-                          <Link to="maps-leaflet" className="dropdown-item">
+                          <Link to="/maps-leaflet" className="dropdown-item">
                             {this.props.t("Leaflet Maps")}{" "}
                           </Link>
                         </div>
@@ -751,7 +763,7 @@ class Navbar extends Component {
                   <li className="nav-item dropdown">
                     <Link
                       className="nav-link dropdown-toggle arrow-none"
-                      to="#"
+                      to="/#"
                       onClick={e => {
                         e.preventDefault()
                         this.setState({ extraState: !this.state.extraState })
@@ -785,10 +797,10 @@ class Navbar extends Component {
                             show: this.state.invoiceState,
                           })}
                         >
-                          <Link to="invoices-list" className="dropdown-item">
+                          <Link to="/invoices-list" className="dropdown-item">
                             {this.props.t("Invoice List")}
                           </Link>
-                          <Link to="invoices-detail" className="dropdown-item">
+                          <Link to="/invoices-detail" className="dropdown-item">
                             {this.props.t("Invoice Detail")}
                           </Link>
                         </div>
@@ -811,65 +823,65 @@ class Navbar extends Component {
                             show: this.state.authState,
                           })}
                         >
-                          <Link to="pages-login" className="dropdown-item">
+                          <Link to="/pages-login" className="dropdown-item">
                             {this.props.t("Login")}
                           </Link>
-                          <Link to="pages-login-2" className="dropdown-item">
+                          <Link to="/pages-login-2" className="dropdown-item">
                             {this.props.t("Login 2")}
                           </Link>
-                          <Link to="pages-register" className="dropdown-item">
+                          <Link to="/pages-register" className="dropdown-item">
                             {this.props.t("Register")}
                           </Link>
-                          <Link to="pages-register-2" className="dropdown-item">
+                          <Link to="/pages-register-2" className="dropdown-item">
                             {this.props.t("Register 2")}
                           </Link>
-                          <Link to="page-recoverpw" className="dropdown-item">
+                          <Link to="/page-recoverpw" className="dropdown-item">
                             {this.props.t("Recover Password")}
                           </Link>
-                          <Link to="page-recoverpw-2" className="dropdown-item">
+                          <Link to="/pages-recoverpw-2" className="dropdown-item">
                             {this.props.t("Recover Password 2")}
                           </Link>
-                          <Link to="auth-lock-screen" className="dropdown-item">
+                          <Link to="/auth-lock-screen" className="dropdown-item">
                             {this.props.t("Lock Screen")}
                           </Link>
                           <Link
-                            to="auth-lock-screen-2"
+                            to="/auth-lock-screen-2"
                             className="dropdown-item"
                           >
                             {this.props.t("Lock Screen 2")}
                           </Link>
                           <Link
-                            to="page-confirm-mail"
+                            to="/page-confirm-mail"
                             className="dropdown-item"
                           >
                             {this.props.t("Confirm Mail")}
                           </Link>
                           <Link
-                            to="page-confirm-mail-2"
+                            to="/page-confirm-mail-2"
                             className="dropdown-item"
                           >
                             {this.props.t("Confirm Mail 2")}
                           </Link>
                           <Link
-                            to="auth-email-verification"
+                            to="/auth-email-verification"
                             className="dropdown-item"
                           >
                             {this.props.t("Email verification")}
                           </Link>
                           <Link
-                            to="auth-email-verification-2"
+                            to="/auth-email-verification-2"
                             className="dropdown-item"
                           >
                             {this.props.t("Email verification 2")}
                           </Link>
                           <Link
-                            to="auth-two-step-verification"
+                            to="/auth-two-step-verification"
                             className="dropdown-item"
                           >
                             {this.props.t("Two step verification")}
                           </Link>
                           <Link
-                            to="auth-two-step-verification-2"
+                            to="/auth-two-step-verification-2"
                             className="dropdown-item"
                           >
                             {this.props.t("Two step verification 2")}
@@ -880,7 +892,7 @@ class Navbar extends Component {
                       <div className="dropdown">
                         <Link
                           className="dropdown-item dropdown-toggle arrow-none"
-                          to="#"
+                          to="/#"
                           onClick={e => {
                             e.preventDefault()
                             this.setState({
@@ -896,31 +908,31 @@ class Navbar extends Component {
                             show: this.state.utilityState,
                           })}
                         >
-                          <Link to="pages-starter" className="dropdown-item">
+                          <Link to="/pages-starter" className="dropdown-item">
                             {this.props.t("Starter Page")}
                           </Link>
                           <Link
-                            to="pages-maintenance"
+                            to="/pages-maintenance"
                             className="dropdown-item"
                           >
                             {this.props.t("Maintenance")}
                           </Link>
-                          <Link to="pages-comingsoon" className="dropdown-item">
+                          <Link to="/pages-comingsoon" className="dropdown-item">
                             {this.props.t("Coming Soon")}
                           </Link>
-                          <Link to="pages-timeline" className="dropdown-item">
+                          <Link to="/pages-timeline" className="dropdown-item">
                             {this.props.t("Timeline")}
                           </Link>
-                          <Link to="pages-faqs" className="dropdown-item">
+                          <Link to="/pages-faqs" className="dropdown-item">
                             {this.props.t("FAQs")}
                           </Link>
-                          <Link to="pages-pricing" className="dropdown-item">
+                          <Link to="/pages-pricing" className="dropdown-item">
                             {this.props.t("Pricing")}
                           </Link>
-                          <Link to="pages-404" className="dropdown-item">
+                          <Link to="/pages-404" className="dropdown-item">
                             {this.props.t("Error 404")}
                           </Link>
-                          <Link to="pages-500" className="dropdown-item">
+                          <Link to="/pages-500" className="dropdown-item">
                             {this.props.t("Error 500")}
                           </Link>
                         </div>

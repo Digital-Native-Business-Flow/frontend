@@ -7,7 +7,6 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle,
 } from "reactstrap"
 
 //Import Breadcrumb
@@ -24,7 +23,7 @@ class BasicTable extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Basic Tables | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Basic Tables | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             <Breadcrumbs title="Tables" breadcrumbItem="Basic Tables" />
@@ -134,7 +133,7 @@ class BasicTable extends Component {
 
                     <div className="table-responsive">
                       <Table className="table mb-0">
-                        <thead className="thead-light">
+                        <thead className="table-light">
                           <tr>
                             <th>#</th>
                             <th>First Name</th>
@@ -302,6 +301,129 @@ class BasicTable extends Component {
                         </tbody>
                       </Table>
                     </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xl={6}>
+                <Card>
+                  <CardBody>
+                    <div className="table-responsive">
+                      <h4 className="card-title">Vertical alignment</h4>
+                      <p className="card-title-desc">Table cells in <code>&lt;tbody&gt;</code> inherit their alignment from <code>&lt;table&gt;</code> and are aligned to the the top by default. Use the vertical align classes to re-align where needed.</p>
+
+                      <div className="table-responsive">
+                        <Table className="align-middle mb-0">
+
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>
+                                <button type="button" className="btn btn-light btn-sm">View</button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>
+                                <button type="button" className="btn btn-light btn-sm">View</button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>Larry</td>
+                              <td>the Bird</td>
+                              <td>
+                                <button type="button" className="btn btn-light btn-sm">View</button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th scope="row">4</th>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>
+                                <button type="button" className="btn btn-light btn-sm">View</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </Table>
+                      </div>
+
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+              <Col xl={6}>
+                <Card>
+                  <CardBody>
+                    <h4 className="card-title">Nesting</h4>
+                    <p className="card-title-desc"> Border styles, active styles, and table variants are not inherited by nested tables.</p>
+
+                    <div className="table-responsive">
+                      <Table className="table-striped table-bordered mb-0">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <td colSpan="4">
+                              <table className="table mb-0">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Header</th>
+                                    <th scope="col">Header</th>
+                                    <th scope="col">Header</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">A</th>
+                                    <td>First</td>
+                                    <td>Last</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">B</th>
+                                    <td>First</td>
+                                    <td>Last</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                        </tbody>
+                      </Table>
+                    </div>
+
                   </CardBody>
                 </Card>
               </Col>
@@ -526,9 +648,9 @@ class BasicTable extends Component {
               <Col lg={12}>
                 <Card>
                   <CardBody>
-                    <CardTitle className="h4">Responsive tables </CardTitle>
+                    <CardTitle className="h4">Responsive table </CardTitle>
                     <p className="card-title-desc">
-                      Create responsive tables by wrapping any{" "}
+                      Create responsive table by wrapping any{" "}
                       <code>.table</code> in <code>.table-responsive</code>
                       to make them scroll horizontally on small devices (under
                       768px).

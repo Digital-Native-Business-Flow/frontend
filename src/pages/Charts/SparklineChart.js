@@ -23,8 +23,8 @@ class SparklineChart extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Sparkline Chart | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Sparkline Chart | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <div className="container-fluid">
             {/* Render Breadcrumb */}

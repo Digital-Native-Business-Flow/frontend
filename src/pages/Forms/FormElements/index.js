@@ -3,7 +3,6 @@ import MetaTags from 'react-meta-tags';
 import {
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -47,7 +46,7 @@ class FormElements extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Form Elements | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Form Elements | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Elements" />
@@ -94,38 +93,44 @@ class FormElements extends Component {
                   </CardBody>
                 </Card>
               </Col>
-              <Col lg={6}>
+              <Col lg={12}>
                 <Card>
                   <CardBody>
                     <CardTitle className="h4">Range Inputs</CardTitle>
-                    <p className="card-title-desc">
-                      Set horizontally scrollable range inputs using{" "}
-                      <code>.form-control-range</code>.
-                    </p>
+                    <p className="card-title-desc">Create custom <code>&lt;input type=&quot;range&ldquo;&gt;</code>
+                      controls with <code>.form-range</code>.</p>
 
-                    <div>
-                      <h5 className="font-size-14">Example</h5>
-                      <input
-                        type="range"
-                        className="form-control-range"
-                        id="formControlRange"
-                      />
-                    </div>
-                    <div className="mt-4">
-                      <h5 className="font-size-14">Custom Range</h5>
-                      <input
-                        type="range"
-                        className="custom-range"
-                        id="customRange1"
-                      />
-                      <input
-                        type="range"
-                        className="custom-range mt-4"
-                        min="0"
-                        max="5"
-                        id="customRange2"
-                      />
-                    </div>
+                    <Row className="mt-2">
+                      <Col lg={6}>
+                        <div>
+                          <label htmlFor="customRange1" className="form-label">Example range</label>
+                          <input
+                            type="range"
+                            className="form-range"
+                            id="customRange1"
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+
+                    <Row className="mt-2">
+                      <Col lg={6}>
+                        <div className="mt-4">
+                          <h5 className="font-size-14">Min and max</h5>
+                          <p className="card-title-desc">Range inputs have implicit values for min and
+                            max—0 and 100, respectively.</p>
+                          <input type="range" className="form-range" min="0" max="5" id="customRange2" />
+                        </div>
+                      </Col>
+                      <Col lg={6}>
+                        <div className="mt-4">
+                          <h5 className="font-size-14">Steps</h5>
+                          <p className="card-title-desc">By default, range inputs “snap” to integer
+                            values. To change this, you can specify a <code>step</code> value.</p>
+                          <input type="range" className="form-range" min="0" max="5" id="customRange2" />
+                        </div>
+                      </Col>
+                    </Row>
                   </CardBody>
                 </Card>
               </Col>
@@ -498,7 +503,7 @@ class FormElements extends Component {
                                 htmlFor="customRadio1"
                               >
                                 Form Radio Right
-                            </label>
+                              </label>
                             </div>
                           </div>
                           <div>
@@ -515,7 +520,7 @@ class FormElements extends Component {
                                 htmlFor="customRadio2"
                               >
                                 Form Radio Right checked
-                            </label>
+                              </label>
                             </div>
                           </div>
                         </div>

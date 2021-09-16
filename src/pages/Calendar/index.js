@@ -52,9 +52,7 @@ class Calender extends Component {
     this.toggle = this.toggle.bind(this)
     this.togglecategory = this.togglecategory.bind(this)
     this.handleValidEventSubmit = this.handleValidEventSubmit.bind(this)
-    this.handleValidEventSubmitcategory = this.handleValidEventSubmitcategory.bind(
-      this
-    )
+    this.handleValidEventSubmitcategory = this.handleValidEventSubmitcategory.bind(this)
 
     // category
     this.onDrag = this.onDrag.bind(this)
@@ -99,14 +97,27 @@ class Calender extends Component {
    * Handling date click on calendar
    */
   handleDateClick = arg => {
-    this.setState({ selectedDay: arg })
-    this.toggle()
+    const date = arg['date'];
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    const currectDate = new Date();
+    const currentHour = currectDate.getHours();
+    const currentMin = currectDate.getMinutes();
+    const currentSec = currectDate.getSeconds();
+    const modifiedDate = new Date(year, month, day, currentHour, currentMin, currentSec);
+    const modifiedData = { ...arg, date: modifiedDate };
+
+    this.setState({ selectedDay: modifiedData })
+    this.toggle();
   }
 
   /**
    * Handling click on event on calendar
    */
   handleEventClick = arg => {
+
     const event = arg.event
     this.setState({
       event: {
@@ -127,6 +138,7 @@ class Calender extends Component {
    * Handling submit event on event form
    */
   handleValidEventSubmit = (e, values) => {
+
     const { onAddNewEvent, onUpdateEvent } = this.props
     const { isEdit, event, selectedDay } = this.state
     if (isEdit) {
@@ -153,16 +165,15 @@ class Calender extends Component {
     this.toggle()
   }
 
- handleValidEventSubmitcategory = (event, values) => {
+  handleValidEventSubmitcategory = (event, values) => {
     const { onAddNewEvent } = this.props
-    console.log(values);
+
     const newEvent = {
       id: Math.floor(Math.random() * 100),
       title: values["title_category"],
       start: new Date(),
-      className: values.event_category + " text-white",
+      className: values.event_category ? values.event_category + " text-white" : "bg-danger text-white",
     }
-
     // save new event
     onAddNewEvent(newEvent)
     this.togglecategory()
@@ -174,9 +185,11 @@ class Calender extends Component {
   handleDeleteEvent = () => {
     const { onDeleteEvent } = this.props
     const { event } = this.state
+
+
     onDeleteEvent(event)
     this.setState({ deleteModal: false })
-    this.toggle()
+    this.toggle();
   }
 
   /**
@@ -190,20 +203,32 @@ class Calender extends Component {
    * On calendar drop event
    */
   onDrop = event => {
+    const date = event['date'];
+    const day = date.getDate();
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    const currectDate = new Date();
+    const currentHour = currectDate.getHours();
+    const currentMin = currectDate.getMinutes();
+    const currentSec = currectDate.getSeconds();
+    const modifiedDate = new Date(year, month, day, currentHour, currentMin, currentSec);
+
     const { onAddNewEvent } = this.props
     const draggedEl = event.draggedEl
-    const newEvent = {
+    const modifiedData = {
       id: Math.floor(Math.random() * 100),
       title: draggedEl.innerText,
-      start: event.date,
+      start: modifiedDate,
       className: draggedEl.className,
     }
-    onAddNewEvent(newEvent)
+    onAddNewEvent(modifiedData)
   }
 
   render() {
-    const { events, categories } = this.props
-    const { isEdit, deleteModal } = this.state
+    const { events, categories } = this.props;
+    const { isEdit, deleteModal } = this.state;
+
     return (
       <React.Fragment>
         <DeleteModal
@@ -212,8 +237,8 @@ class Calender extends Component {
           onCloseClick={() => this.setState({ deleteModal: false })}
         />
         <div className="page-content">
-        <MetaTags>
-            <title>Calendar | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Calendar | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             {/* Render Breadcrumb */}
@@ -241,7 +266,7 @@ class Calender extends Component {
                             categories.map((category, i) => (
                               <div
                                 key={i}
-                                className={`external-event ${category.type} text-white p-1 mb-2`}
+                                className={`${category.type} external-event text-white p-1 mb-2`}
                                 draggable
                                 onDrag={event => this.onDrag(event, category)}
                               >
@@ -254,7 +279,7 @@ class Calender extends Component {
                         <div className="mt-5 d-none d-xl-block">
                           <h5 className="text-center">How It Works ?</h5>
 
-                          <ul className="pl-3">
+                          <ul className="ps-3">
                             <li className="text-muted mb-3">
                               It has survived not only five centuries, but also
                               the leap into electronic typesetting, remaining
@@ -286,6 +311,11 @@ class Calender extends Component {
                           slotDuration={"00:15:00"}
                           handleWindowResize={true}
                           themeSystem="bootstrap"
+                          headerToolbar={{
+                            left: "prev,next today",
+                            center: "title",
+                            right: "dayGridMonth,dayGridWeek,dayGridDay",
+                          }}
                           events={events}
                           editable={true}
                           droppable={true}
@@ -393,42 +423,42 @@ class Calender extends Component {
                             >
                               <Row form>
                                 <Col className="col-12">
-                                <div className="mb-3">
-                                  <AvField
-                                    name="title_category"
-                                    label="Category Name"
-                                    type="text"
-                                    errorMessage="Invalid name"
-                                    validate={{
-                                      required: { value: true },
-                                    }}
-                                    value={
-                                      this.state.title_category
-                                        ? this.state.event.title_category
-                                        : ""
-                                    }
-                                  />
+                                  <div className="mb-3">
+                                    <AvField
+                                      name="title_category"
+                                      label="Category Name"
+                                      type="text"
+                                      errorMessage="Invalid name"
+                                      validate={{
+                                        required: { value: true },
+                                      }}
+                                      value={
+                                        this.state.title_category
+                                          ? this.state.event.title_category
+                                          : ""
+                                      }
+                                    />
                                   </div>
                                 </Col>
                                 <Col className="col-12">
-                                <div className="mb-3">
-                                  <AvField
-                                    type="select"
-                                    name="event_category"
-                                    label="Choose Category Color"
-                                    value={
-                                      this.state.event
-                                        ? this.state.event.event_category
-                                        : "bg-primary"
-                                    }
-                                  >
-                                    <option value="bg-danger">Danger</option>
-                                    <option value="bg-success">Success</option>
-                                    <option value="bg-primary">Primary</option>
-                                    <option value="bg-info">Info</option>
-                                    <option value="bg-dark">Dark</option>
-                                    <option value="bg-warning">Warning</option>
-                                  </AvField>
+                                  <div className="mb-3">
+                                    <AvField
+                                      type="select"
+                                      name="event_category"
+                                      label="Choose Category Color"
+                                      value={
+                                        this.state.event
+                                          ? this.state.event.event_category
+                                          : "bg-primary"
+                                      }
+                                    >
+                                      <option value="bg-danger">Danger</option>
+                                      <option value="bg-success">Success</option>
+                                      <option value="bg-primary">Primary</option>
+                                      <option value="bg-info">Info</option>
+                                      <option value="bg-dark">Dark</option>
+                                      <option value="bg-warning">Warning</option>
+                                    </AvField>
                                   </div>
                                 </Col>
                               </Row>
@@ -491,5 +521,4 @@ const mapDispatchToProps = dispatch => ({
   onDeleteEvent: event => dispatch(deleteEvent(event)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Calender)
-
+export default connect(mapStateToProps, mapDispatchToProps)(Calender);

@@ -5,12 +5,24 @@ import {
   GET_CUSTOMERS_SUCCESS,
   GET_ORDERS_FAIL,
   GET_ORDERS_SUCCESS,
+  ADD_ORDER_SUCCESS,
+  ADD_ORDER_FAIL,
+  UPDATE_ORDER_SUCCESS,
+  UPDATE_ORDER_FAIL,
+  DELETE_ORDER_SUCCESS,
+  DELETE_ORDER_FAIL,
   GET_PRODUCTS_FAIL,
   GET_PRODUCTS_SUCCESS,
   GET_SHOPS_FAIL,
   GET_SHOPS_SUCCESS,
   GET_PRODUCT_DETAIL_SUCCESS,
   GET_PRODUCT_DETAIL_FAIL,
+  ADD_CUSTOMER_SUCCESS,
+  ADD_CUSTOMER_FAIL,
+  UPDATE_CUSTOMER_SUCCESS,
+  UPDATE_CUSTOMER_FAIL,
+  DELETE_CUSTOMER_SUCCESS,
+  DELETE_CUSTOMER_FAIL,
 } from "./actionTypes"
 
 const INIT_STATE = {
@@ -61,6 +73,48 @@ const Ecommerce = (state = INIT_STATE, action) => {
         error: action.payload,
       }
 
+    case ADD_ORDER_SUCCESS:
+      return {
+        ...state,
+        orders: [...state.orders, action.payload],
+      }
+
+    case ADD_ORDER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      }
+
+    case UPDATE_ORDER_SUCCESS:
+      return {
+        ...state,
+        orders: state.orders.map(order =>
+          order.id.toString() === action.payload.id.toString()
+            ? { order, ...action.payload }
+            : order
+        ),
+      }
+
+    case UPDATE_ORDER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      }
+
+    case DELETE_ORDER_SUCCESS:
+      return {
+        ...state,
+        orders: state.orders.filter(
+          order => order.id.toString() !== action.payload.id.toString()
+        ),
+      }
+
+    case DELETE_ORDER_FAIL:
+      return {
+        ...state,
+        error: action.payload,
+      }
+
     case GET_CART_DATA_SUCCESS:
       return {
         ...state,
@@ -96,6 +150,48 @@ const Ecommerce = (state = INIT_STATE, action) => {
         ...state,
         error: action.payload,
       }
+
+      case ADD_CUSTOMER_SUCCESS:
+        return {
+          ...state,
+          customers: [...state.customers, action.payload],
+        }
+  
+      case ADD_CUSTOMER_FAIL:
+        return {
+          ...state,
+          error: action.payload,
+        }
+  
+        case UPDATE_CUSTOMER_SUCCESS:
+          return {
+            ...state,
+            customers: state.customers.map(customer =>
+              customer.id.toString() === action.payload.id.toString()
+                ? { customer, ...action.payload }
+                : customer
+            ),
+          }
+    
+        case UPDATE_CUSTOMER_FAIL:
+          return {
+            ...state,
+            error: action.payload,
+          }
+    
+        case DELETE_CUSTOMER_SUCCESS:
+          return {
+            ...state,
+            customers: state.customers.filter(
+              customer => customer.id.toString() !== action.payload.id.toString()
+            ),
+          }
+    
+        case DELETE_CUSTOMER_FAIL:
+          return {
+            ...state,
+            error: action.payload,
+          }
 
     default:
       return state

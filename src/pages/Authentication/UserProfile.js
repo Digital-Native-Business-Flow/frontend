@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React, { Component } from "react"
+import PropTypes from 'prop-types';
+import React, { Component } from "react";
 import {
   Alert,
   Button,
@@ -7,23 +7,22 @@ import {
   CardBody,
   Col,
   Container,
-  Media,
   Row,
-} from "reactstrap"
+} from "reactstrap";
 
 // availity-reactstrap-validation
-import { AvField, AvForm } from "availity-reactstrap-validation"
+import { AvField, AvForm } from "availity-reactstrap-validation";
 
 // Redux
-import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 //Import Breadcrumb
-import Breadcrumb from "../../components/Common/Breadcrumb"
+import Breadcrumb from "../../components/Common/Breadcrumb";
 
-import avatar from "../../assets/images/users/avatar-1.jpg"
+import avatar from "../../assets/images/users/avatar-1.jpg";
 // actions
-import { editProfile ,resetProfileFlag } from "../../store/actions"
+import { editProfile, resetProfileFlag } from "../../store/actions";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -98,7 +97,7 @@ class UserProfile extends Component {
 
                 <Card>
                   <CardBody>
-                    <Media>
+                    <div className="d-flex">
                       <div className="me-3">
                         <img
                           src={avatar}
@@ -106,14 +105,14 @@ class UserProfile extends Component {
                           className="avatar-md rounded-circle img-thumbnail"
                         />
                       </div>
-                      <Media body className="align-self-center">
+                      <div className="align-self-center flex-1">
                         <div className="text-muted">
                           <h5>{this.state.name}</h5>
                           <p className="mb-1">{this.state.email}</p>
                           <p className="mb-0">Id no: #{this.state.idx}</p>
                         </div>
-                      </Media>
-                    </Media>
+                      </div>
+                    </div>
                   </CardBody>
                 </Card>
               </Col>
@@ -143,7 +142,7 @@ class UserProfile extends Component {
                   </div>
                   <div className="text-center mt-4">
                     <Button type="submit" color="danger">
-                      Edit User Name
+                      Update User Name
                     </Button>
                   </div>
                 </AvForm>
@@ -159,7 +158,8 @@ class UserProfile extends Component {
 UserProfile.propTypes = {
   editProfile: PropTypes.func,
   error: PropTypes.any,
-  success: PropTypes.any
+  success: PropTypes.any,
+  resetProfileFlag: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -168,5 +168,5 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(
-  connect(mapStateToProps, { editProfile ,resetProfileFlag})(UserProfile)
+  connect(mapStateToProps, { editProfile, resetProfileFlag })(UserProfile)
 )

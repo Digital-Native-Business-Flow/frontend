@@ -25,12 +25,12 @@ class UiGeneral extends Component {
     super(props)
     this.state = {
       // Popover
-      popovertop: false,
+      popovertop1: false,
       popoverleft: false,
       popoverright: false,
       popoverbottom: false,
     }
-    this.toggletop = this.toggletop.bind(this)
+    this.toggletop1 = this.toggletop1.bind(this)
     this.toggleright = this.toggleright.bind(this)
     this.toggleleft = this.toggleleft.bind(this)
     this.togglebottom = this.togglebottom.bind(this)
@@ -38,8 +38,8 @@ class UiGeneral extends Component {
     this.toggledismissclose = this.toggledismissclose.bind(this)
   }
 
-  toggletop() {
-    this.setState({ popovertop: !this.state.popovertop })
+  toggletop1() {
+    this.setState({ popovertop1: !this.state.popovertop1 })
   }
 
   toggleleft() {
@@ -67,7 +67,7 @@ class UiGeneral extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>General | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>General | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="General" />
@@ -115,53 +115,53 @@ class UiGeneral extends Component {
                           <CardTitle className="h4">Pill badges</CardTitle>
                           <p className="card-title-desc">
                             Use the <code>.badge-pill</code> modifier className to
-                          make badges more rounded (with a larger{" "}
+                            make badges more rounded (with a larger{" "}
                             <code>border-radius</code>
-                          and additional horizontal <code>padding</code>).
-                          Useful if you miss the badges from v3.
-                        </p>
+                            and additional horizontal <code>padding</code>).
+                            Useful if you miss the badges from v3.
+                          </p>
 
                           <div>
                             <span className="badge rounded-pill bg-primary">
                               Primary
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill bg-success">
                               Success
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill bg-info">
                               Info
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill bg-warning">
                               Warning
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill bg-danger">
                               Danger
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill bg-dark">
                               Dark
-                          </span>
+                            </span>
                           </div>
 
                           <div className="mt-5">
                             <h5 className="font-size-14">Soft Badge</h5>
                             <span className="badge rounded-pill badge-soft-primary">
                               Primary
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill badge-soft-success">
                               Success
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill badge-soft-info">
                               Info
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill badge-soft-warning">
                               Warning
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill badge-soft-danger">
                               Danger
-                          </span>{" "}
+                            </span>{" "}
                             <span className="badge rounded-pill badge-soft-dark">
                               Dark
-                          </span>
+                            </span>
                           </div>
                         </div>
                       </Col>
@@ -190,7 +190,7 @@ class UiGeneral extends Component {
                         <div className="mt-4">
                           <CardTitle className="h4">
                             Badges Position Examples
-                        </CardTitle>
+                          </CardTitle>
                           <p className="card-title-desc">Example of Badges Position</p>
                           <div className="d-flex flex-wrap gap-3">
                             <Button color="primary" className="position-relative">
@@ -239,17 +239,17 @@ class UiGeneral extends Component {
                     </p>
                     <div className="button-items">
                       <Button
-                        id="Popovertop"
+                        id="popovertop1"
                         color="secondary"
-                        onClick={this.toggletop}
+                        onClick={this.toggletop1}
                       >
                         Popover on top
                       </Button>
                       <Popover
-                        placement="top"
-                        isOpen={this.state.popovertop}
-                        target="Popovertop"
-                        toggle={this.toggletop}
+                        placement="right"
+                        isOpen={this.state.popovertop1}
+                        target="popovertop1"
+                        toggle={this.toggletop1}
                       >
                         <PopoverHeader>Popover Title</PopoverHeader>
                         <PopoverBody>
@@ -517,22 +517,22 @@ class UiGeneral extends Component {
                           <CardTitle className="h5 font-size-14">Disabled and active states</CardTitle>
                           <p className="card-title-desc">
                             Pagination links are customizable for different
-                          circumstances. Use <code>.disabled</code> for links
-                          that appear un-clickable and <code>.active</code> to
-                          indicate the current page.
-                        </p>
+                            circumstances. Use <code>.disabled</code> for links
+                            that appear un-clickable and <code>.active</code> to
+                            indicate the current page.
+                          </p>
 
                           <nav aria-label="...">
                             <ul className="pagination">
                               <li className="page-item disabled">
                                 <Link className="page-link" to="#" tabIndex="-1">
                                   Previous
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item active">
                                 <Link className="page-link" to="#">
@@ -542,12 +542,12 @@ class UiGeneral extends Component {
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   Next
-                              </Link>
+                                </Link>
                               </li>
                             </ul>
                           </nav>
@@ -560,7 +560,7 @@ class UiGeneral extends Component {
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item active">
                                 <span className="page-link">
@@ -570,7 +570,7 @@ class UiGeneral extends Component {
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
@@ -591,34 +591,34 @@ class UiGeneral extends Component {
                             Fancy larger or smaller pagination? Add{" "}
                             <code>.pagination-lg</code> or{" "}
                             <code>.pagination-sm</code> for additional sizes.
-                        </p>
+                          </p>
 
                           <nav aria-label="...">
                             <ul className="pagination pagination-lg">
                               <li className="page-item disabled">
                                 <Link className="page-link" to="#" tabIndex="-1">
                                   Previous
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   2
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   Next
-                              </Link>
+                                </Link>
                               </li>
                             </ul>
                           </nav>
@@ -628,27 +628,27 @@ class UiGeneral extends Component {
                               <li className="page-item disabled">
                                 <Link className="page-link" to="#" tabIndex="-1">
                                   Previous
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   2
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   Next
-                              </Link>
+                                </Link>
                               </li>
                             </ul>
                           </nav>
@@ -661,34 +661,34 @@ class UiGeneral extends Component {
                           <p className="card-title-desc">
                             Change the alignment of pagination components with
                             flexbox utilities.
-                        </p>
+                          </p>
 
                           <nav aria-label="Page navigation example">
                             <ul className="pagination justify-content-center">
                               <li className="page-item disabled">
                                 <Link className="page-link" to="#" tabIndex="-1">
                                   Previous
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   2
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   Next
-                              </Link>
+                                </Link>
                               </li>
                             </ul>
                           </nav>
@@ -698,27 +698,27 @@ class UiGeneral extends Component {
                               <li className="page-item disabled">
                                 <Link className="page-link" to="#" tabIndex="-1">
                                   Previous
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   1
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   2
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   3
-                              </Link>
+                                </Link>
                               </li>
                               <li className="page-item">
                                 <Link className="page-link" to="#">
                                   Next
-                              </Link>
+                                </Link>
                               </li>
                             </ul>
                           </nav>

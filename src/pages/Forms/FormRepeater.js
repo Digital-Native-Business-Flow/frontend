@@ -43,8 +43,12 @@ class FormRepeater extends Component {
     })
   }
   handleRemoveRow = (e, idx) => {
-    if (typeof idx != "undefined")
+    if (idx === "01") {
+      document.getElementById("addr" + idx).style.display = "block"
+    } else if (typeof idx != "undefined") {
       document.getElementById("addr" + idx).style.display = "none"
+    }
+
   }
   handleRemoveRowNested = (e, idx) => {
     document.getElementById("nested" + idx).style.display = "none"
@@ -55,7 +59,7 @@ class FormRepeater extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Form Repeater | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Form Repeater | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Repeater" />
@@ -108,7 +112,7 @@ class FormRepeater extends Component {
                                     <Input
                                       type="file"
                                       id="resume"
-                                      className="form-control-file"
+                                      className="form-control"
                                     />
                                   </Col>
 
@@ -172,7 +176,7 @@ class FormRepeater extends Component {
 
                                     <Col lg="2" className="mb-3">
                                       <Label htmlFor="resume">Resume</Label>
-                                      <Input type="file" id="resume" />
+                                      <Input type="file" className="form-control" id="resume" />
                                     </Col>
 
                                     <Col lg="2" className="mb-3">

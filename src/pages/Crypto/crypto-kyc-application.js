@@ -39,6 +39,7 @@ class CryptoWallet extends Component {
       modal: false,
       activeTab: 1,
       selectedFiles: [],
+      passedSteps: [1],
     }
     this.togglemodal.bind(this)
     this.toggleTab.bind(this)
@@ -54,8 +55,10 @@ class CryptoWallet extends Component {
   toggleTab(tab) {
     if (this.state.activeTab !== tab) {
       if (tab >= 1 && tab <= 3) {
+        var modifiedSteps = [...this.state.passedSteps, tab];
         this.setState({
           activeTab: tab,
+          passedSteps: modifiedSteps
         })
       }
     }
@@ -90,7 +93,7 @@ class CryptoWallet extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>KYC Application | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>KYC Application | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumb */}
@@ -143,9 +146,8 @@ class CryptoWallet extends Component {
                       role="dialog"
                       size="lg"
                       autoFocus={true}
-                      centered={true}
+                      centered
                       id="verificationModal"
-                      tabIndex="-1"
                       toggle={this.togglemodal}
                     >
                       <div className="modal-content">
@@ -172,14 +174,15 @@ class CryptoWallet extends Component {
                                     }}
                                   >
                                     <span className="number">1.</span>
-                                  Personal Info
-                                </NavLink>
+                                    Personal Info
+                                  </NavLink>
                                 </NavItem>
                                 <NavItem
                                   className={classnames({
                                     current: this.state.activeTab === 2,
                                   })}>
                                   <NavLink
+                                    disabled={!(this.state.passedSteps || []).includes(2)}
                                     className={classnames({
                                       active: this.state.activeTab === 2,
                                     })}
@@ -188,14 +191,15 @@ class CryptoWallet extends Component {
                                     }}
                                   >
                                     <span className="number">2.</span>
-                                  Confirm email
-                                </NavLink>
+                                    Confirm email
+                                  </NavLink>
                                 </NavItem>
                                 <NavItem
                                   className={classnames({
                                     current: this.state.activeTab === 3,
                                   })}>
                                   <NavLink
+                                    disabled={!(this.state.passedSteps || []).includes(3)}
                                     className={classnames({
                                       active: this.state.activeTab === 3,
                                     })}
@@ -204,8 +208,8 @@ class CryptoWallet extends Component {
                                     }}
                                   >
                                     <span className="number">3.</span>
-                                  Document Verification
-                                </NavLink>
+                                    Document Verification
+                                  </NavLink>
                                 </NavItem>
                               </ul>
                             </div>
@@ -221,7 +225,7 @@ class CryptoWallet extends Component {
                                         <FormGroup className="mb-3">
                                           <Label htmlFor="kycfirstname-input" className="form-label">
                                             First name
-                                        </Label>
+                                          </Label>
                                           <Input
                                             type="text"
                                             className="form-control"
@@ -234,7 +238,7 @@ class CryptoWallet extends Component {
                                         <FormGroup className="mb-3">
                                           <Label htmlFor="kyclastname-input" className="form-label">
                                             Last name
-                                        </Label>
+                                          </Label>
                                           <Input
                                             type="text"
                                             className="form-control"
@@ -250,7 +254,7 @@ class CryptoWallet extends Component {
                                         <FormGroup className="mb-3">
                                           <Label htmlFor="kycphoneno-input" className="form-label">
                                             Phone
-                                        </Label>
+                                          </Label>
                                           <Input
                                             type="text"
                                             className="form-control"
@@ -263,7 +267,7 @@ class CryptoWallet extends Component {
                                         <FormGroup className="mb-3">
                                           <Label htmlFor="kycbirthdate-input" className="form-label">
                                             Date of birth
-                                        </Label>
+                                          </Label>
                                           <Input
                                             type="text"
                                             className="form-control"
@@ -278,14 +282,14 @@ class CryptoWallet extends Component {
                                         <FormGroup className="mb-3">
                                           <Label htmlFor="kycselectcity-input" className="form-label">
                                             City
-                                        </Label>
+                                          </Label>
                                           <select
                                             className="form-select"
                                             id="kycselectcity-input"
                                           >
                                             <option>
                                               San Francisco
-                                          </option>
+                                            </option>
                                             <option>Los Angeles</option>
                                             <option>San Diego</option>
                                           </select>
@@ -302,7 +306,7 @@ class CryptoWallet extends Component {
                                           <FormGroup className="mb-3">
                                             <Label htmlFor="kycemail-input">
                                               Email
-                                          </Label>
+                                            </Label>
                                             <Input
                                               type="email"
                                               className="form-control"
@@ -314,7 +318,7 @@ class CryptoWallet extends Component {
                                           <FormGroup className="mb-3">
                                             <Label htmlFor="kycconfirmcode-input">
                                               Confirm code
-                                          </Label>
+                                            </Label>
                                             <Input
                                               type="email"
                                               className="form-control"
@@ -324,10 +328,10 @@ class CryptoWallet extends Component {
                                           </FormGroup>
 
                                           <div className="mb-3">
-                                            Didn't recieve code ?
-                                          <Button type="button" color="link">
+                                            Didn&t recieve code ?
+                                            <Button type="button" color="link">
                                               Resend Code
-                                          </Button>
+                                            </Button>
                                           </div>
                                         </Col>
                                       </Row>
@@ -337,7 +341,7 @@ class CryptoWallet extends Component {
                                 <TabPane tabId={3} id="doc-verification">
                                   <h5 className="font-size-14 mb-3">
                                     Upload document file for a verification
-                                </h5>
+                                  </h5>
                                   <div className="kyc-doc-verification mb-3">
                                     <Dropzone
                                       onDrop={acceptedFiles =>
@@ -356,7 +360,7 @@ class CryptoWallet extends Component {
                                             </div>
                                             <h4>
                                               Drop files here or click to upload.
-                                          </h4>
+                                            </h4>
                                           </div>
                                         </div>
                                       )}

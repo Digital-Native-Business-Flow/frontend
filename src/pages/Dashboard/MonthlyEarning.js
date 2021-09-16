@@ -32,7 +32,7 @@ class MonthlyEarning extends Component {
                 <div className="mt-4">
                   <Link
                     to=""
-                    className="btn btn-primary waves-effect waves-light btn-sm"
+                    className="btn btn-primary btn-sm"
                   >
                     View More <i className="mdi mdi-arrow-right ms-1"></i>
                   </Link>

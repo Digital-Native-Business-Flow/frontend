@@ -3,7 +3,6 @@ import MetaTags from 'react-meta-tags';
 import {
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -24,7 +23,7 @@ class UiVideo extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Video | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Video | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="UI Elements" breadcrumbItem="Video" />
@@ -35,7 +34,7 @@ class UiVideo extends Component {
                   <CardBody>
                     <CardTitle className="h4">Responsive embed video 16:9</CardTitle>
                     <p className="card-title-desc">
-                      Aspect ratios can be customized with modifier classNamees.
+                      Aspect ratios can be customized with modifier classNames.
                     </p>
 
                     <div className="ratio ratio-16x9">
@@ -54,7 +53,7 @@ class UiVideo extends Component {
                   <CardBody>
                     <CardTitle className="h4">Responsive embed video 21:9</CardTitle>
                     <p className="card-title-desc">
-                      Aspect ratios can be customized with modifier classNamees.
+                      Aspect ratios can be customized with modifier classNames.
                     </p>
 
                     <div className="ratio ratio-21x9">
@@ -75,7 +74,7 @@ class UiVideo extends Component {
                   <CardBody>
                     <CardTitle className="h4">Responsive embed video 4:3</CardTitle>
                     <p className="card-title-desc">
-                      Aspect ratios can be customized with modifier classNamees.
+                      Aspect ratios can be customized with modifier classNames.
                     </p>
 
                     <div className="ratio ratio-4x3">
@@ -94,7 +93,7 @@ class UiVideo extends Component {
                   <CardBody>
                     <CardTitle className="h4">Responsive embed video 1:1</CardTitle>
                     <p className="card-title-desc">
-                      Aspect ratios can be customized with modifier classNamees.
+                      Aspect ratios can be customized with modifier classNames.
                     </p>
 
                     <div className="ratio ratio-1x1">

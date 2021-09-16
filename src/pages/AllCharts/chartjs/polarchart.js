@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { Polar } from "react-chartjs-2"
+import React, { Component } from "react";
+import { Polar } from "react-chartjs-2";
 
 class PolarChart extends Component {
   render() {
@@ -13,14 +13,14 @@ class PolarChart extends Component {
         },
       ],
       labels: ["Series 1", "Series 2", "Series 3", "Series 4"],
-    }
+    };
 
     return (
       <React.Fragment>
         <Polar width={474} height={300} data={data} />
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default PolarChart
+export default PolarChart;

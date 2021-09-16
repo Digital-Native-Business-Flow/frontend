@@ -12,8 +12,8 @@ export default class EmailVerification2 extends Component {
     return (
       <React.Fragment>
         <div>
-        <MetaTags>
-            <title>Email verification 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Email Verification 2 | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid className="p-0">
             <Row className="g-0">

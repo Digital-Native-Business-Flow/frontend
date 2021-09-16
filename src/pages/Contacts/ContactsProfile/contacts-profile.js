@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import MetaTags from 'react-meta-tags';
+import MetaTags from "react-meta-tags";
 import { connect } from "react-redux"
 import { Link, withRouter } from "react-router-dom"
 import { map } from "lodash"
@@ -10,7 +10,6 @@ import {
   CardTitle,
   Col,
   Container,
-  Media,
   Row,
   Table,
 } from "reactstrap"
@@ -60,7 +59,7 @@ class ContactsProfile extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Profile | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Profile | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}
@@ -119,7 +118,7 @@ class ContactsProfile extends Component {
                           <div className="mt-4">
                             <Link
                               to=""
-                              className="btn btn-primary waves-effect waves-light btn-sm"
+                              className="btn btn-primary btn-sm"
                             >
                               View Profile{" "}
                               <i className="mdi mdi-arrow-right ms-1" />
@@ -186,7 +185,7 @@ class ContactsProfile extends Component {
                                 }
                               />
                             </div>
-                            <Media>
+                            <div className="d-flex">
                               <div className="me-3">
                                 <i
                                   className={
@@ -196,7 +195,7 @@ class ContactsProfile extends Component {
                                   }
                                 />
                               </div>
-                              <Media body>
+                              <div className="flex-1">
                                 <div>
                                   <h5 className="font-size-15">
                                     <Link
@@ -210,8 +209,8 @@ class ContactsProfile extends Component {
                                     {experience.timeDuration}
                                   </span>
                                 </div>
-                              </Media>
-                            </Media>
+                              </div>
+                            </div>
                           </li>
                         ))}
                       </ul>

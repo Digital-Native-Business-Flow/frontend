@@ -16,7 +16,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 // Form Mask
 import InputMask from "react-input-mask"
-import MaterialInput from "@material-ui/core/Input"
+// import MaterialInput from "@material-ui/core/Input"
 
 class FormMask extends Component {
   constructor(props) {
@@ -32,9 +32,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -45,9 +42,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -58,9 +52,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -71,9 +62,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -84,7 +72,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => <MaterialInput {...inputProps} disableUnderline />}
       </InputMask>
     )
 
@@ -95,9 +82,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -108,9 +92,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -121,14 +102,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput
-            {...inputProps}
-            prefix="$"
-            type="tel"
-            disableUnderline
-          />
-        )}
       </InputMask>
     )
 
@@ -139,9 +112,6 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
@@ -152,17 +122,14 @@ class FormMask extends Component {
         className="form-control input-mask"
         onChange={props.onChange}
       >
-        {inputProps => (
-          <MaterialInput {...inputProps} type="tel" disableUnderline />
-        )}
       </InputMask>
     )
 
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Form Mask | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Form Mask | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Mask" />
@@ -179,7 +146,7 @@ class FormMask extends Component {
                               <Label>ISBN 1</Label>
                               <ISBN1 />
                               <span className="font-13 text-muted">
-                                e.g "999-99-999-9999-9"
+                                e.g &quot;999-99-999-9999-9&ldquo;
                               </span>
                             </FormGroup>
                             <FormGroup className="mb-4">

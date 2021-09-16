@@ -13,7 +13,7 @@
   "Chat": "Chiacchierare",
   "Ecommerce": "ecommerce",
   "Products": "Prodotti",
-  "Product Detail": "Dettagli del prodotto",
+  "Product Details": "Dettagli del prodotto",
   "Customers": "I clienti",
   "Cart": "Carrello",
   "Checkout": "Check-out",
@@ -154,5 +154,6 @@
   "Extra Pages": "Pagine extra",
   "Horizontal layout": "Layout orizzontale",
   "Light Sidebar": "Barra laterale leggera",
-  "Compact Sidebar": "Barra laterale compatta"
+  "Compact Sidebar": "Barra laterale compatta",
+  "Breadcrumb" : "Percorso di navigazione"
 }

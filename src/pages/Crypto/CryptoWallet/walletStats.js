@@ -8,7 +8,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Media,
   Row,
 } from "reactstrap"
 import { Link } from "react-router-dom"
@@ -17,18 +16,18 @@ const WalletStats = ({ wallet, isMenu, toggleMenu }) => {
   return (
     <Card>
       <CardBody>
-        <Media>
+        <div className="d-flex">
           <div className="me-4">
             <i className="mdi mdi-account-circle text-primary h1" />
           </div>
 
-          <Media body>
+          <div className="flex-grow-1">
             <div className="text-muted">
               <h5>{wallet.userName}</h5>
               <p className="mb-1">{wallet.email}</p>
               <p className="mb-0">Id no: {wallet.id}</p>
             </div>
-          </Media>
+          </div>
 
           <Dropdown isOpen={isMenu} toggle={toggleMenu} className="ms-2">
             <DropdownToggle tag="a" className="text-muted">
@@ -40,7 +39,7 @@ const WalletStats = ({ wallet, isMenu, toggleMenu }) => {
               <DropdownItem href="#">Something else</DropdownItem>
             </DropdownMenu>
           </Dropdown>
-        </Media>
+        </div>
       </CardBody>
       <CardBody className="border-top">
         <Row>

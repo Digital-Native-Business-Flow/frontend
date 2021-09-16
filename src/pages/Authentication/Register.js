@@ -86,9 +86,8 @@ class Register extends Component {
                             Register User Successfully
                           </Alert>
                         ) : null}
-                        {console.log(this.props.user)}
                         {this.props.registrationError &&
-                        this.props.registrationError ? (
+                          this.props.registrationError ? (
                           <Alert color="danger">
                             {this.props.registrationError}
                           </Alert>
@@ -126,7 +125,7 @@ class Register extends Component {
 
                         <div className="mt-4 d-grid">
                           <button
-                            className="btn btn-primary btn-block waves-effect waves-light"
+                            className="btn btn-primary btn-block"
                             type="submit"
                           >
                             Register

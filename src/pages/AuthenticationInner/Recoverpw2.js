@@ -1,19 +1,24 @@
 import React, { Component } from "react"
-import MetaTags from 'react-meta-tags';
+import PropTypes from 'prop-types';
+import MetaTags from 'react-meta-tags'
 import { Link } from "react-router-dom"
-import { Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap"
+import { Col, Container, Row, Button, Alert } from "reactstrap"
 
-// import ReactDOM from 'react-dom';
+// availity-reactstrap-validation
+import { AvField, AvForm } from "availity-reactstrap-validation"
+
+//import images
 import logodark from "../../assets/images/logo-dark.png"
 import logolight from "../../assets/images/logo-light.png"
 import CarouselPage from "./CarouselPage"
+
 export default class Recoverpw2 extends Component {
   render() {
     return (
       <React.Fragment>
         <div>
-        <MetaTags>
-            <title>Recover Password 2 | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Recover Password 2 | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid className="p-0">
             <Row className="g-0">
@@ -53,31 +58,32 @@ export default class Recoverpw2 extends Component {
                             Enter your Email and instructions will be sent to
                             you!
                           </div>
-                          <Form action="dashboard">
-                            <FormGroup className="mb-3">
-                              <Label htmlFor="useremail">Email</Label>
-                              <Input
-                                type="email"
-                                className="form-control"
-                                id="useremail"
-                                placeholder="Enter email"
-                              />
-                            </FormGroup>
+                          <AvForm className="form-horizontal">
+                            {this.props.error && this.props.error ? (
+                              <Alert color="danger">{this.props.error}</Alert>
+                            ) : null}
 
-                            <div className="text-end">
-                              <button
-                                className="btn btn-primary w-md waves-effect waves-light"
-                                type="submit"
-                              >
-                                Reset
-                                </button>
+                            <div className="mb-3">
+                              <AvField name="email"
+                                label="Email"
+                                value=""
+                                className="form-control"
+                                placeholder="Enter Email"
+                                type="text"
+                                required
+                              />
                             </div>
-                          </Form>
+                            <div className="text-end">
+                              <Button className="btn btn-primary w-md" color="primary" type="submit">
+                                Reset
+                              </Button>
+                            </div>
+                          </AvForm>
                           <div className="mt-5 text-center">
                             <p>
                               Remember It ?{" "}
                               <Link
-                                to="page-login-2"
+                                to="pages-login-2"
                                 className="fw-medium text-primary"
                               >
                                 {" "}
@@ -106,3 +112,9 @@ export default class Recoverpw2 extends Component {
     )
   }
 }
+
+
+Recoverpw2.propTypes = {
+  error: PropTypes.any,
+}
+

@@ -21,12 +21,22 @@ class FormXeditable extends Component {
     this.state = {}
   }
 
+
   render() {
+    /** Confirm button */
+    const confirmElement = (
+      <button type="submit" className="btn btn-success editable-submit btn-sm me-1"><i className="mdi mdi-check"></i></button>
+    );
+
+    /** Cancel button */
+    const cancelElement = (
+      <button type="button" className="btn btn-danger editable-cancel btn-sm"><i className="mdi mdi-close"></i></button>
+    );
     return (
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Form Xeditable | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Form Xeditable | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Xeditable" />
@@ -64,6 +74,8 @@ class FormXeditable extends Component {
                                 mode="inline"
                                 placement="top"
                                 showText
+                                renderConfirmElement={confirmElement}
+                                renderCancelElement={cancelElement}
                                 type="textfield"
                               />
                             </td>
@@ -84,9 +96,15 @@ class FormXeditable extends Component {
                                 onSubmit={null}
                                 onValidated={null}
                                 placement="top"
+                                renderConfirmElement={confirmElement}
+                                renderCancelElement={cancelElement}
                                 showText
                                 type="textfield"
-                                validate={null}
+                                validate={value => {
+                                  if (!value) {
+                                    return "Required"
+                                  }
+                                }}
                               />
                             </td>
                           </tr>
@@ -110,6 +128,8 @@ class FormXeditable extends Component {
                                 showText
                                 type="select"
                                 validate={null}
+                                renderConfirmElement={confirmElement}
+                                renderCancelElement={cancelElement}
                               />
                             </td>
                           </tr>
@@ -133,6 +153,8 @@ class FormXeditable extends Component {
                                 showText
                                 type="date"
                                 validate={null}
+                                renderConfirmElement={confirmElement}
+                                renderCancelElement={cancelElement}
                               />
                             </td>
                           </tr>
@@ -157,6 +179,8 @@ class FormXeditable extends Component {
                                 showText
                                 type="textarea"
                                 validate={null}
+                                renderConfirmElement={confirmElement}
+                                renderCancelElement={cancelElement}
                               />
                             </td>
                           </tr>

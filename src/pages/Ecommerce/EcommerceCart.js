@@ -88,9 +88,9 @@ class EcommerceCart extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-            <MetaTags>
-              <title>Cart | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
-            </MetaTags>
+          <MetaTags>
+            <title>Cart | Skote - React Admin & Dashboard Template</title>
+          </MetaTags>
           <Container fluid>
             <Breadcrumbs title="Ecommerce" breadcrumbItem="Cart" />
             <Row>
@@ -122,7 +122,7 @@ class EcommerceCart extends Component {
                               <td>
                                 <h5 className="font-size-14 text-truncate">
                                   <Link
-                                    to={"/ecommerce-products/" + product.id}
+                                    to={"/ecommerce-product-details/" + product.id}
                                     className="text-dark"
                                   >
                                     {product.name}

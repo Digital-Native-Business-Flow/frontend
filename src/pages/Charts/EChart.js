@@ -25,12 +25,12 @@ class EChart extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>EChart | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>E Chart | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             {/* Render Breadcrumb */}
-            <Breadcrumbs title="Charts" breadcrumbItem="EChart" />
+            <Breadcrumbs title="Charts" breadcrumbItem="E Chart" />
             <Row>
               <Col lg="6">
                 <Card>

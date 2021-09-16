@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
-import { Link } from "react-router-dom"
-import { Col, Card, CardBody, Media } from "reactstrap"
+import { Col, Card, CardBody, Media, Button } from "reactstrap"
 
 class CardPricing extends Component {
   render() {
@@ -10,11 +9,11 @@ class CardPricing extends Component {
         <Col xl="3" md="6">
           <Card className="plan-box">
             <CardBody className="p-4">
-              <Media>
-                <Media body>
+              <div className="d-flex">
+                <div className="flex-grow-1">
                   <h5>{this.props.pricing.title}</h5>
                   <p className="text-muted">{this.props.pricing.description}</p>
-                </Media>
+                </div>
                 <div className="ms-3">
                   <i
                     className={
@@ -22,7 +21,7 @@ class CardPricing extends Component {
                     }
                   />
                 </div>
-              </Media>
+              </div>
               <div className="py-4">
                 <h2>
                   <sup>
@@ -34,19 +33,20 @@ class CardPricing extends Component {
                   </span>
                 </h2>
               </div>
-              <div className="text-center plan-btn">
-                <Link
+              <div className="text-center">
+                <Button
                   to={this.props.pricing.link}
-                  className="btn btn-primary btn-sm waves-effect waves-light"
+                  color="primary"
+                  className="btn btn-primary btn-sm"
                 >
                   Sign up Now
-                </Link>
+                </Button>
               </div>
 
               <div className="plan-features mt-5">
                 {this.props.pricing.features.map((feature, key) => (
                   <p key={"_feature_" + key}>
-                    <i className="bx bx-checkbox-square text-primary me-2"/>{" "}
+                    <i className="bx bx-checkbox-square text-primary me-2" />{" "}
                     {feature.title}
                   </p>
                 ))}

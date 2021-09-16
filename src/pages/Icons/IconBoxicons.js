@@ -61,8 +61,8 @@ class IconBoxicons extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Boxicons | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Boxicons | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Icons" breadcrumbItem="Boxicons" />
@@ -72,7 +72,7 @@ class IconBoxicons extends Component {
                   <CardBody>
                     <CardTitle className="h4">Examples</CardTitle>
                     <p className="card-subtitle mb-4">
-                      Use class <code>&lt;i class="bx bx-**">&lt;/i></code>
+                      Use class <code>&lt;i class=&quot;bx bx-**&ldquo;&gt;&lt;/i&gt;</code>
                     </p>
 
                     <h5>Regular</h5>

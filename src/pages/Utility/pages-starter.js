@@ -11,7 +11,7 @@ class PagesStarter extends Component {
       <React.Fragment>
         <div className="page-content">
         <MetaTags>
-            <title>Starter Page | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Starter Page | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}

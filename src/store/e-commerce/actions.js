@@ -5,6 +5,15 @@ import {
   GET_ORDERS,
   GET_ORDERS_FAIL,
   GET_ORDERS_SUCCESS,
+  ADD_NEW_ORDER,
+  ADD_ORDER_SUCCESS,
+  ADD_ORDER_FAIL,
+  UPDATE_ORDER,
+  UPDATE_ORDER_SUCCESS,
+  UPDATE_ORDER_FAIL,
+  DELETE_ORDER,
+  DELETE_ORDER_SUCCESS,
+  DELETE_ORDER_FAIL,
   GET_PRODUCTS,
   GET_PRODUCTS_FAIL,
   GET_PRODUCTS_SUCCESS,
@@ -17,6 +26,15 @@ import {
   GET_PRODUCT_DETAIL,
   GET_PRODUCT_DETAIL_FAIL,
   GET_PRODUCT_DETAIL_SUCCESS,
+  ADD_NEW_CUSTOMER,
+  ADD_CUSTOMER_SUCCESS,
+  ADD_CUSTOMER_FAIL,
+  UPDATE_CUSTOMER,
+  UPDATE_CUSTOMER_SUCCESS,
+  UPDATE_CUSTOMER_FAIL,
+  DELETE_CUSTOMER,
+  DELETE_CUSTOMER_SUCCESS,
+  DELETE_CUSTOMER_FAIL,
 } from "./actionTypes"
 
 export const getProducts = () => ({
@@ -62,6 +80,51 @@ export const getOrdersFail = error => ({
   payload: error,
 })
 
+export const addNewOrder = order => ({
+  type: ADD_NEW_ORDER,
+  payload: order,
+})
+
+export const addOrderSuccess = order => ({
+  type: ADD_ORDER_SUCCESS,
+  payload: order,
+})
+
+export const addOrderFail = error => ({
+  type: ADD_ORDER_FAIL,
+  payload: error,
+})
+
+export const updateOrder = order => ({
+  type: UPDATE_ORDER,
+  payload: order,
+})
+
+export const updateOrderSuccess = order => ({
+  type: UPDATE_ORDER_SUCCESS,
+  payload: order,
+})
+
+export const updateOrderFail = error => ({
+  type: UPDATE_ORDER_FAIL,
+  payload: error,
+})
+
+export const deleteOrder = order => ({
+  type: DELETE_ORDER,
+  payload: order,
+})
+
+export const deleteOrderSuccess = order => ({
+  type: DELETE_ORDER_SUCCESS,
+  payload: order,
+})
+
+export const deleteOrderFail = error => ({
+  type: DELETE_ORDER_FAIL,
+  payload: error,
+})
+
 export const getCartData = () => ({
   type: GET_CART_DATA,
 })
@@ -101,5 +164,50 @@ export const getShopsSuccess = shops => ({
 
 export const getShopsFail = error => ({
   type: GET_SHOPS_FAIL,
+  payload: error,
+})
+
+export const addNewCustomer = customer => ({
+  type: ADD_NEW_CUSTOMER,
+  payload: customer,
+})
+
+export const addCustomerSuccess = customer => ({
+  type: ADD_CUSTOMER_SUCCESS,
+  payload: customer,
+})
+
+export const addCustomerFail = error => ({
+  type: ADD_CUSTOMER_FAIL,
+  payload: error,
+})
+
+export const updateCustomer = customer => ({
+  type: UPDATE_CUSTOMER,
+  payload: customer,
+})
+
+export const updateCustomerSuccess = customer => ({
+  type: UPDATE_CUSTOMER_SUCCESS,
+  payload: customer,
+})
+
+export const updateCustomerFail = error => ({
+  type: UPDATE_CUSTOMER_FAIL,
+  payload: error,
+})
+
+export const deleteCustomer = customer => ({
+  type: DELETE_CUSTOMER,
+  payload: customer,
+})
+
+export const deleteCustomerSuccess = customer => ({
+  type: DELETE_CUSTOMER_SUCCESS,
+  payload: customer,
+})
+
+export const deleteCustomerFail = error => ({
+  type: DELETE_CUSTOMER_FAIL,
   payload: error,
 })

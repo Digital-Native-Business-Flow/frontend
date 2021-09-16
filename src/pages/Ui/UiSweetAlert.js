@@ -46,6 +46,7 @@ class UiSweetAlert extends Component {
     this.handleStep1Change = this.handleStep1Change.bind(this)
     this.handleStep2Change = this.handleStep2Change.bind(this)
     this.handleStep3Change = this.handleStep3Change.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleStep1Change(e) {
@@ -58,6 +59,9 @@ class UiSweetAlert extends Component {
 
   handleStep3Change(e) {
     this.setState({ step3_txt: e.target.value })
+  }
+  handleChange(e) {
+    this.setState({ emailtxt: e.target.value });
   }
 
   stimer() {
@@ -92,10 +96,10 @@ class UiSweetAlert extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>SweetAlert | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>SweetAlert | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
-            <Breadcrumbs title="Forms" breadcrumbItem="" />
+            <Breadcrumbs title="UI Elements" breadcrumbItem="SweetAlert" />
 
             {this.state.timeralert}
             {this.state.success_dlg ? (
@@ -123,7 +127,7 @@ class UiSweetAlert extends Component {
                 <h4 className="card-title">Examples</h4>
                 <p className="card-title-desc">
                   A beautiful, responsive, customizable and accessible
-                  (WAI-ARIA) replacement for JavaScript's popup boxes. Zero
+                  (WAI-ARIA) replacement for JavaScript&apos;s popup boxes. Zero
                   dependencies.
                 </p>
                 <Row className="text-center">
@@ -131,7 +135,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A basic message</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ basic: true })}
                         id="sa-basic"
@@ -150,7 +153,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A title with a text under</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ with_title: true })}
                         id="sa-title"
@@ -172,7 +174,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A success message!</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ success_msg: true })}
                         id="sa-success"
@@ -198,10 +199,9 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>
                         A warning message, with a function attached to the
-                        "Confirm"-button...
+                        &quot;Confirm&ldquo;-button...
                       </p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ confirm_alert: true })}
                         id="sa-success"
@@ -231,7 +231,7 @@ class UiSweetAlert extends Component {
                           })
                         }
                       >
-                        You won't be able to revert this!
+                        You won&apos;t be able to revert this!
                       </SweetAlert>
                     ) : null}
                   </Col>
@@ -239,10 +239,9 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>
                         By passing a parameter, you can execute something else
-                        for "Cancel".
+                        for &quot;Cancel&ldquo;.
                       </p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ confirm_both: true })}
                         id="sa-params"
@@ -275,7 +274,7 @@ class UiSweetAlert extends Component {
                           })
                         }
                       >
-                        You won't be able to revert this!
+                        You won&apos;t be able to revert this!
                       </SweetAlert>
                     ) : null}
                   </Col>
@@ -283,7 +282,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A message with custom Image Header</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ img_header: true })}
                         id="sa-image"
@@ -306,7 +304,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A message with auto close timer</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ sweet_timer: true })}
                       >
@@ -328,7 +325,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>Custom HTML description and buttons</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ img_html: true })}
                         id="custom-html-alert"
@@ -354,11 +350,10 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A custom positioned dialog</p>
                       <Button
-                        className="waves-effect waves-light"
                         type="button"
                         color="primary"
                         onClick={() => this.setState({ custom_div1: true })}
-                        className=" waves-effect waves-light"
+                        className=""
                         id="sa-position"
                       >
                         Click me
@@ -384,7 +379,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>A message with custom width, padding and background</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ custom_div: true })}
                         id="custom-padding-width-alert"
@@ -407,7 +401,6 @@ class UiSweetAlert extends Component {
                   <Col xl="3" lg="4" sm="6" className="mb-2">
                     <p>Ajax request example</p>
                     <Button
-                      className="waves-effect waves-light"
                       color="primary"
                       onClick={() => this.setState({ ajax_div: true })}
                       id="ajax-alert"
@@ -433,8 +426,10 @@ class UiSweetAlert extends Component {
                       >
                         <input
                           type="email"
+                          value={this.state.emailtxt}
                           className="form-control"
                           placeholder="Enter Email"
+                          onChange={this.handleChange}
                         />
                       </SweetAlert>
                     ) : null}
@@ -443,7 +438,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>Chaining modals (queue) example</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ step1: true })}
                         id="chaining-alert"
@@ -526,7 +520,6 @@ class UiSweetAlert extends Component {
                     <div className="p-3">
                       <p>Dynamic queue example</p>
                       <Button
-                        className="waves-effect waves-light"
                         color="primary"
                         onClick={() => this.setState({ step_queue: true })}
                         id="dynamic-alert"

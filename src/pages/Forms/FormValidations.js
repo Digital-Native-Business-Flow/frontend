@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardSubtitle,
   CardTitle,
   Col,
   Container,
@@ -23,18 +22,22 @@ class FormValidations extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      fnm: false,
-      lnm: false,
-      unm: false,
-      city: false,
-      stateV: false,
+      validation: {
+        fnm: null,
+        lnm: null,
+        unm: null,
+        city: null,
+        stateV: null,
+      }
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.changeHandeler.bind(this)
+    this.onChangeValidation = this.onChangeValidation.bind(this)
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+
+    const modifiedV = { ...this.state.validation };
     var fnm = document.getElementById("validationTooltip01").value
     var lnm = document.getElementById("validationTooltip02").value
     var unm = document.getElementById("validationTooltipUsername").value
@@ -42,57 +45,56 @@ class FormValidations extends Component {
     var stateV = document.getElementById("validationTooltip04").value
 
     if (fnm === "") {
-      this.setState({ fnm: false })
+      modifiedV["fnm"] = false
     } else {
-      this.setState({ fnm: true })
+      modifiedV["fnm"] = true
     }
 
     if (lnm === "") {
-      this.setState({ lnm: false })
+      modifiedV["lnm"] = false
     } else {
-      this.setState({ lnm: true })
+      modifiedV["lnm"] = true
     }
 
     if (unm === "") {
-      this.setState({ unm: false })
+      modifiedV["unm"] = false
     } else {
-      this.setState({ unm: true })
+      modifiedV["unm"] = true
     }
 
     if (city === "") {
-      this.setState({ city: false })
+      modifiedV["city"] = false
     } else {
-      this.setState({ city: true })
+      modifiedV["city"] = true
     }
 
     if (stateV === "") {
-      this.setState({ stateV: false })
+      modifiedV["stateV"] = false
     } else {
-      this.setState({ stateV: true })
+      modifiedV["stateV"] = true
     }
 
-    var d1 = document.getElementsByName("validate")
-
-    document.getElementById("tooltipForm").classList.add("was-validated")
-
-    for (var i = 0; i < d1.length; i++) {
-      d1[i].style.display = "block"
-    }
+    this.setState({ validation: modifiedV })
   }
 
   //for change tooltip display propery
-  changeHandeler(event, eleId) {
-    if (event.target.value !== "")
-      document.getElementById(eleId).style.display = "none"
-    else document.getElementById(eleId).style.display = "block"
+  onChangeValidation(fieldName, value) {
+    const modifiedV = { ...this.state.validation }
+    if (value !== "") {
+      modifiedV[fieldName] = true
+    } else {
+      modifiedV[fieldName] = false
+    }
+    this.setState({ validation: modifiedV })
   }
 
   render() {
+    const { validation } = this.state;
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Form Validation | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Form Validation | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form Validation" />
@@ -198,8 +200,8 @@ class FormValidations extends Component {
                                 className="form-check-label"
                                 htmlFor="invalidCheck"
                               >{" "}
-                            Agree to terms and conditions
-                          </Label>
+                                Agree to terms and conditions
+                              </Label>
                             </div>
                           </FormGroup>
                         </Col>
@@ -215,24 +217,24 @@ class FormValidations extends Component {
               <Col xl="6">
                 <Card>
                   <CardBody>
-                    <h4 className="card-title">
-                      React Validation (Tooltips)
-                    </h4>
+                    <h4 className="card-title">React Validation (Tooltips)</h4>
                     <p className="card-title-desc">
-                      If your form layout allows it, you can swap the{" "}
-                      <code>.-feedback</code> classes for <code>.-tooltip</code>{" "}
-                      classes to display validation feedback in a styled
-                      tooltip.
+                      If your form layout allows it, you can swap the
+                      <code>.{"{valid | invalid-}"}feedback</code> classes for
+                      <code>.{"{valid | invalid-}"}-tooltip</code> classes to
+                      display validation feedback in a styled tooltip.
                     </p>
                     <form
                       className="needs-validation"
                       method="post"
                       id="tooltipForm"
-                      onSubmit={this.handleSubmit}
+                      onSubmit={e => {
+                        this.handleSubmit(e)
+                      }}
                     >
                       <Row>
                         <Col md="4">
-                          <FormGroup className="mb-3 position-relative">
+                          <div className="mb-3 position-relative">
                             <Label htmlFor="validationTooltip01">
                               First name
                             </Label>
@@ -241,57 +243,65 @@ class FormValidations extends Component {
                               className="form-control"
                               id="validationTooltip01"
                               placeholder="First name"
-                              onChange={event =>
-                                this.changeHandeler(event, "validate1")
+                              onChange={event => {
+                                this.onChangeValidation("fnm", event.target.value)
+                              }}
+                              valid={validation["fnm"] === true}
+                              invalid={
+                                validation["fnm"] !== true &&
+                                validation["fnm"] !== null
                               }
                             />
 
                             <div
                               className={
-                                this.state.fnm === true
+                                validation["fnm"] === true
                                   ? "valid-tooltip"
                                   : "invalid-tooltip"
                               }
                               name="validate"
                               id="validate1"
                             >
-                              {this.state.fnm === true
+                              {validation["fnm"] === true
                                 ? "Looks good!"
                                 : "Please Enter Valid First Name"}
                             </div>
-                          </FormGroup>
+                          </div>
                         </Col>
                         <Col md="4">
-                          <FormGroup className="mb-3 position-relative">
-                            <Label htmlFor="validationTooltip02">
-                              Last name
-                            </Label>
+                          <div className="mb-3 position-relative">
+                            <Label htmlFor="validationTooltip02">Last name</Label>
                             <Input
                               type="text"
                               className="form-control"
                               id="validationTooltip02"
                               placeholder="Last name"
                               onChange={event =>
-                                this.changeHandeler(event, "validate2")
+                                this.onChangeValidation("lnm", event.target.value)
+                              }
+                              valid={validation["lnm"] === true}
+                              invalid={
+                                validation["lnm"] !== true &&
+                                validation["lnm"] !== null
                               }
                             />
                             <div
                               className={
-                                this.state.lnm === true
+                                validation["lnm"] === true
                                   ? "valid-tooltip"
                                   : "invalid-tooltip"
                               }
                               name="validate"
                               id="validate2"
                             >
-                              {this.state.lnm === true
+                              {validation["lnm"] === true
                                 ? "Looks good!"
                                 : "Please Enter Valid Last Name"}
                             </div>
-                          </FormGroup>
+                          </div>
                         </Col>
                         <Col md="4">
-                          <FormGroup className="mb-3 position-relative">
+                          <div className="mb-3 position-relative">
                             <Label htmlFor="validationTooltipUsername">
                               Username
                             </Label>
@@ -310,29 +320,34 @@ class FormValidations extends Component {
                                 id="validationTooltipUsername"
                                 placeholder="Username"
                                 onChange={event =>
-                                  this.changeHandeler(event, "validate3")
+                                  this.onChangeValidation("unm", event.target.value)
+                                }
+                                valid={validation["unm"] === true}
+                                invalid={
+                                  validation["unm"] !== true &&
+                                  validation["unm"] !== null
                                 }
                               />
                               <div
                                 className={
-                                  this.state.unm === true
+                                  validation["unm"] === true
                                     ? "valid-tooltip"
                                     : "invalid-tooltip"
                                 }
                                 name="validate"
                                 id="validate3"
                               >
-                                {this.state.unm === true
+                                {validation["unm"] === true
                                   ? "Looks good!"
                                   : "Please choose a unique and valid username."}
                               </div>
                             </div>
-                          </FormGroup>
+                          </div>
                         </Col>
                       </Row>
                       <Row>
                         <Col md="6">
-                          <FormGroup className="mb-3 position-relative">
+                          <div className="mb-3 position-relative">
                             <Label htmlFor="validationTooltip03">City</Label>
                             <Input
                               type="text"
@@ -340,26 +355,31 @@ class FormValidations extends Component {
                               id="validationTooltip03"
                               placeholder="City"
                               onChange={event =>
-                                this.changeHandeler(event, "validate4")
+                                this.onChangeValidation("city", event.target.value)
+                              }
+                              valid={validation["city"] === true}
+                              invalid={
+                                validation["city"] !== true &&
+                                validation["city"] !== null
                               }
                             />
                             <div
                               className={
-                                this.state.city === true
+                                validation["city"] === true
                                   ? "valid-tooltip"
                                   : "invalid-tooltip"
                               }
                               name="validate"
                               id="validate4"
                             >
-                              {this.state.city === true
+                              {validation["city"] === true
                                 ? "Looks good!"
                                 : "Please choose a unique and valid username.Please provide a valid city."}
                             </div>
-                          </FormGroup>
+                          </div>
                         </Col>
                         <Col md="6">
-                          <FormGroup className="mb-3 position-relative">
+                          <div className="mb-3 position-relative">
                             <Label htmlFor="validationTooltip04">State</Label>
                             <Input
                               type="text"
@@ -367,23 +387,28 @@ class FormValidations extends Component {
                               id="validationTooltip04"
                               placeholder="State"
                               onChange={event =>
-                                this.changeHandeler(event, "validate5")
+                                this.onChangeValidation("stateV", event.target.value)
+                              }
+                              valid={validation["stateV"] === true}
+                              invalid={
+                                validation["stateV"] !== true &&
+                                validation["stateV"] !== null
                               }
                             />
                             <div
                               className={
-                                this.state.stateV === true
+                                validation["stateV"] === true
                                   ? "valid-tooltip"
                                   : "invalid-tooltip"
                               }
                               name="validate"
                               id="validate5"
                             >
-                              {this.state.stateV === true
+                              {validation["stateV"] === true
                                 ? "Looks good!"
                                 : "Please provide a valid state."}
                             </div>
-                          </FormGroup>
+                          </div>
                         </Col>
                       </Row>
                       <Button color="primary" type="submit">
@@ -503,13 +528,12 @@ class FormValidations extends Component {
                         <Button
                           type="submit"
                           color="primary"
-                          className="waves-effect waves-light"
                         >
                           Submit
-                          </Button>{" "}
-                        <Button type="reset" color="secondary" className="waves-effect">
+                        </Button>{" "}
+                        <Button type="reset" color="secondary">
                           Cancel
-                          </Button>
+                        </Button>
                       </div>
                     </AvForm>
                   </CardBody>
@@ -611,13 +635,12 @@ class FormValidations extends Component {
                         <Button
                           type="submit"
                           color="primary"
-                          className="waves-effect waves-light"
                         >
                           Submit
-                          </Button>{" "}
-                        <Button type="reset" color="secondary" className="waves-effect">
+                        </Button>{" "}
+                        <Button type="reset" color="secondary">
                           Cancel
-                          </Button>
+                        </Button>
                       </div>
                     </AvForm>
                   </CardBody>

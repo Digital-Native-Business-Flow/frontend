@@ -158,7 +158,7 @@ export default class Activity extends Component {
               <div className="text-center mt-4">
                 <a
                   href=""
-                  className="btn btn-primary waves-effect waves-light btn-sm"
+                  className="btn btn-primary btn-sm"
                 >
                   View More <i className="mdi mdi-arrow-right ms-1"></i>
                 </a>

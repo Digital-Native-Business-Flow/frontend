@@ -33,7 +33,7 @@ class TasksList extends Component {
       <React.Fragment>
         <div className="page-content">
           <MetaTags>
-            <title>Task List | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+            <title>Task List | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             <Breadcrumbs title="Tasks" breadcrumbItem="Task List" />
@@ -88,12 +88,12 @@ class TasksList extends Component {
                                                   alt=""
                                                 />
                                               ) : (
-                                                  <div className="avatar-xs">
-                                                    <span className="avatar-title rounded-circle bg-success text-white font-size-16">
-                                                      {member.username.charAt(0)}
-                                                    </span>
-                                                  </div>
-                                                )}
+                                                <div className="avatar-xs">
+                                                  <span className="avatar-title rounded-circle bg-success text-white font-size-16">
+                                                    {member.username.charAt(0)}
+                                                  </span>
+                                                </div>
+                                              )}
                                             </Link>
                                           </div>
                                         )
@@ -107,7 +107,7 @@ class TasksList extends Component {
                                           <div className="avatar-xs">
                                             <span className="avatar-title rounded-circle bg-success text-white font-size-16">
                                               {size(item.members) - 2} +
-                                          </span>
+                                            </span>
                                           </div>
                                         </Link>
                                       </div>
@@ -187,12 +187,12 @@ class TasksList extends Component {
                                                   alt=""
                                                 />
                                               ) : (
-                                                  <div className="avatar-xs">
-                                                    <span className="avatar-title rounded-circle bg-info text-white font-size-16">
-                                                      {member.username}
-                                                    </span>
-                                                  </div>
-                                                )}
+                                                <div className="avatar-xs">
+                                                  <span className="avatar-title rounded-circle bg-info text-white font-size-16">
+                                                    {member.username.charAt(0)}
+                                                  </span>
+                                                </div>
+                                              )}
                                             </Link>
                                           </div>
                                         )
@@ -206,7 +206,7 @@ class TasksList extends Component {
                                           <div className="avatar-xs">
                                             <span className="avatar-title rounded-circle bg-info text-white font-size-16">
                                               {size(item.members) - 2} +
-                                          </span>
+                                            </span>
                                           </div>
                                         </Link>
                                       </div>

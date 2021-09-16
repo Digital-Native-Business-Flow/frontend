@@ -72,7 +72,7 @@ export default class PopularPost extends Component {
                   >
                     <i className="mdi mdi-dots-horizontal"></i>
                   </DropdownToggle>
-                  <DropdownMenu direction="right" className="dropdown-menu-end">
+                  <DropdownMenu className="dropdown-menu-end">
                     <Link className="dropdown-item" to="#">
                       Action
                     </Link>
@@ -93,14 +93,14 @@ export default class PopularPost extends Component {
               <div className="table-responsive">
                 <table className="table align-middle table-nowrap mb-0">
                   <thead>
-                  <tr>
-                    <th scope="col" colSpan="2">
-                      Post
-                    </th>
-                    <th scope="col">Likes</th>
-                    <th scope="col">Comments</th>
-                    <th scope="col">Action</th>
-                  </tr>
+                    <tr>
+                      <th scope="col" colSpan="2">
+                        Post
+                      </th>
+                      <th scope="col">Likes</th>
+                      <th scope="col">Comments</th>
+                      <th scope="col">Action</th>
+                    </tr>
                   </thead>
                   <tbody>
                     {this.state.popularpost.map((popularpost, key) => (
@@ -131,7 +131,7 @@ export default class PopularPost extends Component {
                         <td>
                           <UncontrolledDropdown
                             className="dropdown"
-                           
+
                           >
                             <DropdownToggle
                               className="text-muted font-size-16"
@@ -140,7 +140,7 @@ export default class PopularPost extends Component {
                             >
                               <i className="mdi mdi-dots-horizontal"></i>
                             </DropdownToggle>
-                            <DropdownMenu className="dropdown-menu-end"  direction="right">
+                            <DropdownMenu className="dropdown-menu-end" direction="right">
                               <Link className="dropdown-item" to="#">
                                 Action
                               </Link>

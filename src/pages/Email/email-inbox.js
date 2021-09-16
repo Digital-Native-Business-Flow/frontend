@@ -1,25 +1,113 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import { Button, Card, Col, Container, Input, Label, Row } from "reactstrap"
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { Link, withRouter } from "react-router-dom"
+import {
+  Button, Card, Col, Container, Input, Label, Row, TabContent, TabPane,
+  Nav,
+  Media,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  NavItem,
+  NavLink
+} from "reactstrap"
 import MetaTags from 'react-meta-tags';
+import classnames from "classnames"
 
+import { map } from "lodash"
+
+import {
+  getInboxMails,
+  getStarredMails,
+  getImportantMails,
+  getDraftMails,
+  getSentMails,
+  getTrashMails,
+} from "store/mails/actions"
+
+// Import Editor
+import { Editor } from "react-draft-wysiwyg"
+
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
-
-//Import Email Sidebar
-import EmailSideBar from "./email-sidebar"
 
 //Import Email Topbar
 import EmailToolbar from "./email-toolbar"
 
+//Import images
+import avatar2 from "../../assets/images/users/avatar-2.jpg"
+import avatar3 from "../../assets/images/users/avatar-3.jpg"
+import avatar4 from "../../assets/images/users/avatar-4.jpg"
+import avatar6 from "../../assets/images/users/avatar-6.jpg"
+
 class EmailInbox extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modal: false,
+      activeTab: "1",
+      resultArray: [],
+      inboxmails: [],
+      starredmails: [],
+      importantmails: [],
+      draftmails: [],
+      sentmails: [],
+      trashmails: [],
+    }
+    this.togglemodal.bind(this)
+    this.toggleTab = this.toggleTab.bind(this)
+  }
+
+  componentDidMount() {
+    const { inboxmails, onGetInboxMails,
+      starredmails, onGetStarredMails,
+      importantmails, onGetImportantMails,
+      draftmails, onGetDraftMails,
+      sentmails, onGetSentMails,
+      trashmails, onGetTrashMails } = this.props;
+
+    onGetInboxMails()
+    onGetStarredMails()
+    onGetImportantMails(),
+      onGetDraftMails(),
+      onGetSentMails(),
+      onGetTrashMails(),
+
+      this.setState({ inboxmails })
+    this.setState({ starredmails })
+    this.setState({ importantmails })
+    this.setState({ draftmails })
+    this.setState({ sentmails })
+    this.setState({ trashmails })
+  }
+
+  toggleTab(tab) {
+
+    if (this.props.activeTab !== tab) {
+      this.setState({
+        activeTab: tab,
+      })
+    }
+  }
+
+  togglemodal = () => {
+    this.setState(prevState => ({
+      modal: !prevState.modal,
+    }))
+  }
+
   render() {
+    const { inboxmails, starredmails, importantmails, draftmails, sentmails, trashmails } = this.props;
+
     return (
       <React.Fragment>
         <div className="page-content">
-        {/* add meta title */}
-        <MetaTags>
-            <title>Inbox | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          {/* add meta title */}
+          <MetaTags>
+            <title>Inbox | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid>
             {/* Render Breadcrumbs */}
@@ -28,439 +116,377 @@ class EmailInbox extends Component {
             <Row>
               <Col xs="12">
                 {/* Render Email SideBar */}
-                <EmailSideBar />
+                <Card className="email-leftbar">
+                  <Button
+                    type="button"
+                    color="danger"
+                    onClick={this.togglemodal}
+                    block
+                  >
+                    Compose
+                  </Button>
+                  <div className="mail-list mt-4">
+                    <Nav tabs className="nav-tabs-custom" vertical role="tablist">
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "1",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("1")
+                          }}
+                        >
+                          <i className="mdi mdi-email-outline me-2"></i> Inbox{" "}
+                          <span className="ml-1 float-end">(18)</span>
+                        </NavLink>
+                      </NavItem>
+
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "2",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("2")
+                          }}
+                        >
+                          <i className="mdi mdi-star-outline me-2"></i>Starred
+                        </NavLink>
+                      </NavItem>
+
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "3",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("3")
+                          }}
+                        >
+                          <i className="mdi mdi-diamond-stone me-2"></i>Important
+                        </NavLink>
+                      </NavItem>
+
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "4",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("4")
+                          }}
+                        >
+                          <i className="mdi mdi-file-outline me-2"></i>Draft
+                        </NavLink>
+                      </NavItem>
+
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "5",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("5")
+                          }}
+                        >
+                          <i className="mdi mdi-email-check-outline me-2"></i>Sent Mail
+                        </NavLink>
+                      </NavItem>
+
+                      <NavItem>
+                        <NavLink
+                          className={classnames({
+                            active: this.state.activeTab === "6",
+                          })}
+                          onClick={() => {
+                            this.toggleTab("6")
+                          }}
+                        >
+                          <i className="mdi mdi-trash-can-outline me-2"></i>Trash
+                        </NavLink>
+                      </NavItem>
+
+                    </Nav>
+
+                  </div>
+
+                  <h6 className="mt-4">Labels</h6>
+
+                  <div className="mail-list mt-1">
+                    <Link to="#">
+                      <span className="mdi mdi-arrow-right-drop-circle text-info float-end"></span>
+                      Theme Support
+                    </Link>
+                    <Link to="#">
+                      <span className="mdi mdi-arrow-right-drop-circle text-warning float-end"></span>
+                      Freelance
+                    </Link>
+                    <Link to="#">
+                      <span className="mdi mdi-arrow-right-drop-circle text-primary float-end"></span>
+                      Social
+                    </Link>
+                    <Link to="#">
+                      <span className="mdi mdi-arrow-right-drop-circle text-danger float-end"></span>
+                      Friends
+                    </Link>
+                    <Link to="#">
+                      <span className="mdi mdi-arrow-right-drop-circle text-success float-end"></span>
+                      Family
+                    </Link>
+                  </div>
+
+                  <h6 className="mt-4">Chat</h6>
+
+                  <div className="mt-2">
+                    <Link to="#" className="media">
+                      <img
+                        className="d-flex me-3 rounded-circle"
+                        src={avatar2}
+                        alt="skote"
+                        height="36"
+                      />
+                      <Media className="chat-user-box" body>
+                        <p className="user-title m-0">Scott Median</p>
+                        <p className="text-muted">Hello</p>
+                      </Media>
+                    </Link>
+
+                    <Link to="#" className="media">
+                      <img
+                        className="d-flex me-3 rounded-circle"
+                        src={avatar3}
+                        alt="skote"
+                        height="36"
+                      />
+                      <Media className="chat-user-box" body>
+                        <p className="user-title m-0">Julian Rosa</p>
+                        <p className="text-muted">What about our next..</p>
+                      </Media>
+                    </Link>
+
+                    <Link to="#" className="media">
+                      <img
+                        className="d-flex me-3 rounded-circle"
+                        src={avatar4}
+                        alt="skote"
+                        height="36"
+                      />
+                      <Media className="chat-user-box" body>
+                        <p className="user-title m-0">David Medina</p>
+                        <p className="text-muted">Yeah everything is fine</p>
+                      </Media>
+                    </Link>
+
+                    <Link to="#" className="media">
+                      <img
+                        className="d-flex me-3 rounded-circle"
+                        src={avatar6}
+                        alt="skote"
+                        height="36"
+                      />
+                      <Media className="chat-user-box" body>
+                        <p className="user-title m-0">Jay Baker</p>
+                        <p className="text-muted">Wow that&apos;s great</p>
+                      </Media>
+                    </Link>
+                  </div>
+                </Card>
+
+                <Modal
+                  isOpen={this.state.modal}
+                  role="dialog"
+                  autoFocus={true}
+                  centered={true}
+                  className="exampleModal"
+                  tabIndex="-1"
+                  toggle={this.togglemodal}
+                >
+                  <div className="modal-content">
+                    <ModalHeader toggle={this.togglemodal}>New Message</ModalHeader>
+                    <ModalBody>
+                      <form>
+                        <div className="mb-3">
+                          <Input
+                            type="email"
+                            className="form-control"
+                            placeholder="To"
+                          />
+                        </div>
+
+                        <div className="mb-3">
+                          <Input
+                            type="text"
+                            className="form-control"
+                            placeholder="Subject"
+                          />
+                        </div>
+                        <Editor
+                          toolbarClassName="toolbarClassName"
+                          wrapperClassName="wrapperClassName"
+                          editorClassName="editorClassName"
+                        />
+                      </form>
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button
+                        type="button"
+                        color="secondary"
+                        onClick={this.togglemodal}
+                      >
+                        Close
+                      </Button>
+                      <Button type="button" color="primary">
+                        Send <i className="fab fa-telegram-plane ms-1"></i>
+                      </Button>
+                    </ModalFooter>
+                  </div>
+                </Modal>
                 <div className="email-rightbar mb-3">
                   <Card>
                     {/* Render Email Top Tool Bar */}
                     <EmailToolbar />
+                    <TabContent
+                      activeTab={this.state.activeTab}
+                    >
+                      <TabPane tabId="1">
+                        <ul className="message-list">
+                          {map(inboxmails, (inbox, key) => (
+                            <li key={key} className={inbox.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={inbox.id} />
+                                  <Label htmlFor={inbox.id} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {inbox.name}
+                                </Link>
+                                <span className="star-toggle far fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
 
-                    <ul className="message-list">
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk19" />
-                            <Label htmlFor="chk19" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Peter, me (3)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Hello –{" "}
-                            <span className="teaser">
-                              Trip home from Colombo has been arranged, then
-                              Jenna will come get me from Stockholm. :)
-                            </span>
-                          </Link>
-                          <div className="date">Mar 6</div>
-                        </div>
-                      </li>
+                                <div dangerouslySetInnerHTML={{ __html: inbox.description }}></div>
+                                <div className="date">{inbox.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                      <TabPane tabId="2">
+                        <ul className="message-list">
+                          {map(starredmails, (starred, key) => (
+                            <li key={"starred-" + key} className={starred.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={starred.id + 'starred'} />
+                                  <Label htmlFor={starred.id + 'starred'} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {starred.name}
+                                </Link>
+                                <span className="star-toggle fas fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
 
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk20" />
-                            <Label htmlFor="chk20" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            me, Susanna (7)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-warning badge me-2">
-                              Freelance
-                            </span>
-                            Since you asked... and i'm inconceivably bored at
-                            the train station –
-                            <span className="teaser">
-                              Alright thanks. I'll have to re-book that somehow,
-                              i'll get back to you.
-                            </span>
-                          </Link>
-                          <div className="date">Mar. 6</div>
-                        </div>
-                      </li>
+                                <div dangerouslySetInnerHTML={{ __html: starred.description }}></div>
+                                <div className="date">{starred.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                      <TabPane tabId="3">
+                        <ul className="message-list">
+                          {map(importantmails, (important, key) => (
+                            <li key={"important-" + key} className={important.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={important.id + 'important'} />
+                                  <Label htmlFor={important.id + 'important'} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {important.name}
+                                </Link>
+                                <span className="star-toggle far fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
 
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk6" />
-                            <Label htmlFor="chk6" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Web Support Dennis
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Re: New mail settings –
-                            <span className="teaser">{" "}
-                              Will you answer him asap?
-                            </span>
-                          </Link>
-                          <div className="date">Mar 7</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk7" />
-                            <Label htmlFor="chk7" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            me, Peter (2)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-info badge me-2">
-                              Support
-                            </span>
-                            Off on Thursday -
-                            <span className="teaser">{" "}
-                              Eff that place, you might as well stay here with
-                              us instead! Sent from my iPhone 4 4 mar 2014 at
-                              5:55 pm
-                            </span>
-                          </Link>
-                          <div className="date">Mar 4</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk8" />
-                            <Label htmlFor="chk8" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Medium
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-primary badge me-2">
-                              Social
-                            </span>
-                            This Week's Top Stories –
-                            <span className="teaser">{" "}
-                              Our top pick for you on Medium this week The Man
-                              Who Destroyed America’s Ego
-                            </span>
-                          </Link>
-                          <div className="date">Feb 28</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk9" />
-                            <Label htmlFor="chk9" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Death to Stock
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Montly High-Res Photos –
-                            <span className="teaser">{" "}
-                              To create this month's pack, we hosted a party
-                              with local musician Jared Mahone here in Columbus,
-                              Ohio.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 28</div>
-                        </div>
-                      </li>
+                                <div dangerouslySetInnerHTML={{ __html: important.description }}></div>
+                                <div className="date">{important.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                      <TabPane tabId="4">
+                        <ul className="message-list">
+                          {map(draftmails, (draft, key) => (
+                            <li key={"draft-" + key} className={draft.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={draft.id + 'draft'} />
+                                  <Label htmlFor={draft.id + 'draft'} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {draft.name}
+                                </Link>
+                                <span className="star-toggle far fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
 
-                      <li className="unread">
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk3" />
-                            <Label htmlFor="chk3" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Randy, me (5)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-success badge me-2">
-                              Family
-                            </span>
-                            Last pic over my village –
-                            <span className="teaser">{" "}
-                              Yeah i'd like that! Do you remember the video you
-                              showed me of your train ride between Colombo and
-                              Kandy? The one with the mountain view? I would
-                              love to see that one again!
-                            </span>
-                          </Link>
-                          <div className="date">5:01 am</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk4" />
-                            <Label htmlFor="chk4" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Andrew Zimmer
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Mochila Beta: Subscription Confirmed –{" "}
-                            <span className="teaser">{" "}
-                              You've been confirmed! Welcome to the ruling
-                              className of the inbox. For your records, here is
-                              a copy of the information you submitted to us...
-                            </span>
-                          </Link>
-                          <div className="date">Mar 8</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk5" />
-                            <Label htmlFor="chk5" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Infinity HR
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Sveriges Hetaste sommarjobb –
-                            <span className="teaser">{" "}
-                              Hej Nicklas Sandell! Vi vill bjuda in dig till
-                              "First tour 2014", ett rekryteringsevent som
-                              erbjuder jobb på 16 semesterorter iSverige.
-                            </span>
-                          </Link>
-                          <div className="date">Mar 8</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk10" />
-                            <Label htmlFor="chk10" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Revibe
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-danger badge me-2">
-                              Friends
-                            </span>
-                            Weekend on Revibe –
-                            <span className="teaser">{" "}
-                              Today's Friday and we thought maybe you want some
-                              music inspiration for the weekend. Here are some
-                              trending tracks and playlists we think you should
-                              give a listen!
-                            </span>
-                          </Link>
-                          <div className="date">Feb 27</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk11" />
-                            <Label htmlFor="chk11" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Erik, me (5)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Regarding our meeting –
-                            <span className="teaser">{" "}
-                              That's great, see you on Thursday!
-                            </span>
-                          </Link>
-                          <div className="date">Feb 24</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk12" />
-                            <Label htmlFor="chk12" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            KanbanFlow
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-primary badge me-2">
-                              Social
-                            </span>
-                            Task assigned: Clone ARP's website –
-                            <span className="teaser">{" "}
-                              You have been assigned a task by Alex@Work on the
-                              board Web.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 24</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk13" />
-                            <Label htmlFor="chk13" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Tobias Berggren
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Let's go fishing! –
-                            <span className="teaser">{" "}
-                              Hey, You wanna join me and Fred at the lake
-                              tomorrow? It'll be awesome.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 23</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk14" />
-                            <Label htmlFor="chk14" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Charukaw, me (7)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Hey man –{" "}
-                            <span className="teaser">
-                              Nah man sorry i don't. Should i get it?
-                            </span>
-                          </Link>
-                          <div className="date">Feb 23</div>
-                        </div>
-                      </li>
-                      <li className="unread">
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk15" />
-                            <Label htmlFor="chk15" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            me, Peter (5)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            <span className="bg-info badge me-2">
-                              Support
-                            </span>
-                            Home again! –{" "}
-                            <span className="teaser">
-                              That's just perfect! See you tomorrow.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 21</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk16" />
-                            <Label htmlFor="chk16" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Stack Exchange
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            1 new items in your Stackexchange inbox –{" "}
-                            <span className="teaser">
-                              The following items were added to your Stack
-                              Exchange global inbox since you last checked it.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 21</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk17" />
-                            <Label htmlFor="chk17" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            Google Drive Team
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            You can now use your storage in Google Drive –{" "}
-                            <span className="teaser">
-                              Hey Nicklas Sandell! Thank you for purchasing
-                              extra storage space in Google Drive.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 20</div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="col-mail col-mail-1">
-                          <div className="checkbox-wrapper-mail">
-                            <Input type="checkbox" id="chk18" />
-                            <Label htmlFor="chk18" className="toggle"/>
-                          </div>
-                          <Link to="#" className="title">
-                            me, Susanna (11)
-                          </Link>
-                          <span className="star-toggle far fa-star"/>
-                        </div>
-                        <div className="col-mail col-mail-2">
-                          <Link to="#" className="subject">
-                            Train/Bus –{" "}
-                            <span className="teaser">
-                              Yes ok, great! I'm not stuck in Stockholm anymore,
-                              we're making progress.
-                            </span>
-                          </Link>
-                          <div className="date">Feb 19</div>
-                        </div>
-                      </li>
-                    </ul>
+                                <div dangerouslySetInnerHTML={{ __html: draft.description }}></div>
+                                <div className="date">{draft.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                      <TabPane tabId="5">
+                        <ul className="message-list">
+                          {map(sentmails, (sent, key) => (
+                            <li key={"sent-" + key} className={sent.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={sent.id + 'sent'} />
+                                  <Label htmlFor={sent.id + 'sent'} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {sent.name}
+                                </Link>
+                                <span className="star-toggle far fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
+
+                                <div dangerouslySetInnerHTML={{ __html: sent.description }}></div>
+                                <div className="date">{sent.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                      <TabPane tabId="6">
+                        <ul className="message-list">
+                          {map(trashmails, (trash, key) => (
+                            <li key={"trash-" + key} className={trash.read ? "" : "unread"}>
+                              <div className="col-mail col-mail-1">
+                                <div className="checkbox-wrapper-mail">
+                                  <Input type="checkbox" id={trash.id + 'trash'} />
+                                  <Label htmlFor={trash.id + 'trash'} className="toggle" />
+                                </div>
+                                <Link to="#" className="title">
+                                  {trash.name}
+                                </Link>
+                                <span className="star-toggle far fa-star" />
+                              </div>
+                              <div className="col-mail col-mail-2">
+
+                                <div dangerouslySetInnerHTML={{ __html: trash.description }}></div>
+                                <div className="date">{trash.date}</div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </TabPane>
+                    </TabContent>
                   </Card>
                   <Row>
                     <Col xs="7">Showing 1 - 20 of 1,524</Col>
@@ -470,17 +496,15 @@ class EmailInbox extends Component {
                           type="button"
                           color="success"
                           size="sm"
-                          className="waves-effect"
                         >
-                          <i className="fa fa-chevron-left"/>
+                          <i className="fa fa-chevron-left" />
                         </Button>
                         <Button
                           type="button"
                           color="success"
                           size="sm"
-                          className="waves-effect"
                         >
-                          <i className="fa fa-chevron-right"/>
+                          <i className="fa fa-chevron-right" />
                         </Button>
                       </div>
                     </Col>
@@ -495,4 +519,47 @@ class EmailInbox extends Component {
   }
 }
 
-export default EmailInbox
+EmailInbox.propTypes = {
+  activeTab: PropTypes.string,
+  draftmails: PropTypes.any,
+  sentmails: PropTypes.any,
+  trashmails: PropTypes.any,
+  onGetSentMails: PropTypes.func,
+  onGetDraftMails: PropTypes.func,
+  onGetTrashMails: PropTypes.func,
+  inboxmails: PropTypes.array,
+  starredmails: PropTypes.array,
+  onGetInboxMails: PropTypes.func,
+  onGetStarredMails: PropTypes.func,
+  importantmails: PropTypes.array,
+  onGetImportantMails: PropTypes.func,
+  importantmails: PropTypes.array,
+  onGetImportantMails: PropTypes.func,
+  importantmails: PropTypes.array,
+  onGetImportantMails: PropTypes.func,
+  importantmails: PropTypes.array,
+  onGetImportantMails: PropTypes.func,
+}
+
+const mapStateToProps = ({ mails }) => ({
+  inboxmails: mails.inboxmails,
+  starredmails: mails.starredmails,
+  importantmails: mails.importantmails,
+  trashmails: mails.trashmails,
+  draftmails: mails.draftmails,
+  sentmails: mails.sentmails,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onGetInboxMails: () => dispatch(getInboxMails()),
+  onGetStarredMails: () => dispatch(getStarredMails()),
+  onGetImportantMails: () => dispatch(getImportantMails()),
+  onGetDraftMails: () => dispatch(getDraftMails()),
+  onGetSentMails: () => dispatch(getSentMails()),
+  onGetTrashMails: () => dispatch(getTrashMails()),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(EmailInbox))

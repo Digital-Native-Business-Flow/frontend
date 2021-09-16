@@ -16,7 +16,7 @@ class FeatureBox extends Component {
           <div className="text-muted mt-4">
             {this.props.features.map((feature, key) => (
               <p key={key} className={feature.id === 1 ? "mb-2" : ""}>
-                <i className="mdi mdi-circle-medium text-success me-1"/>
+                <i className="mdi mdi-circle-medium text-success me-1" />
                 {feature.desc}
               </p>
             ))}

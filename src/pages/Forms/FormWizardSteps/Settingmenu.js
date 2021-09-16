@@ -23,7 +23,7 @@ class SettingMenu extends Component {
         >
           <DropdownToggle
             color="primary"
-            className="arrow-none waves-effect waves-light"
+            className="arrow-none"
           >
             <i className="mdi mdi-settings me-2"></i> Settings
           </DropdownToggle>

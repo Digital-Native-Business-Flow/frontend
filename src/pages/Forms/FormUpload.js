@@ -52,8 +52,8 @@ class FormUpload extends Component {
     return (
       <React.Fragment>
         <div className="page-content">
-        <MetaTags>
-            <title>Form File Upload | Skote - Responsive Bootstrap 5 Admin Dashboard</title>
+          <MetaTags>
+            <title>Form File Upload | Skote - React Admin & Dashboard Template</title>
           </MetaTags>
           <Container fluid={true}>
             <Breadcrumbs title="Forms" breadcrumbItem="Form File Upload" />
@@ -82,7 +82,7 @@ class FormUpload extends Component {
                             >
                               <input {...getInputProps()} />
                               <div className="mb-3">
-                                <i className="display-4 text-muted bx bxs-cloud-upload"/>
+                                <i className="display-4 text-muted bx bxs-cloud-upload" />
                               </div>
                               <h4>Drop files here or click to upload.</h4>
                             </div>
@@ -132,7 +132,7 @@ class FormUpload extends Component {
                     <div className="text-center mt-4">
                       <button
                         type="button"
-                        className="btn btn-primary waves-effect waves-light"
+                        className="btn btn-primary"
                       >
                         Send Files
                       </button>

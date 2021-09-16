@@ -6,16 +6,20 @@ RUN apt-get update && apt-get upgrade -y
 # This will be the app directory
 WORKDIR /usr/src/app
 
-# Copy over all source files
-COPY . /usr/src/app
-
-# Install NPM dependencies
-RUN npm ci --cache .npm --prefer-offline
-
 # Install global NPM dependencies
 RUN npm install -g serve
 
-# Build the project (will be run when we have more resources; using local build)
+# Copy over local package files
+# COPY package.json .
+# COPY package-lock.json .
+
+# Install local NPM dependencies
+# RUN npm ci --cache .npm --prefer-offline
+
+# Copy over all source files
+COPY . .
+
+# Build the project
 # RUN npm run build
 
 EXPOSE 80
